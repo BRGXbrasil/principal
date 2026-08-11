@@ -1,0 +1,160 @@
+<title>Barú Beauty — Regulamento Interno</title>
+
+<style>
+  :root {
+    --ground: #FBF9F6; --raised: #FFFFFF; --sunken: #F3EEE7;
+    --ink: #241C17; --ink-soft: #574A41; --ink-mute: #7A6E64;
+    --rule: #E3DACE; --rule-firm: #C9BCAA;
+    --brass: #A67C3D; --brass-wash: #F5EBDA;
+    --critical: #9E3B2E; --critical-wash: #F8E9E6;
+    --positive: #4A6B4F; --positive-wash: #E9F0E9;
+    --serif: 'Hoefler Text', 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #17120F; --raised: #1F1915; --sunken: #221B16;
+      --ink: #F0EAE3; --ink-soft: #C6B9AC; --ink-mute: #9C8D7F;
+      --rule: #33291F; --rule-firm: #4A3B2D;
+      --brass: #D4A55E; --brass-wash: #2A2015;
+      --critical: #D97C6A; --critical-wash: #2E1B17;
+      --positive: #8FB395; --positive-wash: #1B241C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #17120F; --raised: #1F1915; --sunken: #221B16;
+    --ink: #F0EAE3; --ink-soft: #C6B9AC; --ink-mute: #9C8D7F;
+    --rule: #33291F; --rule-firm: #4A3B2D;
+    --brass: #D4A55E; --brass-wash: #2A2015;
+    --critical: #D97C6A; --critical-wash: #2E1B17;
+    --positive: #8FB395; --positive-wash: #1B241C;
+  }
+  body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.62; margin: 0; padding: 0 1.5rem 6rem; -webkit-font-smoothing: antialiased; }
+  .sheet { max-width: 52rem; margin: 0 auto; }
+  .cover { padding: 4rem 0 2.5rem; border-bottom: 2px solid var(--ink); }
+  .firm { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass); font-weight: 600; }
+  .cover h1 { font-family: var(--serif); font-size: clamp(2rem, 5.5vw, 3rem); font-weight: 400; margin: 0.5rem 0; }
+  .cover p { font-family: var(--serif); font-size: 1.05rem; color: var(--ink-soft); max-width: 48ch; }
+
+  section { padding-top: 3rem; }
+  .marker { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--rule-firm); padding-bottom: 0.5rem; margin-bottom: 1.3rem; }
+  .marker .num { font-family: var(--mono); font-size: 0.72rem; color: var(--brass); }
+  .marker h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; margin: 0; flex: 1; }
+  h3 { font-size: 0.94rem; font-weight: 700; margin: 1.6rem 0 0.5rem; }
+
+  p { margin: 0 0 1rem; max-width: 68ch; font-size: 0.95rem; }
+  ol.arts { list-style: none; padding: 0; margin: 0.8rem 0; display: grid; gap: 0.9rem; counter-reset: art; }
+  ol.arts li { counter-increment: art; padding-left: 2.2rem; position: relative; color: var(--ink-soft); font-size: 0.93rem; }
+  ol.arts li::before { content: "Art. " counter(art); position: absolute; left: 0; top: 0; font-family: var(--mono); font-size: 0.66rem; color: var(--brass); font-weight: 700; }
+  ol.arts li b { color: var(--ink); }
+
+  .goldrule { display: grid; gap: 0.6rem; margin: 1rem 0; }
+  .goldrule .rule { display: flex; gap: 0.9rem; align-items: baseline; padding: 0.7rem 0.9rem; background: var(--raised); border: 1px solid var(--rule); }
+  .goldrule .n { font-family: var(--serif); font-size: 1.3rem; color: var(--brass); min-width: 1.6rem; }
+  .goldrule .t { font-size: 0.9rem; color: var(--ink-soft); }
+  .goldrule .t b { color: var(--ink); }
+
+  .callout { border-left: 2px solid var(--brass); background: var(--sunken); padding: 1rem 1.2rem; margin: 1.4rem 0; font-size: 0.9rem; color: var(--ink-soft); }
+  .callout.warn { border-left-color: var(--critical); }
+  .callout b { color: var(--ink); }
+  .callout .kicker { font-size: 0.64rem; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700; color: var(--brass); display: block; margin-bottom: 0.4rem; }
+  .callout.warn .kicker { color: var(--critical); }
+
+  .sign { margin-top: 1.5rem; padding: 1.3rem; border: 1px dashed var(--rule-firm); font-size: 0.9rem; color: var(--ink-soft); }
+  .sign .field { margin: 0.7rem 0; border-bottom: 1px solid var(--rule-firm); padding-bottom: 0.3rem; }
+
+  footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule-firm); font-size: 0.74rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
+</style>
+
+<div class="sheet">
+
+  <header class="cover">
+    <div class="firm">BRGX Consultoria</div>
+    <h1>Regulamento Interno</h1>
+    <p>Documento de referência da equipe do Barú Beauty. Vale para colaboradores CLT e parceiros PJ, e vale para a direção do mesmo jeito que vale para todos.</p>
+  </header>
+
+  <section>
+    <div class="marker"><span class="num">01</span><h2>Propósito</h2></div>
+    <ol class="arts">
+      <li><b>Este regulamento existe para proteger três coisas ao mesmo tempo</b>: a experiência da cliente, a imagem da marca, e cada pessoa que trabalha aqui — inclusive a direção.</li>
+      <li><b>Aplica-se a todos</b> que atuam no Barú Beauty, independente do vínculo: CLT, parceria PJ (Lei 13.352/2016) ou prestação eventual.</li>
+      <li>Em caso de dúvida sobre qualquer artigo, a orientação é <b>parar e perguntar à gestão</b> — nunca improvisar.</li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="marker"><span class="num">02</span><h2>As 10 Regras de Ouro do Barú</h2></div>
+    <div class="goldrule">
+      <div class="rule"><span class="n">1</span><span class="t"><b>Pontualidade é respeito</b> — com a cliente, com a equipe, com a marca.</span></div>
+      <div class="rule"><span class="n">2</span><span class="t"><b>Apresentação comunica padrão</b> — fala antes de você falar.</span></div>
+      <div class="rule"><span class="n">3</span><span class="t"><b>Celular não compete com a cliente</b> — presença total em cada atendimento.</span></div>
+      <div class="rule"><span class="n">4</span><span class="t"><b>Escuta vem antes da execução</b> — entender bem é o primeiro passo para entregar melhor.</span></div>
+      <div class="rule"><span class="n">5</span><span class="t"><b>O espaço reflete a marca</b> — ambiente cuidado, sempre.</span></div>
+      <div class="rule"><span class="n">6</span><span class="t"><b>Erro não se esconde</b> — transparência e responsabilidade.</span></div>
+      <div class="rule"><span class="n">7</span><span class="t"><b>O clima interno não chega à cliente</b> — profissionalismo em qualquer circunstância.</span></div>
+      <div class="rule"><span class="n">8</span><span class="t"><b>Todos representam a marca</b>, dentro e fora do salão.</span></div>
+      <div class="rule"><span class="n">9</span><span class="t"><b>Nenhuma cliente sai sem o próximo passo marcado</b> — pagamento, avaliação ou reagendamento.</span></div>
+      <div class="rule"><span class="n">10</span><span class="t"><b>Excelência é constância</b> — o padrão que sustentamos todos os dias.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker"><span class="num">03</span><h2>Conduta e convivência</h2></div>
+    <ol class="arts">
+      <li>Relações no ambiente de trabalho pautam-se por <b>respeito, cordialidade e limite profissional</b> — sem distinção de cargo ou vínculo.</li>
+      <li><b>Comentários pessoais sobre aparência, vida privada ou desempenho de colegas</b> não fazem parte da cultura do salão, vindos de qualquer pessoa.</li>
+      <li>Presentes ou benefícios oferecidos pela empresa <b>não geram contrapartida obrigatória</b> de uso, postagem ou conduta específica.</li>
+      <li>Divergências são tratadas <b>em conversa direta e reservada</b>, nunca expostas na frente de clientes ou nas redes sociais.</li>
+      <li>A gestão compromete-se a manter <b>canal de escuta estruturado</b> — 1-a-1 quinzenal com pauta fixa — para qualquer colaborador levantar questões antes que virem conflito.</li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="marker"><span class="num">04</span><h2>Redes sociais e imagem</h2></div>
+    <div class="callout">
+      <span class="kicker">Regra central</span>
+      <p>O perfil institucional do Barú Beauty tem <b>um responsável único</b>, definido pela direção, com fluxo de aprovação de conteúdo. Ninguém — inclusive a direção — publica diretamente no perfil do salão fora desse fluxo.</p>
+    </div>
+    <ol class="arts">
+      <li><b>Perfil pessoal e perfil institucional são coisas diferentes.</b> Conteúdo pessoal não deve ser publicado como se fosse do salão, e vice-versa.</li>
+      <li><b>Fotos e vídeos de clientes</b> só podem ser feitos e publicados com autorização de imagem, coletada uma vez no cadastro.</li>
+      <li><b>Fotos e vídeos de colegas de trabalho</b> só são publicados com o consentimento de quem aparece.</li>
+      <li>Qualquer publicação sobre o salão feita em perfil pessoal deve ser <b>coerente com o padrão da marca</b> e não pode expor clientes, colegas ou situações internas.</li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="marker"><span class="num">05</span><h2>Ambiente e regras sanitárias</h2></div>
+    <ol class="arts">
+      <li>Bancadas, ferramentas e áreas de atendimento seguem os <b>Procedimentos Operacionais Padrão</b> (documento à parte).</li>
+      <li>Produtos de marcas não utilizadas pela casa <b>não ficam expostos</b> em bancadas ou vitrines de atendimento.</li>
+      <li><b>Animais de estimação:</b> a presença de animais em área de atendimento está sujeita à norma sanitária municipal aplicável a estabelecimentos de embelezamento, que costuma vedá-la pela convivência com produtos químicos. A direção verificará a norma vigente e, confirmada a vedação, animais ficam restritos a áreas administrativas sem contato com clientes ou produtos.</li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="marker"><span class="num">06</span><h2>Remuneração e vínculo</h2></div>
+    <ol class="arts">
+      <li>O modelo de remuneração de cada profissional (comissão, meta, aluguel de cadeira ou parceria PJ) é <b>definido por escrito</b> e informado antes do início da atividade.</li>
+      <li>Reajustes de comissão ou meta seguem <b>critério objetivo e igual</b> para profissionais em situação equivalente — não negociação caso a caso sem registro.</li>
+      <li>Parceiros PJ operam sob os termos da <b>Lei 13.352/2016 (Lei do Salão-Parceiro)</b>, com contrato próprio que detalha repasse e responsabilidades.</li>
+    </ol>
+  </section>
+
+  <div class="sign">
+    <p style="margin-bottom:0.5rem"><b>Termo de ciência</b></p>
+    <p style="font-size:0.85rem">Declaro estar ciente deste Regulamento Interno e me comprometo a segui-lo integralmente durante minha atuação no Barú Beauty.</p>
+    <div class="field">Nome completo:</div>
+    <div class="field">Função / vínculo:</div>
+    <div class="field">Assinatura:</div>
+    <div class="field">Data: ___/___/______</div>
+  </div>
+
+  <footer>
+    <span>BRGX Consultoria · Barú Beauty · Regulamento Interno</span>
+    <span>Documento vivo — revisão a cada ciclo de acompanhamento</span>
+  </footer>
+
+</div>

@@ -1,0 +1,310 @@
+<title>Barú Beauty — Relatórios Individuais</title>
+
+<style>
+  :root {
+    --ground: #FBF9F6; --raised: #FFFFFF; --sunken: #F3EEE7;
+    --ink: #241C17; --ink-soft: #574A41; --ink-mute: #7A6E64;
+    --rule: #E3DACE; --rule-firm: #C9BCAA;
+    --brass: #A67C3D; --brass-wash: #F5EBDA;
+    --critical: #9E3B2E; --critical-wash: #F8E9E6;
+    --positive: #4A6B4F; --positive-wash: #E9F0E9;
+    --serif: 'Hoefler Text', 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #17120F; --raised: #1F1915; --sunken: #221B16;
+      --ink: #F0EAE3; --ink-soft: #C6B9AC; --ink-mute: #9C8D7F;
+      --rule: #33291F; --rule-firm: #4A3B2D;
+      --brass: #D4A55E; --brass-wash: #2A2015;
+      --critical: #D97C6A; --critical-wash: #2E1B17;
+      --positive: #8FB395; --positive-wash: #1B241C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #17120F; --raised: #1F1915; --sunken: #221B16;
+    --ink: #F0EAE3; --ink-soft: #C6B9AC; --ink-mute: #9C8D7F;
+    --rule: #33291F; --rule-firm: #4A3B2D;
+    --brass: #D4A55E; --brass-wash: #2A2015;
+    --critical: #D97C6A; --critical-wash: #2E1B17;
+    --positive: #8FB395; --positive-wash: #1B241C;
+  }
+  body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; margin: 0; padding: 0 1.5rem 6rem; -webkit-font-smoothing: antialiased; }
+  .sheet { max-width: 58rem; margin: 0 auto; }
+  .cover { padding: 4rem 0 2.5rem; border-bottom: 2px solid var(--ink); }
+  .firm { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass); font-weight: 600; }
+  .cover h1 { font-family: var(--serif); font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.05; font-weight: 400; letter-spacing: -0.02em; margin: 0.5rem 0; }
+  .cover p { font-family: var(--serif); font-size: 1.1rem; color: var(--ink-soft); max-width: 42ch; }
+
+  .prof { padding-top: 4.5rem; }
+  .prof-head { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 0.8rem; margin-bottom: 0.5rem; }
+  .prof-head h2 { font-family: var(--serif); font-size: 2.1rem; font-weight: 400; margin: 0; }
+  .prof-head .role { font-size: 0.8rem; color: var(--ink-mute); }
+  .pagebar { display: flex; justify-content: space-between; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 2rem; }
+
+  section.page { padding-top: 3rem; }
+  .marker { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--rule-firm); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+  .marker .num { font-family: var(--mono); font-size: 0.72rem; color: var(--brass); }
+  .marker h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; margin: 0; flex: 1; }
+
+  .scoreboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .tile { background: var(--raised); padding: 1rem 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.25rem; }
+  .tile .label { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
+  .tile .value { font-family: var(--serif); font-size: 1.7rem; font-variant-numeric: tabular-nums; }
+  .tile .note { font-size: 0.72rem; color: var(--ink-mute); }
+  .tile.pending .value { color: var(--ink-mute); }
+  .tile.est { background: var(--sunken); }
+
+  p { margin: 0 0 1rem; max-width: 68ch; font-size: 0.94rem; }
+  p:last-child { margin-bottom: 0; }
+
+  .scroll { overflow-x: auto; margin: 1rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+  th { text-align: right; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; padding: 0 0.6rem 0.4rem; border-bottom: 1px solid var(--rule-firm); }
+  th:first-child, td:first-child { text-align: left; padding-left: 0; }
+  th:last-child, td:last-child { padding-right: 0; }
+  td { text-align: right; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--rule); }
+  td.name { text-align: left; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .cols4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 1rem 0; }
+  .opp { background: var(--raised); padding: 1rem 1.1rem 1.2rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .opp .t { font-weight: 600; font-size: 0.88rem; }
+  .opp .pill { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 0.15rem 0.4rem; border-radius: 2px; width: fit-content; }
+  .pill.alta { background: var(--critical-wash); color: var(--critical); }
+  .pill.media { background: var(--brass-wash); color: var(--brass); }
+  .opp .d { font-size: 0.78rem; color: var(--ink-mute); }
+  .opp .v { font-family: var(--serif); font-size: 1.3rem; color: var(--brass); margin-top: auto; }
+
+  ol.plan { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: 0.8rem; counter-reset: p; }
+  ol.plan li { counter-increment: p; padding-left: 2rem; position: relative; font-size: 0.9rem; color: var(--ink-soft); }
+  ol.plan li::before { content: counter(p); position: absolute; left: 0; top: 0; font-family: var(--mono); font-size: 0.7rem; color: var(--brass); font-weight: 700; }
+  ol.plan li b { color: var(--ink); }
+
+  .callout { border-left: 2px solid var(--brass); background: var(--sunken); padding: 0.9rem 1.1rem; margin: 1.3rem 0; font-size: 0.88rem; color: var(--ink-soft); }
+  .callout b { color: var(--ink); }
+  .callout.warn { border-left-color: var(--critical); }
+
+  figure { margin: 1rem 0; }
+  svg { display: block; width: 100%; height: auto; }
+  figcaption { font-size: 0.72rem; color: var(--ink-mute); margin-top: 0.5rem; }
+
+  footer { margin-top: 4rem; padding-top: 1.2rem; border-top: 1px solid var(--rule-firm); font-size: 0.74rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
+</style>
+
+<div class="sheet">
+
+  <header class="cover">
+    <div class="firm">BRGX Consultoria</div>
+    <h1>Relatórios Individuais</h1>
+    <p>Barú Beauty — primeiro ciclo de acompanhamento por profissional. Bruna Chaves e Lilian Ramos, as duas cabeleireiras da casa. Base: agosto/2025 a agosto/2026.</p>
+  </header>
+
+  <!-- ======================================================= BRUNA ======================================================= -->
+  <div class="prof">
+    <div class="prof-head">
+      <h2>Bruna Chaves</h2>
+      <span class="role">Cabeleireira — química e iluminação capilar</span>
+    </div>
+    <div class="pagebar"><span>Barú Beauty · Base Ago/2025–Ago/2026</span><span>Página 1 de 3</span></div>
+
+    <section class="page">
+      <div class="marker"><span class="num">01</span><h3>Visão executiva</h3></div>
+
+      <div class="scoreboard">
+        <div class="tile"><span class="label">Faturamento (12m)</span><span class="value">R$ 39.461</span><span class="note">97 serviços · 56 clientes</span></div>
+        <div class="tile"><span class="label">Ticket médio</span><span class="value">R$ 481</span><span class="note">por visita — o maior da casa</span></div>
+        <div class="tile"><span class="label">Novas / Retorno</span><span class="value">41 / 15</span><span class="note">aproximado, primeira visita ao salão</span></div>
+        <div class="tile est"><span class="label">Ocupação estimada</span><span class="value">17%</span><span class="note">tempo-padrão de mercado, não medido — ver nota</span></div>
+      </div>
+
+      <div class="callout warn">
+        <span class="kicker"></span>
+        <b>Nota sobre ocupação:</b> o sistema do salão não registra duração de atendimento. A estimativa de 17% usa tempos-padrão de mercado por serviço (reflexo ≈3h, corte ≈45min, escova ≈50min) sobre os 138 dias de atuação registrados, considerando 6 dias/semana × 8h. <b>Não é medição real</b> — é a melhor aproximação possível até o salão passar a registrar horário de início e fim de cada atendimento. Mesmo como estimativa, o número é baixo o bastante para confirmar a leitura central deste relatório: Bruna tem espaço de sobra na agenda.
+      </div>
+
+      <h3 style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);border:none;margin:1.8rem 0 0.6rem">Evolução mensal</h3>
+      <figure>
+        <svg viewBox="0 0 600 180" role="img" aria-label="Faturamento de Bruna Chaves de março a agosto de 2026: 2430, 6280, 7500, 10331, 12270, 650 reais.">
+          <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="10">
+            <g stroke="var(--rule)" stroke-width="1"><line x1="0" y1="140" x2="600" y2="140"/><line x1="0" y1="90" x2="600" y2="90"/><line x1="0" y1="40" x2="600" y2="40"/></g>
+            <g fill="var(--brass)">
+              <rect x="15"  y="120" width="70" height="20"/>
+              <rect x="105" y="88"  width="70" height="52"/>
+              <rect x="195" y="78"  width="70" height="62"/>
+              <rect x="285" y="55"  width="70" height="85"/>
+              <rect x="375" y="30"  width="70" height="110" fill="var(--critical)"/>
+              <rect x="465" y="134" width="70" height="6" fill="var(--rule-firm)"/>
+            </g>
+            <g fill="var(--ink)" text-anchor="middle" font-weight="600">
+              <text x="50" y="112">2.430</text><text x="140" y="80">6.280</text><text x="230" y="70">7.500</text>
+              <text x="320" y="47">10.331</text><text x="410" y="22">12.270</text><text x="500" y="126">650*</text>
+            </g>
+            <g fill="var(--ink-mute)" text-anchor="middle" letter-spacing="0.08em">
+              <text x="50" y="158">MAR</text><text x="140" y="158">ABR</text><text x="230" y="158">MAI</text>
+              <text x="320" y="158">JUN</text><text x="410" y="158">JUL</text><text x="500" y="158">AGO*</text>
+            </g>
+          </g>
+        </svg>
+        <figcaption>*Agosto parcial (relatório fechado em 06/08). Julho é o melhor mês de Bruna desde que entrou na casa.</figcaption>
+      </figure>
+
+      <p><b>Leitura executiva:</b> Bruna fechou o último mês pleno (julho) com R$ 12.270 — mais que o dobro de abril, seu primeiro mês completo. É a cabeleireira de maior ticket da casa (R$ 481/visita) e concentra o carro-chefe do salão: 28 dos 97 serviços do ano são Reflexo, respondendo por R$ 27.666 — 70% de tudo que ela fatura. A curva é de crescimento constante, mês após mês, sem exceção.</p>
+    </section>
+
+    <div class="pagebar" style="margin-top:3rem"><span>Barú Beauty · Base Ago/2025–Ago/2026</span><span>Página 2 de 3</span></div>
+    <section class="page">
+      <div class="marker"><span class="num">02</span><h3>Detalhamento comercial</h3></div>
+
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Serviço</th><th>Vol.</th><th>Receita</th></tr></thead>
+          <tbody>
+            <tr><td class="name">Reflexo</td><td>28</td><td>R$ 27.666</td></tr>
+            <tr><td class="name">Escova Cabelo Longo</td><td>27</td><td>R$ 2.875</td></tr>
+            <tr><td class="name">Retoque de Raiz</td><td>9</td><td>R$ 2.400</td></tr>
+            <tr><td class="name">Corte Feminino</td><td>12</td><td>R$ 2.320</td></tr>
+            <tr><td class="name">Tintura (produto do salão)</td><td>3</td><td>R$ 1.050</td></tr>
+            <tr><td class="name">Escova Cabelo Curto</td><td>5</td><td>R$ 790</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="scoreboard" style="margin-top:1.5rem">
+        <div class="tile"><span class="label">Clientes distintas</span><span class="value">56</span><span class="note">no período</span></div>
+        <div class="tile"><span class="label">Base recorrente</span><span class="value">14</span><span class="note">2+ visitas com ela</span></div>
+        <div class="tile"><span class="label">Clientes em risco</span><span class="value">32</span><span class="note">&gt;60 dias sem voltar</span></div>
+        <div class="tile"><span class="label">Visita única</span><span class="value">42</span><span class="note">de 56 clientes — 75%</span></div>
+      </div>
+
+      <div class="callout">O padrão de recompra de Bruna é o inverso do ideal: 75% das clientes vieram uma única vez, mas o serviço que ela mais faz (Reflexo) tem ciclo natural de retoque em 45–60 dias. Isso não é falta de qualidade — é ausência de régua de reagendamento. A cliente sai satisfeita e ninguém marca o retorno.</div>
+    </section>
+
+    <div class="pagebar" style="margin-top:3rem"><span>Barú Beauty · Base Ago/2025–Ago/2026</span><span>Página 3 de 3</span></div>
+    <section class="page">
+      <div class="marker"><span class="num">03</span><h3>Oportunidades e plano de ação</h3></div>
+
+      <div class="cols4">
+        <div class="opp"><span class="pill alta">Alta</span><span class="t">Reativação</span><span class="d">32 clientes sem retorno há mais de 60 dias.</span><span class="v">R$ 15.399</span></div>
+        <div class="opp"><span class="pill alta">Alta</span><span class="t">Frequência</span><span class="d">42 clientes de visita única — transformar em segundo agendamento.</span><span class="v">R$ 20.212</span></div>
+        <div class="opp"><span class="pill media">Média</span><span class="t">Serviço adicional</span><span class="d">70 de 82 visitas foram monosserviço.</span><span class="v">R$ 5.600</span></div>
+        <div class="opp"><span class="pill media">Média</span><span class="t">Ocupação de agenda</span><span class="d">17% estimado — a maior alavanca isolada da casa.</span><span class="v">a dimensionar</span></div>
+      </div>
+
+      <h3 style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);border:none;margin:1.8rem 0 0.6rem">Plano de ação recomendado</h3>
+      <ol class="plan">
+        <li><b>Retoque de raiz programado.</b> Ligar ou mandar mensagem no dia 40 após cada Reflexo, oferecendo o retorno — não esperar a cliente lembrar sozinha.</li>
+        <li><b>Oferecer tratamento junto do Reflexo.</b> Química de R$ 800+ sem produto de manutenção é receita deixada na mesa.</li>
+        <li><b>Pré-agendamento no fechamento.</b> Nunca deixar a cliente sair sem a próxima data marcada, mesmo que provisória.</li>
+        <li><b>Preencher avaliação comportamental.</b> Campos de comportamento, participação e comprometimento ficam em branco neste primeiro ciclo — a preencher pela direção a partir do próximo acompanhamento.</li>
+      </ol>
+    </section>
+  </div>
+
+  <!-- ======================================================= LILIAN ======================================================= -->
+  <div class="prof">
+    <div class="prof-head">
+      <h2>Lilian Ramos Marques da Silva</h2>
+      <span class="role">Cabeleireira — volume e manutenção</span>
+    </div>
+    <div class="pagebar"><span>Barú Beauty · Base Ago/2025–Ago/2026</span><span>Página 1 de 3</span></div>
+
+    <section class="page">
+      <div class="marker"><span class="num">01</span><h3>Visão executiva</h3></div>
+
+      <div class="scoreboard">
+        <div class="tile"><span class="label">Faturamento (12m)</span><span class="value">R$ 37.328</span><span class="note">227 serviços · 94 clientes</span></div>
+        <div class="tile"><span class="label">Ticket médio</span><span class="value">R$ 179</span><span class="note">por visita</span></div>
+        <div class="tile"><span class="label">Novas / Retorno</span><span class="value">57 / 37</span><span class="note">aproximado, primeira visita ao salão</span></div>
+        <div class="tile est"><span class="label">Ocupação estimada</span><span class="value">24%</span><span class="note">tempo-padrão de mercado, não medido — ver nota</span></div>
+      </div>
+
+      <div class="callout warn">
+        <b>Nota sobre ocupação:</b> mesma ressalva do relatório da Bruna — sem duração real registrada, 24% é estimativa por tempos-padrão de mercado (escova ≈50min, retoque ≈2h) sobre os 149 dias de atuação registrados. Lilian tem o dobro de volume de serviços de Bruna, mas ticket bem menor — perfil de alto volume, baixo valor unitário.
+      </div>
+
+      <h3 style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);border:none;margin:1.8rem 0 0.6rem">Evolução mensal</h3>
+      <figure>
+        <svg viewBox="0 0 600 180" role="img" aria-label="Faturamento de Lilian de março a agosto de 2026: 3540, 5500, 8265, 11050, 6878, 2095 reais.">
+          <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="10">
+            <g stroke="var(--rule)" stroke-width="1"><line x1="0" y1="140" x2="600" y2="140"/><line x1="0" y1="90" x2="600" y2="90"/><line x1="0" y1="40" x2="600" y2="40"/></g>
+            <g fill="var(--brass)">
+              <rect x="15"  y="107" width="70" height="33"/>
+              <rect x="105" y="91"  width="70" height="49"/>
+              <rect x="195" y="64"  width="70" height="76"/>
+              <rect x="285" y="30"  width="70" height="110" fill="var(--critical)"/>
+              <rect x="375" y="78"  width="70" height="62"/>
+              <rect x="465" y="121" width="70" height="19" fill="var(--rule-firm)"/>
+            </g>
+            <g fill="var(--ink)" text-anchor="middle" font-weight="600">
+              <text x="50" y="99">3.540</text><text x="140" y="83">5.500</text><text x="230" y="56">8.265</text>
+              <text x="320" y="22">11.050</text><text x="410" y="70">6.878</text><text x="500" y="113">2.095*</text>
+            </g>
+            <g fill="var(--ink-mute)" text-anchor="middle" letter-spacing="0.08em">
+              <text x="50" y="158">MAR</text><text x="140" y="158">ABR</text><text x="230" y="158">MAI</text>
+              <text x="320" y="158">JUN</text><text x="410" y="158">JUL</text><text x="500" y="158">AGO*</text>
+            </g>
+          </g>
+        </svg>
+        <figcaption>*Agosto parcial. Junho foi o pico; julho caiu 38% vs. junho — investigar em campo o que mudou.</figcaption>
+      </figure>
+
+      <p><b>Leitura executiva:</b> Lilian fechou julho com R$ 6.878, recuo de 38% sobre o pico de junho (R$ 11.050). É a maior carteira de clientes distintas da casa (94) e concentra volume em escova (106 dos 227 serviços). Diferente de Bruna, o problema de Lilian não é ocupação — é o ticket baixo por serviço, que limita o teto de faturamento mesmo em alto volume.</p>
+    </section>
+
+    <div class="pagebar" style="margin-top:3rem"><span>Barú Beauty · Base Ago/2025–Ago/2026</span><span>Página 2 de 3</span></div>
+    <section class="page">
+      <div class="marker"><span class="num">02</span><h3>Detalhamento comercial</h3></div>
+
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Serviço</th><th>Vol.</th><th>Receita</th></tr></thead>
+          <tbody>
+            <tr><td class="name">Escova Cabelo Longo</td><td>106</td><td>R$ 10.180</td></tr>
+            <tr><td class="name">Manutenção de Megahair fita</td><td>16</td><td>R$ 4.385</td></tr>
+            <tr><td class="name">Reflexo</td><td>4</td><td>R$ 3.990</td></tr>
+            <tr><td class="name">Retoque de Raiz</td><td>12</td><td>R$ 3.580</td></tr>
+            <tr><td class="name">Tintura (produto do salão)</td><td>11</td><td>R$ 3.550</td></tr>
+            <tr><td class="name">Corte Feminino</td><td>12</td><td>R$ 2.910</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="scoreboard" style="margin-top:1.5rem">
+        <div class="tile"><span class="label">Clientes distintas</span><span class="value">94</span><span class="note">no período</span></div>
+        <div class="tile"><span class="label">Base recorrente</span><span class="value">35</span><span class="note">2+ visitas com ela</span></div>
+        <div class="tile"><span class="label">Clientes em risco</span><span class="value">34</span><span class="note">&gt;60 dias sem voltar</span></div>
+        <div class="tile"><span class="label">Visita única</span><span class="value">59</span><span class="note">de 94 clientes — 63%</span></div>
+      </div>
+
+      <div class="callout">Lilian tem a maior base recorrente absoluta da casa (35 clientes com 2+ visitas) — sinal de que ela retém melhor proporcionalmente que Bruna, mesmo com ticket mais baixo. A alavanca aqui não é reter mais, é <b>elevar o valor por atendimento</b> — cross-sell de tratamento e química sobre a base de escova que já é fiel.</div>
+    </section>
+
+    <div class="pagebar" style="margin-top:3rem"><span>Barú Beauty · Base Ago/2025–Ago/2026</span><span>Página 3 de 3</span></div>
+    <section class="page">
+      <div class="marker"><span class="num">03</span><h3>Oportunidades e plano de ação</h3></div>
+
+      <div class="cols4">
+        <div class="opp"><span class="pill alta">Alta</span><span class="t">Reativação</span><span class="d">34 clientes sem retorno há mais de 60 dias.</span><span class="v">R$ 6.102</span></div>
+        <div class="opp"><span class="pill alta">Alta</span><span class="t">Frequência</span><span class="d">59 clientes de visita única — transformar em segundo agendamento.</span><span class="v">R$ 10.588</span></div>
+        <div class="opp"><span class="pill media">Média</span><span class="t">Serviço adicional</span><span class="d">194 de 208 visitas foram monosserviço — maior potencial de cross-sell da casa.</span><span class="v">R$ 15.520</span></div>
+        <div class="opp"><span class="pill media">Média</span><span class="t">Ticket médio</span><span class="d">Elevar valor por atendimento com tratamento e diagnóstico.</span><span class="v">R$ 3.733</span></div>
+      </div>
+
+      <h3 style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);border:none;margin:1.8rem 0 0.6rem">Plano de ação recomendado</h3>
+      <ol class="plan">
+        <li><b>Investigar a queda de julho.</b> -38% vs. junho sem causa registrada — perguntar diretamente a ela na reunião de quarta.</li>
+        <li><b>Oferecer tratamento em toda escova.</b> 194 visitas monosserviço é o maior espaço de cross-sell identificado em qualquer profissional da casa.</li>
+        <li><b>Pré-agendamento no fechamento.</b> Mesma prática recomendada para Bruna — nenhuma cliente sai sem a próxima data.</li>
+        <li><b>Preencher avaliação comportamental.</b> Campos de comportamento, participação e comprometimento ficam em branco neste primeiro ciclo — a preencher pela direção a partir do próximo acompanhamento.</li>
+      </ol>
+    </section>
+  </div>
+
+  <footer>
+    <span>BRGX Consultoria · Barú Beauty · Relatórios Individuais</span>
+    <span>Base: relatório 0031, 07/08/2025 a 07/08/2026 · ocupação estimada por tempo-padrão de mercado, não medida</span>
+  </footer>
+
+</div>

@@ -24,375 +24,101 @@
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --ground: #17120F;
-      --raised: #1F1915;
-      --sunken: #221B16;
-      --ink: #F0EAE3;
-      --ink-soft: #C6B9AC;
-      --ink-mute: #9C8D7F;
-      --rule: #33291F;
-      --rule-firm: #4A3B2D;
-      --brass: #D4A55E;
-      --brass-wash: #2A2015;
-      --critical: #D97C6A;
-      --critical-wash: #2E1B17;
-      --positive: #8FB395;
-      --positive-wash: #1B241C;
+      --ground: #17120F; --raised: #1F1915; --sunken: #221B16;
+      --ink: #F0EAE3; --ink-soft: #C6B9AC; --ink-mute: #9C8D7F;
+      --rule: #33291F; --rule-firm: #4A3B2D;
+      --brass: #D4A55E; --brass-wash: #2A2015;
+      --critical: #D97C6A; --critical-wash: #2E1B17;
+      --positive: #8FB395; --positive-wash: #1B241C;
     }
   }
-
   :root[data-theme="dark"] {
-    --ground: #17120F;
-    --raised: #1F1915;
-    --sunken: #221B16;
-    --ink: #F0EAE3;
-    --ink-soft: #C6B9AC;
-    --ink-mute: #9C8D7F;
-    --rule: #33291F;
-    --rule-firm: #4A3B2D;
-    --brass: #D4A55E;
-    --brass-wash: #2A2015;
-    --critical: #D97C6A;
-    --critical-wash: #2E1B17;
-    --positive: #8FB395;
-    --positive-wash: #1B241C;
+    --ground: #17120F; --raised: #1F1915; --sunken: #221B16;
+    --ink: #F0EAE3; --ink-soft: #C6B9AC; --ink-mute: #9C8D7F;
+    --rule: #33291F; --rule-firm: #4A3B2D;
+    --brass: #D4A55E; --brass-wash: #2A2015;
+    --critical: #D97C6A; --critical-wash: #2E1B17;
+    --positive: #8FB395; --positive-wash: #1B241C;
   }
 
-  body {
-    background: var(--ground);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0 1.5rem 6rem;
-    -webkit-font-smoothing: antialiased;
-  }
-
+  body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; margin: 0; padding: 0 1.5rem 6rem; -webkit-font-smoothing: antialiased; }
   .sheet { max-width: 60rem; margin: 0 auto; }
 
-  /* ---------- capa ---------- */
-
-  .cover {
-    padding: 5rem 0 3rem;
-    border-bottom: 2px solid var(--ink);
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-  }
-
-  .firm {
-    font-size: 0.7rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--brass);
-    font-weight: 600;
-  }
-
-  .cover h1 {
-    font-family: var(--serif);
-    font-size: clamp(2.6rem, 7vw, 4.4rem);
-    line-height: 1.02;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    margin: 0;
-    text-wrap: balance;
-  }
-
+  .cover { padding: 5rem 0 3rem; border-bottom: 2px solid var(--ink); display: flex; flex-direction: column; gap: 1.75rem; }
+  .firm { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass); font-weight: 600; }
+  .cover h1 { font-family: var(--serif); font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 400; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
   .cover h1 em { font-style: italic; color: var(--brass); }
-
-  .cover-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 2.5rem;
-    font-size: 0.82rem;
-    color: var(--ink-mute);
-  }
-
+  .cover-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 2.5rem; font-size: 0.82rem; color: var(--ink-mute); }
   .cover-meta b { color: var(--ink-soft); font-weight: 600; }
-
-  .lede {
-    font-family: var(--serif);
-    font-size: clamp(1.15rem, 2.4vw, 1.45rem);
-    line-height: 1.5;
-    color: var(--ink-soft);
-    max-width: 40ch;
-    margin: 0;
-  }
-
-  /* ---------- seções ---------- */
+  .lede { font-family: var(--serif); font-size: clamp(1.15rem, 2.4vw, 1.45rem); line-height: 1.5; color: var(--ink-soft); max-width: 44ch; margin: 0; }
 
   section { padding-top: 4.5rem; }
-
-  .marker {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    border-bottom: 1px solid var(--rule-firm);
-    padding-bottom: 0.6rem;
-    margin-bottom: 2rem;
-  }
-
-  .marker .num {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--brass);
-    letter-spacing: 0.08em;
-  }
-
-  .marker h2 {
-    font-family: var(--serif);
-    font-size: clamp(1.5rem, 3.4vw, 2rem);
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    margin: 0;
-    flex: 1;
-  }
-
-  .marker .of {
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-  }
-
-  h3 {
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    font-weight: 600;
-    margin: 2.5rem 0 1rem;
-  }
-
+  .marker { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--rule-firm); padding-bottom: 0.6rem; margin-bottom: 2rem; }
+  .marker .num { font-family: var(--mono); font-size: 0.75rem; color: var(--brass); letter-spacing: 0.08em; }
+  .marker h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3.4vw, 2rem); font-weight: 400; letter-spacing: -0.01em; margin: 0; flex: 1; }
+  .marker .of { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); }
+  h3 { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin: 2.5rem 0 1rem; }
   p { margin: 0 0 1rem; max-width: 68ch; }
   p:last-child { margin-bottom: 0; }
 
-  /* ---------- placar ---------- */
-
-  .scoreboard {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
-    gap: 1px;
-    background: var(--rule);
-    border: 1px solid var(--rule);
-  }
-
-  .tile {
-    background: var(--raised);
-    padding: 1.25rem 1.15rem 1.35rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-
-  .tile .label {
-    font-size: 0.66rem;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    font-weight: 600;
-  }
-
-  .tile .value {
-    font-family: var(--serif);
-    font-size: 2.1rem;
-    line-height: 1.05;
-    font-variant-numeric: tabular-nums;
-    letter-spacing: -0.02em;
-  }
-
+  .scoreboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .tile { background: var(--raised); padding: 1.25rem 1.15rem 1.35rem; display: flex; flex-direction: column; gap: 0.3rem; }
+  .tile .label { font-size: 0.66rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
+  .tile .value { font-family: var(--serif); font-size: 2.1rem; line-height: 1.05; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
   .tile .note { font-size: 0.78rem; color: var(--ink-mute); line-height: 1.4; }
-
   .delta { font-weight: 600; font-variant-numeric: tabular-nums; }
   .delta.down { color: var(--critical); }
   .delta.up { color: var(--positive); }
-
   .tile.flag { background: var(--critical-wash); }
   .tile.flag .value { color: var(--critical); }
-
-  /* ---------- tabelas ---------- */
+  .tile.win { background: var(--positive-wash); }
+  .tile.win .value { color: var(--positive); }
 
   .scroll { overflow-x: auto; margin: 1.25rem 0; }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.86rem;
-    font-variant-numeric: tabular-nums;
-  }
-
-  caption {
-    text-align: left;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    font-weight: 600;
-    padding-bottom: 0.6rem;
-  }
-
-  th {
-    text-align: right;
-    font-size: 0.68rem;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    font-weight: 600;
-    padding: 0 0.7rem 0.5rem;
-    border-bottom: 1px solid var(--rule-firm);
-    white-space: nowrap;
-  }
-
+  table { width: 100%; border-collapse: collapse; font-size: 0.86rem; font-variant-numeric: tabular-nums; }
+  caption { text-align: left; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; padding-bottom: 0.6rem; }
+  th { text-align: right; font-size: 0.68rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; padding: 0 0.7rem 0.5rem; border-bottom: 1px solid var(--rule-firm); white-space: nowrap; }
   th:first-child, td:first-child { text-align: left; padding-left: 0; }
   th:last-child, td:last-child { padding-right: 0; }
-
-  td {
-    text-align: right;
-    padding: 0.55rem 0.7rem;
-    border-bottom: 1px solid var(--rule);
-    white-space: nowrap;
-  }
-
+  td { text-align: right; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--rule); white-space: nowrap; }
   td.name { white-space: normal; min-width: 12rem; }
-
   tbody tr:last-child td { border-bottom: none; }
   tr.accent td { background: var(--brass-wash); font-weight: 600; }
   tr.dim td { color: var(--ink-mute); }
-
-  .bar {
-    display: inline-block;
-    height: 0.45rem;
-    background: var(--brass);
-    border-radius: 1px;
-    vertical-align: middle;
-    min-width: 2px;
-  }
-  .bar.soft { background: var(--rule-firm); }
-
-  /* ---------- gráfico ---------- */
+  tr.flagrow td { background: var(--critical-wash); }
 
   figure { margin: 1.5rem 0; }
   figcaption { font-size: 0.78rem; color: var(--ink-mute); margin-top: 0.7rem; }
   svg { display: block; width: 100%; height: auto; }
 
-  /* ---------- blocos ---------- */
-
-  .cols {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 1.5rem;
-    margin: 1.25rem 0;
-  }
-
-  .card {
-    border: 1px solid var(--rule);
-    background: var(--raised);
-    padding: 1.15rem 1.2rem 1.3rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-  }
-
-  .card .head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-  }
-
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.5rem; margin: 1.25rem 0; }
+  .card { border: 1px solid var(--rule); background: var(--raised); padding: 1.15rem 1.2rem 1.3rem; display: flex; flex-direction: column; gap: 0.55rem; }
+  .card .head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
   .card .title { font-weight: 600; font-size: 0.95rem; }
-
-  .pill {
-    font-size: 0.6rem;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-    font-weight: 700;
-    padding: 0.2rem 0.5rem;
-    border-radius: 2px;
-    white-space: nowrap;
-  }
+  .pill { font-size: 0.6rem; letter-spacing: 0.11em; text-transform: uppercase; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 2px; white-space: nowrap; }
   .pill.alta { background: var(--critical-wash); color: var(--critical); }
   .pill.media { background: var(--brass-wash); color: var(--brass); }
-
   .card p { font-size: 0.86rem; color: var(--ink-soft); margin: 0; }
-
-  .card .prize {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    color: var(--brass);
-    font-variant-numeric: tabular-nums;
-    margin-top: auto;
-    padding-top: 0.4rem;
-  }
+  .card .prize { font-family: var(--serif); font-size: 1.5rem; color: var(--brass); font-variant-numeric: tabular-nums; margin-top: auto; padding-top: 0.4rem; }
 
   ul.plain { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.7rem; }
-
-  ul.plain li {
-    padding-left: 1.15rem;
-    position: relative;
-    font-size: 0.92rem;
-    color: var(--ink-soft);
-  }
-
-  ul.plain li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.62em;
-    width: 0.45rem;
-    height: 1px;
-    background: var(--brass);
-  }
-
+  ul.plain li { padding-left: 1.15rem; position: relative; font-size: 0.92rem; color: var(--ink-soft); }
+  ul.plain li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 0.45rem; height: 1px; background: var(--brass); }
   ul.plain li b { color: var(--ink); font-weight: 600; }
 
-  .callout {
-    border-left: 2px solid var(--brass);
-    background: var(--sunken);
-    padding: 1.1rem 1.3rem;
-    margin: 1.75rem 0;
-  }
-
+  .callout { border-left: 2px solid var(--brass); background: var(--sunken); padding: 1.1rem 1.3rem; margin: 1.75rem 0; }
   .callout.warn { border-left-color: var(--critical); }
-
-  .callout .kicker {
-    font-size: 0.66rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--brass);
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
+  .callout.win { border-left-color: var(--positive); }
+  .callout .kicker { font-size: 0.66rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--brass); display: block; margin-bottom: 0.5rem; }
   .callout.warn .kicker { color: var(--critical); }
+  .callout.win .kicker { color: var(--positive); }
   .callout p { font-size: 0.92rem; color: var(--ink-soft); }
 
-  .split {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: 2rem;
-    margin: 1.25rem 0;
-  }
+  .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 2rem; margin: 1.25rem 0; }
 
-  footer {
-    margin-top: 5rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--rule-firm);
-    font-size: 0.76rem;
-    color: var(--ink-mute);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem 2rem;
-    justify-content: space-between;
-  }
-
+  footer { margin-top: 5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule-firm); font-size: 0.76rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
   a { color: var(--brass); }
-  a:focus-visible, [tabindex]:focus-visible {
-    outline: 2px solid var(--brass);
-    outline-offset: 2px;
-  }
+  a:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 </style>
 
 <div class="sheet">
@@ -400,12 +126,12 @@
   <header class="cover">
     <div class="firm">BRGX Consultoria</div>
     <h1>Relatório de<br><em>Performance</em></h1>
-    <p class="lede">Julho fecha 37% abaixo de junho. A queda não é de preço — é de agenda. O ticket segue no maior patamar da série; o que encolheu foi o número de visitas.</p>
+    <p class="lede">A equipe que está na casa hoje fatura R$ 26–27 mil por mês, em curva de crescimento desde março. O que trava o salão não é agenda vazia — é rotatividade: 78% da equipe do último ano já não está mais aqui.</p>
     <div class="cover-meta">
       <span>Unidade <b>Faria Lima 2128</b></span>
       <span>Mês de referência <b>Julho 2026</b></span>
       <span>Base <b>07/08/2025 – 07/08/2026</b></span>
-      <span>Emissão <b>07/08/2026</b></span>
+      <span>Emissão <b>10/08/2026</b></span>
     </div>
   </header>
 
@@ -414,409 +140,269 @@
     <div class="marker">
       <span class="num">01</span>
       <h2>Visão executiva</h2>
-      <span class="of">Página 1 de 5</span>
+      <span class="of">Página 1 de 6</span>
+    </div>
+
+    <div class="callout warn">
+      <span class="kicker">O achado que muda a leitura de tudo</span>
+      <p><b>28 dos 36 profissionais que passaram pela casa nos últimos 12 meses já não estão mais aqui — 78% de rotatividade.</b> Eles levaram R$ 264.545, que é 70% de toda a receita do período. Houve saída em dez dos doze meses, com picos em dezembro (6 pessoas) e abril (6 pessoas). A carteira de clientes órfã que este relatório mostra adiante não é falha de retenção de cliente — é consequência aritmética de não reter profissional.</p>
     </div>
 
     <div class="scoreboard">
       <div class="tile">
         <span class="label">Faturamento em julho</span>
         <span class="value">R$ 26.610</span>
-        <span class="note"><span class="delta down">−R$ 15.582</span> vs junho</span>
+        <span class="note">100% já operado pela equipe atual</span>
       </div>
       <div class="tile">
         <span class="label">Clientes atendidas</span>
         <span class="value">79</span>
-        <span class="note">115 visitas · 43 novas, 72 retorno</span>
+        <span class="note">115 visitas no mês</span>
       </div>
       <div class="tile">
         <span class="label">Ticket médio</span>
         <span class="value">R$ 231</span>
-        <span class="note"><span class="delta down">−R$ 29</span> vs junho · por visita</span>
-      </div>
-      <div class="tile">
-        <span class="label">Serviços realizados</span>
-        <span class="value">164</span>
-        <span class="note"><span class="delta down">−58</span> vs junho</span>
+        <span class="note">por visita</span>
       </div>
       <div class="tile flag">
-        <span class="label">Visitas no mês</span>
-        <span class="value">115</span>
-        <span class="note">menor volume desde janeiro</span>
+        <span class="label">Rotatividade 12 meses</span>
+        <span class="value">78%</span>
+        <span class="note">28 de 36 profissionais saíram</span>
       </div>
-      <div class="tile">
-        <span class="label">Retorno em 60 dias</span>
-        <span class="value">46%</span>
-        <span class="note">base maio, única com janela completa</span>
+      <div class="tile flag">
+        <span class="label">Receita que saiu com eles</span>
+        <span class="value">R$ 264.545</span>
+        <span class="note">70% do faturamento do ano</span>
       </div>
-    </div>
-
-    <div class="callout warn">
-      <span class="kicker">Nota metodológica — ler antes dos números</span>
-      <p>O cabeçalho do relatório oficial declara <b>3.348 itens e R$ 405.652,05</b>. As linhas efetivamente impressas somam <b>3.093 itens e R$ 377.212,85</b>. Faltam 255 lançamentos e R$ 28.439 na impressão — provável filtro aplicado na exportação. Toda a análise abaixo usa a base de linhas, que é a única auditável. <b>Confirmar a origem da diferença com o sistema do salão antes da reunião.</b></p>
-    </div>
-
-    <h3>Resultados e produtividade</h3>
-    <div class="scroll">
-      <table>
-        <thead>
-          <tr><th>Indicador</th><th>Julho</th><th>Junho</th><th>Variação</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="name">Faturamento</td><td>R$ 26.610</td><td>R$ 42.192</td><td class="delta down">−36,9%</td></tr>
-          <tr><td class="name">Visitas</td><td>115</td><td>162</td><td class="delta down">−29,0%</td></tr>
-          <tr><td class="name">Clientes distintas</td><td>79</td><td>118</td><td class="delta down">−33,1%</td></tr>
-          <tr><td class="name">Ticket por visita</td><td>R$ 231</td><td>R$ 260</td><td class="delta down">−11,2%</td></tr>
-          <tr><td class="name">Serviços por visita</td><td>1,43</td><td>1,37</td><td class="delta up">+4,4%</td></tr>
-          <tr><td class="name">Clientes novas</td><td>43</td><td>66</td><td class="delta down">−34,8%</td></tr>
-        </tbody>
-      </table>
+      <div class="tile win">
+        <span class="label">Baseline da equipe atual</span>
+        <span class="value">R$ 26–27k</span>
+        <span class="note">média mai–jun–jul, em alta</span>
+      </div>
     </div>
 
     <div class="callout">
-      <span class="kicker">Taxa de ocupação — não calculada</span>
-      <p>O template BRGX prevê o indicador de ocupação (horas produtivas ÷ horas disponíveis). O relatório do salão <b>não registra a duração dos serviços</b>, então qualquer percentual aqui seria inventado. Passar a registrar duração é a primeira recomendação de governança do plano de ação — sem ela, não há como dimensionar equipe nem precificar cadeira.</p>
+      <span class="kicker">A boa notícia dentro do problema</span>
+      <p>A receita da equipe atual <b>vem subindo mês a mês desde que ela existe</b>: R$ 7.929 em março (mês de formação do time) → R$ 17.089 → R$ 24.079 → R$ 27.913 → R$ 26.450 em julho. Não é uma casa em queda. É uma casa que reconstruiu a operação do zero três vezes em doze meses e, mesmo assim, está crescendo com quem ficou.</p>
     </div>
+
+    <h3>Equipe atual — os 6 profissionais que sustentam a casa hoje</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Profissional</th><th>Função</th><th>Receita 12m</th><th>Serviços</th><th>Clientes</th></tr></thead>
+        <tbody>
+          <tr class="accent"><td class="name">Bruna Chaves</td><td class="name">Cabeleireira — química/iluminação</td><td>R$ 39.461</td><td>97</td><td>56</td></tr>
+          <tr class="accent"><td class="name">Lilian Ramos M. da Silva</td><td class="name">Cabeleireira — volume/escova</td><td>R$ 37.328</td><td>227</td><td>94</td></tr>
+          <tr><td class="name">Cibelle L. Assuncao Santos</td><td class="name">Unhas — alongamento, manicure</td><td>R$ 14.730</td><td>226</td><td>99</td></tr>
+          <tr><td class="name">Luciene S. Dos Santos</td><td class="name">Sobrancelha, depilação, manicure, micropigmentação</td><td>R$ 12.768</td><td>176</td><td>97</td></tr>
+          <tr class="dim"><td class="name">Thamy Castiliane A. R. de Lima</td><td class="name">Sobrancelha, micropigmentação</td><td>R$ 1.850</td><td>19</td><td>14</td></tr>
+          <tr class="dim"><td class="name">Miguel Sousa Nascimento</td><td class="name">Unhas — recém-chegado (jul/26)</td><td>R$ 1.060</td><td>14</td><td>11</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.86rem;color:var(--ink-mute)">Nenhum da equipe atual faz penteado, corte masculino, luzes ou maquiagem — serviços que a casa anunciava e hoje não entrega. Detalhe no Pilar 1 do Plano de Ação.</p>
   </section>
 
   <!-- ============ 2 ============ -->
   <section>
     <div class="marker">
       <span class="num">02</span>
-      <h2>Evolução e comparativo</h2>
-      <span class="of">Página 2 de 5</span>
+      <h2>Rotatividade — o indicador que faltava</h2>
+      <span class="of">Página 2 de 6</span>
     </div>
 
-    <figure>
-      <svg viewBox="0 0 720 260" role="img" aria-label="Faturamento mensal de fevereiro a julho de 2026: 31.344, 49.856, 39.696, 36.554, 42.192 e 26.610 reais.">
-        <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">
-          <!-- grade -->
-          <g stroke="var(--rule)" stroke-width="1">
-            <line x1="0" y1="200" x2="720" y2="200"/>
-            <line x1="0" y1="150" x2="720" y2="150"/>
-            <line x1="0" y1="100" x2="720" y2="100"/>
-            <line x1="0" y1="50" x2="720" y2="50"/>
-          </g>
-          <!-- barras: escala 50.000 -> 160px -->
-          <g>
-            <rect x="20"  y="99.7"  width="76" height="100.3" fill="var(--rule-firm)"/>
-            <rect x="136" y="40.5"  width="76" height="159.5" fill="var(--brass)"/>
-            <rect x="252" y="72.9"  width="76" height="127.1" fill="var(--rule-firm)"/>
-            <rect x="368" y="83.0"  width="76" height="117.0" fill="var(--rule-firm)"/>
-            <rect x="484" y="65.0"  width="76" height="135.0" fill="var(--rule-firm)"/>
-            <rect x="600" y="114.8" width="76" height="85.2"  fill="var(--critical)"/>
-          </g>
-          <!-- valores -->
-          <g fill="var(--ink)" text-anchor="middle" font-weight="600">
-            <text x="58"  y="91">31.344</text>
-            <text x="174" y="32">49.856</text>
-            <text x="290" y="64">39.696</text>
-            <text x="406" y="74">36.554</text>
-            <text x="522" y="56">42.192</text>
-            <text x="638" y="106">26.610</text>
-          </g>
-          <!-- meses -->
-          <g fill="var(--ink-mute)" text-anchor="middle" letter-spacing="0.1em">
-            <text x="58"  y="222">FEV</text>
-            <text x="174" y="222">MAR</text>
-            <text x="290" y="222">ABR</text>
-            <text x="406" y="222">MAI</text>
-            <text x="522" y="222">JUN</text>
-            <text x="638" y="222">JUL</text>
-          </g>
-          <!-- media -->
-          <line x1="0" y1="79.3" x2="720" y2="79.3" stroke="var(--brass)" stroke-width="1" stroke-dasharray="4 4"/>
-          <text x="716" y="74" fill="var(--brass)" text-anchor="end" font-weight="600">média 6 m · R$ 37.709</text>
-        </g>
-      </svg>
-      <figcaption>Faturamento mensal, fevereiro a julho de 2026. Acumulado no semestre: <b>R$ 226.253</b>.</figcaption>
-    </figure>
-
-    <div class="callout">
-      <span class="kicker">A leitura que muda a conversa</span>
-      <p>A dona relata faturamento de R$ 33 mil/mês. Esse é o resultado de dividir o ano inteiro por doze — e o ano inclui a retomada do zero depois da mudança de endereço. <b>O patamar real dos últimos seis meses é R$ 37.709/mês.</b> Mais importante: o ticket por visita saiu de R$ 86 em agosto de 2025 para R$ 231–260 em 2026. O reposicionamento de preço já aconteceu e funcionou. O que não acompanhou foi a agenda.</p>
-    </div>
-
-    <h3>A série completa — onde o ticket sobe e o volume desce</h3>
     <div class="scroll">
       <table>
-        <thead>
-          <tr>
-            <th>Mês</th><th>Receita</th><th>Visitas</th><th>Ticket</th>
-            <th>Serv/visita</th><th>Novas</th><th>Retorno</th>
-          </tr>
-        </thead>
+        <caption>Saídas por mês (última data de atendimento de quem foi embora)</caption>
+        <thead><tr><th>Mês</th><th>Saídas</th></tr></thead>
         <tbody>
-          <tr class="dim"><td class="name">Ago 2025</td><td>R$ 11.110</td><td>129</td><td>R$ 86</td><td>1,50</td><td>129</td><td>0</td></tr>
-          <tr class="dim"><td class="name">Set 2025</td><td>R$ 22.275</td><td>199</td><td>R$ 112</td><td>1,48</td><td>97</td><td>102</td></tr>
-          <tr class="dim"><td class="name">Out 2025</td><td>R$ 25.283</td><td>188</td><td>R$ 134</td><td>1,69</td><td>55</td><td>133</td></tr>
-          <tr class="dim"><td class="name">Nov 2025</td><td>R$ 32.193</td><td>222</td><td>R$ 145</td><td>1,68</td><td>84</td><td>138</td></tr>
-          <tr class="dim"><td class="name">Dez 2025</td><td>R$ 34.386</td><td>233</td><td>R$ 148</td><td>1,57</td><td>60</td><td>173</td></tr>
-          <tr class="dim"><td class="name">Jan 2026</td><td>R$ 21.975</td><td>128</td><td>R$ 172</td><td>1,52</td><td>69</td><td>59</td></tr>
-          <tr><td class="name">Fev 2026</td><td>R$ 31.344</td><td>134</td><td>R$ 234</td><td>1,58</td><td>62</td><td>72</td></tr>
-          <tr class="accent"><td class="name">Mar 2026</td><td>R$ 49.856</td><td>165</td><td>R$ 302</td><td>1,74</td><td>77</td><td>88</td></tr>
-          <tr><td class="name">Abr 2026</td><td>R$ 39.696</td><td>151</td><td>R$ 263</td><td>1,48</td><td>52</td><td>99</td></tr>
-          <tr><td class="name">Mai 2026</td><td>R$ 36.554</td><td>155</td><td>R$ 236</td><td>1,39</td><td>58</td><td>97</td></tr>
-          <tr><td class="name">Jun 2026</td><td>R$ 42.192</td><td>162</td><td>R$ 260</td><td>1,37</td><td>66</td><td>96</td></tr>
-          <tr><td class="name">Jul 2026</td><td>R$ 26.610</td><td>115</td><td>R$ 231</td><td>1,43</td><td>43</td><td>72</td></tr>
+          <tr class="flagrow"><td class="name">Dezembro 2025</td><td>6</td></tr>
+          <tr class="flagrow"><td class="name">Abril 2026</td><td>6</td></tr>
+          <tr><td class="name">Janeiro 2026</td><td>3</td></tr>
+          <tr><td class="name">Fevereiro 2026</td><td>3</td></tr>
+          <tr><td class="name">Março 2026</td><td>4</td></tr>
+          <tr><td class="name">Junho 2026</td><td>2</td></tr>
+          <tr class="dim"><td class="name">Ago, Out, Nov 2025 e Mai 2026</td><td>1 cada</td></tr>
         </tbody>
       </table>
     </div>
 
-    <p>Três curvas contam a história. O <b>pico de março</b> (R$ 49.856 com apenas 165 visitas) prova que a casa comporta ticket de R$ 302. As <b>visitas</b> caem de 233 em dezembro para 115 em julho. E a <b>captação de novas</b> desce de 77 em março para 43 em julho — o funil de entrada está secando junto com a agenda.</p>
+    <h3>As duas maiores saídas isoladas</h3>
+    <div class="cols">
+      <div class="card">
+        <div class="head"><span class="title">Pedro Guilherme Alves</span><span class="pill alta">R$ 71.219</span></div>
+        <p>18,9% da receita do ano. Última data: 08/04/2026. 98 clientes que só ele atendia — R$ 77.010 de receita histórica com nenhum vínculo com quem ficou.</p>
+      </div>
+      <div class="card">
+        <div class="head"><span class="title">Aline (sobrenome não capturado)</span><span class="pill alta">R$ 66.618</span></div>
+        <p>17,7% da receita do ano. Última data: 16/06/2026. 77 clientes exclusivas — R$ 56.727 de receita histórica órfã.</p>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <span class="kicker">A carteira órfã, explicada</span>
+      <p><b>465 das 720 clientes do ano (65%) nunca foram atendidas por ninguém que está na casa hoje.</b> Receita histórica: R$ 191.791. Antes de qualquer campanha de reativação, essa é a pergunta central: uma cliente que só conhece o profissional que saiu volta pela marca, ou só volta se o profissional voltar? A resposta muda o retorno esperado de qualquer investimento em recuperação de carteira.</p>
+    </div>
   </section>
 
   <!-- ============ 3 ============ -->
   <section>
     <div class="marker">
       <span class="num">03</span>
-      <h2>Serviços e carteira</h2>
-      <span class="of">Página 3 de 5</span>
+      <h2>Evolução da equipe atual</h2>
+      <span class="of">Página 3 de 6</span>
     </div>
 
-    <div class="split">
-      <div>
-        <h3>Distribuição por categoria — 12 meses</h3>
-        <div class="scroll">
-          <table>
-            <tbody>
-              <tr><td class="name">Cabelo</td><td><span class="bar" style="width:118px"></span></td><td>R$ 256.978</td><td>68,1%</td></tr>
-              <tr><td class="name">Manicure e Pedicure</td><td><span class="bar soft" style="width:38px"></span></td><td>R$ 83.366</td><td>22,1%</td></tr>
-              <tr><td class="name">Sobrancelha</td><td><span class="bar soft" style="width:5px"></span></td><td>R$ 9.797</td><td>2,6%</td></tr>
-              <tr><td class="name">Maquiagem</td><td><span class="bar soft" style="width:3px"></span></td><td>R$ 6.821</td><td>1,8%</td></tr>
-              <tr><td class="name">Unhas em Gel</td><td><span class="bar soft" style="width:3px"></span></td><td>R$ 5.281</td><td>1,4%</td></tr>
-              <tr><td class="name">Estética Corporal</td><td><span class="bar soft" style="width:2px"></span></td><td>R$ 4.640</td><td>1,2%</td></tr>
-              <tr><td class="name">Estética Facial</td><td><span class="bar soft" style="width:2px"></span></td><td>R$ 3.907</td><td>1,0%</td></tr>
-              <tr><td class="name">Depilação</td><td><span class="bar soft" style="width:2px"></span></td><td>R$ 3.620</td><td>1,0%</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+    <figure>
+      <svg viewBox="0 0 720 260" role="img" aria-label="Receita mensal da equipe atual de março a agosto de 2026: 7929, 17089, 24079, 27913, 26450 e 3737 reais (agosto parcial).">
+        <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">
+          <g stroke="var(--rule)" stroke-width="1">
+            <line x1="0" y1="200" x2="720" y2="200"/>
+            <line x1="0" y1="150" x2="720" y2="150"/>
+            <line x1="0" y1="100" x2="720" y2="100"/>
+            <line x1="0" y1="50" x2="720" y2="50"/>
+          </g>
+          <g>
+            <rect x="20"  y="171.6" width="76" height="28.4"  fill="var(--rule-firm)"/>
+            <rect x="136" y="139.0" width="76" height="61.0"  fill="var(--rule-firm)"/>
+            <rect x="252" y="113.9" width="76" height="86.1"  fill="var(--rule-firm)"/>
+            <rect x="368" y="100.4" width="76" height="99.6"  fill="var(--brass)"/>
+            <rect x="484" y="105.6" width="76" height="94.4"  fill="var(--brass)"/>
+            <rect x="600" y="186.7" width="76" height="13.3"  fill="var(--rule-firm)"/>
+          </g>
+          <g fill="var(--ink)" text-anchor="middle" font-weight="600">
+            <text x="58"  y="164">7.929</text>
+            <text x="174" y="131">17.089</text>
+            <text x="290" y="106">24.079</text>
+            <text x="406" y="93">27.913</text>
+            <text x="522" y="98">26.450</text>
+            <text x="638" y="179">3.737*</text>
+          </g>
+          <g fill="var(--ink-mute)" text-anchor="middle" letter-spacing="0.1em">
+            <text x="58"  y="222">MAR</text>
+            <text x="174" y="222">ABR</text>
+            <text x="290" y="222">MAI</text>
+            <text x="406" y="222">JUN</text>
+            <text x="522" y="222">JUL</text>
+            <text x="638" y="222">AGO*</text>
+          </g>
+        </g>
+      </svg>
+      <figcaption>Receita da equipe atual (6 profissionais), março a agosto de 2026. *Agosto parcial — relatório fechado em 06/08. Média dos três meses plenos mais recentes (mai–jun–jul): <b>R$ 26.148/mês</b> — essa é a baseline real para metas e projeções.</figcaption>
+    </figure>
 
-      <div>
-        <h3>Top serviços por receita — 12 meses</h3>
-        <div class="scroll">
-          <table>
-            <thead><tr><th>Serviço</th><th>Receita</th><th>Vol.</th><th>Médio</th></tr></thead>
-            <tbody>
-              <tr class="accent"><td class="name">Reflexo</td><td>R$ 56.687</td><td>60</td><td>R$ 945</td></tr>
-              <tr><td class="name">Manicure</td><td>R$ 47.374</td><td>1.072</td><td>R$ 44</td></tr>
-              <tr><td class="name">Escova Cabelo Longo</td><td>R$ 32.005</td><td>278</td><td>R$ 115</td></tr>
-              <tr><td class="name">Corte Feminino</td><td>R$ 30.585</td><td>118</td><td>R$ 259</td></tr>
-              <tr><td class="name">Tintura (produto do salão)</td><td>R$ 21.890</td><td>74</td><td>R$ 296</td></tr>
-              <tr><td class="name">Pedicure</td><td>R$ 20.297</td><td>451</td><td>R$ 45</td></tr>
-              <tr><td class="name">Retoque de Raiz</td><td>R$ 19.975</td><td>66</td><td>R$ 303</td></tr>
-              <tr class="accent"><td class="name">Luzes</td><td>R$ 16.333</td><td>24</td><td>R$ 681</td></tr>
-              <tr><td class="name">Tratamento</td><td>R$ 10.034</td><td>47</td><td>R$ 213</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="callout warn">
-      <span class="kicker">O achado central deste relatório</span>
-      <p><b>A especialidade da casa não recompra.</b> Iluminação capilar (Reflexo e Luzes) são 84 serviços no ano, R$ 73.020 — 19,4% de toda a receita, com ticket médio de R$ 869. Foram <b>77 clientes distintas. Apenas 5 voltaram para uma segunda iluminação.</b> Uma taxa de recompra de 6% num serviço que exige retoque de raiz a cada 45 dias significa que 72 clientes de altíssimo valor foram atendidas uma vez e sumiram. Esse é o maior vazamento do negócio, e ele está no serviço que o salão escolheu como bandeira.</p>
-    </div>
-
-    <h3>Concentração da receita por faixa de ticket</h3>
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Faixa da visita</th><th>Visitas</th><th>% das visitas</th><th>Receita</th><th>% da receita</th></tr></thead>
-        <tbody>
-          <tr class="dim"><td class="name">R$ 0 (cortesia ou parceria)</td><td>260</td><td>13,0%</td><td>R$ 0</td><td>0,0%</td></tr>
-          <tr><td class="name">Até R$ 80</td><td>590</td><td>29,5%</td><td>R$ 30.999</td><td>8,2%</td></tr>
-          <tr><td class="name">R$ 80 – 200</td><td>624</td><td>31,2%</td><td>R$ 76.456</td><td>20,3%</td></tr>
-          <tr><td class="name">R$ 200 – 400</td><td>271</td><td>13,6%</td><td>R$ 74.245</td><td>19,7%</td></tr>
-          <tr class="accent"><td class="name">R$ 400 – 800</td><td>159</td><td>8,0%</td><td>R$ 85.626</td><td>22,7%</td></tr>
-          <tr class="accent"><td class="name">Acima de R$ 800</td><td>95</td><td>4,8%</td><td>R$ 109.887</td><td>29,1%</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p><b>12,8% das visitas geram 51,8% da receita.</b> Na ponta oposta, 42,5% das visitas — as de até R$ 80, incluindo as zeradas — respondem por 8,2%. O salão opera dois negócios sobrepostos na mesma cadeira: um de alto valor com pouca frequência e um de baixo valor com muito volume. O segundo ocupa a agenda que o primeiro precisaria.</p>
-
-    <h3>Retorno e atração — 12 meses</h3>
-    <div class="scoreboard">
-      <div class="tile">
-        <span class="label">Clientes únicas</span>
-        <span class="value">720</span>
-        <span class="note">1.999 visitas no período</span>
-      </div>
-      <div class="tile flag">
-        <span class="label">Visita única</span>
-        <span class="value">431</span>
-        <span class="note">59,9% da carteira veio uma só vez</span>
-      </div>
-      <div class="tile">
-        <span class="label">Visitas por cliente</span>
-        <span class="value">2,78</span>
-        <span class="note">mediana de 13 dias entre visitas</span>
-      </div>
-      <div class="tile">
-        <span class="label">Serviços por visita</span>
-        <span class="value">1,55</span>
-        <span class="note">61,6% das visitas são monosserviço</span>
-      </div>
-    </div>
+    <h3>Por que R$ 33 mil (relato da direção) e R$ 37.709 (média de 12 meses) estão os dois errados como baseline</h3>
+    <p>R$ 33 mil é uma lembrança aproximada de um ano turbulento. R$ 37.709 é a média de 12 meses de um relatório que mistura três equipes diferentes — a que saiu em dezembro, a de Pedro e Aline, e a atual. Nenhuma das duas descreve o negócio que existe hoje. <b>A baseline correta para qualquer meta de 90 dias é R$ 26–27 mil</b>: é o que a equipe de 6 pessoas que está na casa agora efetivamente fatura, e está em trajetória de alta desde que se formou.</p>
   </section>
 
   <!-- ============ 4 ============ -->
   <section>
     <div class="marker">
       <span class="num">04</span>
-      <h2>Carteira e oportunidades</h2>
-      <span class="of">Página 4 de 5</span>
+      <h2>Serviços e carteira</h2>
+      <span class="of">Página 4 de 6</span>
     </div>
 
-    <h3>Segmentação por recência</h3>
+    <h3>Distribuição por categoria — equipe atual, 12 meses</h3>
     <div class="scroll">
       <table>
-        <thead><tr><th>Segmento</th><th>Critério</th><th>Clientes</th><th>Receita histórica</th><th>% da carteira</th></tr></thead>
         <tbody>
-          <tr><td class="name">Ativas</td><td>última visita ≤ 60 dias</td><td>161</td><td>R$ 140.521</td><td>22,4%</td></tr>
-          <tr class="accent"><td class="name">Em risco</td><td>61 a 180 dias sem voltar</td><td>250</td><td>R$ 145.033</td><td>34,7%</td></tr>
-          <tr><td class="name">Perdidas</td><td>mais de 180 dias</td><td>309</td><td>R$ 91.659</td><td>42,9%</td></tr>
+          <tr><td class="name">Cabelo (Bruna + Lilian)</td><td>R$ 76.789</td><td>71,6%</td></tr>
+          <tr><td class="name">Manicure/Pedicure/Unhas em Gel</td><td>R$ 24.581</td><td>22,9%</td></tr>
+          <tr><td class="name">Sobrancelha e Depilação</td><td>R$ 4.290</td><td>4,0%</td></tr>
+          <tr><td class="name">Outros</td><td>R$ 1.538</td><td>1,4%</td></tr>
         </tbody>
       </table>
     </div>
 
-    <p>Só <b>161 das 720 clientes</b> estão ativas. O grupo "em risco" é o mais valioso do salão em receita histórica — R$ 145.033 — e ainda está dentro da janela em que uma abordagem funciona. As 309 perdidas incluem boa parte da carteira que migrou na quebra de sociedade.</p>
-
-    <h3>Oportunidades quantificadas</h3>
-    <div class="cols">
-      <div class="card">
-        <div class="head"><span class="title">Reativação das clientes em risco</span><span class="pill alta">Alta</span></div>
-        <p>250 clientes entre 61 e 180 dias sem voltar. A 15% de conversão, são 37 visitas ao ticket atual de R$ 257.</p>
-        <span class="prize">+R$ 9.500 / mês</span>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Retoque de raiz da iluminação</span><span class="pill alta">Alta</span></div>
-        <p>77 clientes de iluminação sem régua de manutenção. Ciclo de 45 dias, 40% de adesão, R$ 303 o retoque.</p>
-        <span class="prize">+R$ 6.200 / mês</span>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Cross-sell para quem só faz unhas</span><span class="pill media">Média</span></div>
-        <p>258 clientes nunca passaram pelo cabelo. A 3% ao mês, ao ticket médio de cabelo de R$ 232.</p>
-        <span class="prize">+R$ 1.800 / mês</span>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Tratamento junto da química</span><span class="pill media">Média</span></div>
-        <p>Só 30 de 290 visitas com química levaram tratamento — 10,3%. Levar a 35% a R$ 213 o tratamento.</p>
-        <span class="prize">+R$ 1.300 / mês</span>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Fim dos serviços a R$ 0</span><span class="pill media">Média</span></div>
-        <p>410 serviços zerados no ano — 13,3% do total. Converter metade ao valor médio de R$ 45.</p>
-        <span class="prize">+R$ 770 / mês</span>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Segunda-feira ociosa</span><span class="pill media">Média</span></div>
-        <p>Segunda responde por R$ 32.590 no ano — o pior dia. É a moeda de troca barata para parcerias corporativas.</p>
-        <span class="prize">a dimensionar</span>
-      </div>
+    <div class="callout warn">
+      <span class="kicker">Serviços órfãos — o cardápio que a casa não entrega mais</span>
+      <p><b>Nota de correção:</b> "Luzes" e "Reflexo" são a mesma técnica, só nomes diferentes no sistema — Bruna já entrega esse serviço (28 dos 60 "Reflexo" do ano). Não é órfão. Os órfãos reais são <b>penteado, maquiagem e corte masculino</b> — nenhum da equipe atual os executa. No ano completo (todos os profissionais, inclusive os que saíram): Penteado R$ 2.350 (10x), Maquiagem R$ 6.821 (23x), Corte Masculino R$ 255 (4x). Juntos, ~R$ 9,4 mil/ano de demanda que hoje bate na porta e não encontra quem atenda — bem menor que o volume de cabelo, mas ainda uma decisão pendente: contratar, treinar a equipe atual, ou tirar do cardápio e do Instagram.</p>
     </div>
 
-    <div class="callout">
-      <span class="kicker">Potencial consolidado</span>
-      <p>As alavancas somam <b>+R$ 19.570/mês</b> sobre o patamar atual de R$ 37.709 — sem contratar ninguém, sem obra e sem mídia paga. A meta de 90 dias é operar entre <b>R$ 55 e 60 mil por mês</b>. Todas as cinco primeiras alavancas dependem de uma coisa só: falar com quem já é cliente.</p>
-    </div>
-
-    <h3>Concentração de risco</h3>
-    <div class="split">
-      <div>
-        <div class="scroll">
-          <table>
-            <caption>Receita por profissional — 12 meses</caption>
-            <thead><tr><th>Profissional</th><th>Receita</th><th>%</th><th>Médio</th></tr></thead>
-            <tbody>
-              <tr><td class="name">Pedro Guilherme Alves</td><td>R$ 71.219</td><td>18,9%</td><td>R$ 219</td></tr>
-              <tr><td class="name">Aline</td><td>R$ 66.618</td><td>17,7%</td><td>R$ 366</td></tr>
-              <tr><td class="name">Bruna Chaves</td><td>R$ 39.461</td><td>10,5%</td><td>R$ 407</td></tr>
-              <tr><td class="name">Lilian R. M. da Silva</td><td>R$ 37.328</td><td>9,9%</td><td>R$ 164</td></tr>
-              <tr><td class="name">Selma</td><td>R$ 25.365</td><td>6,7%</td><td>R$ 158</td></tr>
-              <tr><td class="name">Rosilda Santos Nunes</td><td>R$ 20.146</td><td>5,3%</td><td>R$ 45</td></tr>
-              <tr><td class="name">Valdinéia dos S. Campos</td><td>R$ 17.336</td><td>4,6%</td><td>R$ 44</td></tr>
-              <tr><td class="name">Cibelle L. A. Santos</td><td>R$ 14.730</td><td>3,9%</td><td>R$ 65</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div>
-        <div class="scroll">
-          <table>
-            <caption>Concentração da carteira</caption>
-            <thead><tr><th>Grupo</th><th>Receita</th><th>% do total</th></tr></thead>
-            <tbody>
-              <tr><td class="name">Top 10 clientes</td><td>R$ 58.461</td><td>15,5%</td></tr>
-              <tr><td class="name">Top 20 clientes</td><td>R$ 88.002</td><td>23,3%</td></tr>
-              <tr><td class="name">Top 50 clientes</td><td>R$ 146.795</td><td>38,9%</td></tr>
-              <tr class="accent"><td class="name">Top 100 clientes</td><td>R$ 206.749</td><td>54,8%</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p style="font-size:0.86rem;color:var(--ink-mute);margin-top:1rem">Três profissionais respondem por <b>47,1%</b> da receita e cem clientes por <b>54,8%</b>. Depois de uma quebra de sociedade em que o sócio saiu levando carteira, essa é a mesma exposição que produziu a crise — agora concentrada em outras pessoas.</p>
-      </div>
-    </div>
+    <h3>ClassPass e Sheer Me — canal de aquisição, não cortesia</h3>
+    <p>O salão tem parceria ativa com ClassPass e Sheer Me. <b>410 serviços do ano (13,3% do total) saem a R$ 0 no relatório</b> — concentrados exatamente nas categorias que essas plataformas vendem: manicure (168), pedicure (87), escova longa (48). A leitura correta não é "cortesia descontrolada": é receita que entra por repasse de plataforma e não aparece no valor do lançamento. <b>Ação necessária: conciliar o extrato de repasse das duas plataformas com esses 410 lançamentos</b> antes de qualquer decisão sobre política de desconto — a receita real do salão provavelmente é maior que os R$ 377.213 do relatório bruto.</p>
   </section>
 
   <!-- ============ 5 ============ -->
   <section>
     <div class="marker">
       <span class="num">05</span>
-      <h2>Direcionamento de evolução</h2>
-      <span class="of">Página 5 de 5</span>
+      <h2>Oportunidades quantificadas</h2>
+      <span class="of">Página 5 de 6</span>
+    </div>
+
+    <div class="cols">
+      <div class="card">
+        <div class="head"><span class="title">Encher a agenda da Bruna</span><span class="pill alta">Alta</span></div>
+        <p>97 atendimentos no ano — menos de 2/semana — com o maior ticket da cabeleireira da casa (R$ 407/serviço). Não é falta de demanda; é falta de agenda ocupada.</p>
+        <span class="prize">alavanca nº 1</span>
+      </div>
+      <div class="card">
+        <div class="head"><span class="title">Decidir penteado e maquiagem</span><span class="pill media">Média</span></div>
+        <p>R$ 9,1 mil/ano em demanda de penteado e maquiagem sem ninguém para atender (Reflexo/Luzes já é coberto pela Bruna). Contratar, treinar ou remover do cardápio — mas decidir.</p>
+        <span class="prize">~R$ 760/mês</span>
+      </div>
+      <div class="card">
+        <div class="head"><span class="title">Conciliar ClassPass/Sheer Me</span><span class="pill alta">Alta</span></div>
+        <p>410 serviços a R$ 0 podem estar subestimando a receita real do salão. Conciliar extratos antes de fechar qualquer meta.</p>
+        <span class="prize">a confirmar</span>
+      </div>
+      <div class="card">
+        <div class="head"><span class="title">Cross-sell unhas → cabelo</span><span class="pill media">Média</span></div>
+        <p>Carteira de Lu e Cibele (196 clientes) raramente cruza para os serviços de cabelo de Bruna e Lilian.</p>
+        <span class="prize">~R$ 1.500/mês</span>
+      </div>
+      <div class="card">
+        <div class="head"><span class="title">Segunda-feira ociosa</span><span class="pill media">Média</span></div>
+        <p>Pior dia da semana em receita no ano completo. Moeda de troca barata para parcerias do entorno.</p>
+        <span class="prize">a dimensionar</span>
+      </div>
+      <div class="card">
+        <div class="head"><span class="title">Reativação seletiva</span><span class="pill media">Média</span></div>
+        <p>Só faz sentido para as 255 clientes (720 − 465 órfãs) que já foram atendidas por quem está na casa hoje.</p>
+        <span class="prize">~R$ 2.000/mês</span>
+      </div>
+    </div>
+
+    <div class="callout win">
+      <span class="kicker">Potencial realista de 90 dias</span>
+      <p>Sobre a baseline de R$ 26–27 mil, as alavancas acima — todas dependentes de manter a equipe atual e ocupar melhor a agenda que já existe — projetam <b>R$ 33–38 mil/mês</b> ao final do trimestre. Não é a meta ambiciosa de um salão que recupera 12 meses de história; é a meta realista de uma equipe de 6 pessoas operando no seu potencial.</p>
+    </div>
+  </section>
+
+  <!-- ============ 6 ============ -->
+  <section>
+    <div class="marker">
+      <span class="num">06</span>
+      <h2>Direcionamento</h2>
+      <span class="of">Página 6 de 6</span>
     </div>
 
     <div class="split">
       <div>
         <h3>Pontos fortes</h3>
         <ul class="plain">
-          <li><b>O reposicionamento de preço pegou.</b> Ticket de R$ 86 para R$ 260 em doze meses, sem perder a base recorrente.</li>
-          <li><b>Existe um serviço-âncora de verdade.</b> Reflexo entrega R$ 945 por atendimento — patamar de salão de referência.</li>
-          <li><b>Março provou o teto.</b> R$ 49.856 com 165 visitas mostra que a casa suporta o volume que hoje não tem.</li>
-          <li><b>Sábado é premium.</b> Maior ticket por visita da semana, com apenas 299 serviços no ano — há espaço.</li>
-          <li><b>Reputação externa saudável.</b> 4,8 de nota com 67 avaliações no ClassPass indica que a entrega técnica agrada.</li>
+          <li><b>A equipe atual está em curva de alta.</b> Cinco meses seguidos de crescimento desde que se formou.</li>
+          <li><b>Bruna e Lilian têm abertura conquistada</b> com a direção — base para construir retenção real.</li>
+          <li><b>ClassPass e Sheer Me são canal ativo</b>, não vazamento — só falta conciliar.</li>
+          <li><b>Recepção com potencial</b> — já cuida do Instagram, pode evoluir com treinamento.</li>
         </ul>
       </div>
       <div>
         <h3>Pontos de melhoria</h3>
         <ul class="plain">
-          <li><b>Recompra da iluminação em 6%.</b> O carro-chefe não tem régua de retorno — é o vazamento nº 1.</li>
-          <li><b>Seis em cada dez clientes vêm uma vez só.</b> Não há processo de reagendamento na saída.</li>
-          <li><b>13,3% dos serviços saem a R$ 0.</b> Sem política escrita, cortesia vira hábito.</li>
-          <li><b>1,55 serviço por visita.</b> Cross-sell praticamente inexistente entre unhas e cabelo.</li>
-          <li><b>Sem dado de duração nem de origem da cliente.</b> Impossível medir ocupação ou retorno de canal.</li>
+          <li><b>78% de rotatividade</b> é a causa raiz de quase todo o resto deste relatório.</li>
+          <li><b>Cardápio maior que a equipe</b> — luzes, penteado, maquiagem, corte masculino sem quem atenda.</li>
+          <li><b>Sem registro de duração de serviço</b> — impossível medir ocupação real de agenda.</li>
+          <li><b>Sem política de conduta e redes sociais</b> aplicável a todos, inclusive à direção.</li>
         </ul>
       </div>
     </div>
 
-    <h3>Plano de ação — as três frentes do próximo ciclo</h3>
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Frente</th><th>Movimento</th><th>Dono</th><th>Prazo</th></tr></thead>
-        <tbody>
-          <tr>
-            <td class="name"><b>Régua de recompra</b></td>
-            <td class="name" style="text-align:left">Cadastrar ciclo por serviço (raiz 30–45 d, iluminação 60–75 d, corte 45–60 d) e agendar a próxima visita antes de a cliente deixar a cadeira.</td>
-            <td class="name" style="text-align:left">Recepção</td><td>Semana 1</td>
-          </tr>
-          <tr>
-            <td class="name"><b>Resgate das 250 em risco</b></td>
-            <td class="name" style="text-align:left">Fila nominal por valor histórico, abordagem individual da profissional que atendeu, não disparo em massa.</td>
-            <td class="name" style="text-align:left">Dona + equipe</td><td>Semanas 1–4</td>
-          </tr>
-          <tr>
-            <td class="name"><b>Fim do R$ 0 sem regra</b></td>
-            <td class="name" style="text-align:left">Política escrita de cortesia com teto mensal e aprovação; separar no sistema o que é parceria do que é brinde.</td>
-            <td class="name" style="text-align:left">Dona</td><td>Semana 2</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
     <div class="callout">
-      <span class="kicker">O que precisa passar a ser registrado</span>
-      <p>Três campos hoje ausentes travam a gestão: <b>duração do serviço</b> (sem ela não há ocupação nem custo de cadeira), <b>origem da cliente</b> (sem ela não se sabe o que o Instagram, o Google e o ClassPass realmente trazem) e <b>motivo do valor zerado</b> (sem ele não se distingue cortesia de convênio). Implantar os três é pré-requisito do relatório do próximo mês.</p>
+      <span class="kicker">A frase que abre a reunião de terça</span>
+      <p>"A equipe que está aqui hoje fatura R$ 26 a 27 mil por mês e cresceu cinco meses seguidos." É verdade, é mensurável, e muda a postura da conversa: quem ouve entra como alguém que está reconstruindo com sucesso, não fracassando. A conversa sobre os 78% de rotatividade vem depois — dói mais e é aceita melhor.</p>
     </div>
   </section>
 

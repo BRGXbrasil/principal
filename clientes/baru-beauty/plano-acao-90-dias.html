@@ -2,451 +2,96 @@
 
 <style>
   :root {
-    --ground: #FBF9F6;
-    --raised: #FFFFFF;
-    --sunken: #F3EEE7;
-    --ink: #241C17;
-    --ink-soft: #574A41;
-    --ink-mute: #7A6E64;
-    --rule: #E3DACE;
-    --rule-firm: #C9BCAA;
-    --brass: #A67C3D;
-    --brass-wash: #F5EBDA;
-    --critical: #9E3B2E;
-    --critical-wash: #F8E9E6;
-    --positive: #4A6B4F;
-    --positive-wash: #E9F0E9;
-
+    --ground: #FBF9F6; --raised: #FFFFFF; --sunken: #F3EEE7;
+    --ink: #241C17; --ink-soft: #574A41; --ink-mute: #7A6E64;
+    --rule: #E3DACE; --rule-firm: #C9BCAA;
+    --brass: #A67C3D; --brass-wash: #F5EBDA;
+    --critical: #9E3B2E; --critical-wash: #F8E9E6;
+    --positive: #4A6B4F; --positive-wash: #E9F0E9;
     --serif: 'Hoefler Text', 'Playfair Display', Georgia, 'Times New Roman', serif;
     --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     --mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
   }
-
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --ground: #17120F;
-      --raised: #1F1915;
-      --sunken: #221B16;
-      --ink: #F0EAE3;
-      --ink-soft: #C6B9AC;
-      --ink-mute: #9C8D7F;
-      --rule: #33291F;
-      --rule-firm: #4A3B2D;
-      --brass: #D4A55E;
-      --brass-wash: #2A2015;
-      --critical: #D97C6A;
-      --critical-wash: #2E1B17;
-      --positive: #8FB395;
-      --positive-wash: #1B241C;
+      --ground: #17120F; --raised: #1F1915; --sunken: #221B16;
+      --ink: #F0EAE3; --ink-soft: #C6B9AC; --ink-mute: #9C8D7F;
+      --rule: #33291F; --rule-firm: #4A3B2D;
+      --brass: #D4A55E; --brass-wash: #2A2015;
+      --critical: #D97C6A; --critical-wash: #2E1B17;
+      --positive: #8FB395; --positive-wash: #1B241C;
     }
   }
-
   :root[data-theme="dark"] {
-    --ground: #17120F;
-    --raised: #1F1915;
-    --sunken: #221B16;
-    --ink: #F0EAE3;
-    --ink-soft: #C6B9AC;
-    --ink-mute: #9C8D7F;
-    --rule: #33291F;
-    --rule-firm: #4A3B2D;
-    --brass: #D4A55E;
-    --brass-wash: #2A2015;
-    --critical: #D97C6A;
-    --critical-wash: #2E1B17;
-    --positive: #8FB395;
-    --positive-wash: #1B241C;
+    --ground: #17120F; --raised: #1F1915; --sunken: #221B16;
+    --ink: #F0EAE3; --ink-soft: #C6B9AC; --ink-mute: #9C8D7F;
+    --rule: #33291F; --rule-firm: #4A3B2D;
+    --brass: #D4A55E; --brass-wash: #2A2015;
+    --critical: #D97C6A; --critical-wash: #2E1B17;
+    --positive: #8FB395; --positive-wash: #1B241C;
   }
-
-  body {
-    background: var(--ground);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.62;
-    margin: 0;
-    padding: 0 1.5rem 6rem;
-    -webkit-font-smoothing: antialiased;
-  }
-
+  body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.62; margin: 0; padding: 0 1.5rem 6rem; -webkit-font-smoothing: antialiased; }
   .sheet { max-width: 62rem; margin: 0 auto; }
-
-  .cover {
-    padding: 5rem 0 3rem;
-    border-bottom: 2px solid var(--ink);
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-  }
-
-  .firm {
-    font-size: 0.7rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--brass);
-    font-weight: 600;
-  }
-
-  .cover h1 {
-    font-family: var(--serif);
-    font-size: clamp(2.5rem, 6.6vw, 4.2rem);
-    line-height: 1.03;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    margin: 0;
-    text-wrap: balance;
-  }
-
+  .cover { padding: 5rem 0 3rem; border-bottom: 2px solid var(--ink); display: flex; flex-direction: column; gap: 1.75rem; }
+  .firm { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass); font-weight: 600; }
+  .cover h1 { font-family: var(--serif); font-size: clamp(2.5rem, 6.6vw, 4.2rem); line-height: 1.03; font-weight: 400; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
   .cover h1 em { font-style: italic; color: var(--brass); }
-
-  .lede {
-    font-family: var(--serif);
-    font-size: clamp(1.15rem, 2.3vw, 1.4rem);
-    line-height: 1.5;
-    color: var(--ink-soft);
-    max-width: 44ch;
-    margin: 0;
-  }
-
-  .cover-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 2.5rem;
-    font-size: 0.82rem;
-    color: var(--ink-mute);
-  }
+  .lede { font-family: var(--serif); font-size: clamp(1.15rem, 2.3vw, 1.4rem); line-height: 1.5; color: var(--ink-soft); max-width: 46ch; margin: 0; }
+  .cover-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 2.5rem; font-size: 0.82rem; color: var(--ink-mute); }
   .cover-meta b { color: var(--ink-soft); font-weight: 600; }
-
-  /* ---------- índice ---------- */
-
-  nav {
-    margin: 2.5rem 0 0;
-    border: 1px solid var(--rule);
-    background: var(--raised);
-    padding: 1.4rem 1.5rem;
-  }
-
-  nav ol {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 0.65rem 2rem;
-    counter-reset: toc;
-  }
-
+  nav { margin: 2.5rem 0 0; border: 1px solid var(--rule); background: var(--raised); padding: 1.4rem 1.5rem; }
+  nav ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0.65rem 2rem; counter-reset: toc; }
   nav li { counter-increment: toc; font-size: 0.9rem; }
-
-  nav li::before {
-    content: counter(toc, decimal-leading-zero);
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--brass);
-    margin-right: 0.7rem;
-  }
-
+  nav li::before { content: counter(toc, decimal-leading-zero); font-family: var(--mono); font-size: 0.7rem; color: var(--brass); margin-right: 0.7rem; }
   nav a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid transparent; }
   nav a:hover { border-bottom-color: var(--brass); color: var(--ink); }
-
-  /* ---------- seções ---------- */
-
   section { padding-top: 4.5rem; }
-
-  .marker {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    border-bottom: 1px solid var(--rule-firm);
-    padding-bottom: 0.6rem;
-    margin-bottom: 1.75rem;
-  }
-
-  .marker .num {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--brass);
-    letter-spacing: 0.08em;
-  }
-
-  .marker h2 {
-    font-family: var(--serif);
-    font-size: clamp(1.5rem, 3.4vw, 2.05rem);
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    margin: 0;
-    flex: 1;
-    text-wrap: balance;
-  }
-
-  .marker .tag {
-    font-size: 0.66rem;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    white-space: nowrap;
-  }
-
-  h3 {
-    font-family: var(--serif);
-    font-size: 1.22rem;
-    font-weight: 600;
-    margin: 2.75rem 0 0.9rem;
-    letter-spacing: -0.01em;
-  }
-
-  h4 {
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    font-weight: 600;
-    margin: 2rem 0 0.85rem;
-  }
-
+  .marker { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--rule-firm); padding-bottom: 0.6rem; margin-bottom: 1.75rem; }
+  .marker .num { font-family: var(--mono); font-size: 0.75rem; color: var(--brass); letter-spacing: 0.08em; }
+  .marker h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3.4vw, 2.05rem); font-weight: 400; letter-spacing: -0.01em; margin: 0; flex: 1; text-wrap: balance; }
+  .marker .tag { font-size: 0.66rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-mute); white-space: nowrap; }
+  h3 { font-family: var(--serif); font-size: 1.22rem; font-weight: 600; margin: 2.75rem 0 0.9rem; letter-spacing: -0.01em; }
+  h4 { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin: 2rem 0 0.85rem; }
   p { margin: 0 0 1rem; max-width: 70ch; }
   p:last-child { margin-bottom: 0; }
   strong { font-weight: 600; }
-
-  /* ---------- listas ---------- */
-
   ul.plain, ol.steps { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: 0.75rem; }
-
-  ul.plain li {
-    padding-left: 1.2rem;
-    position: relative;
-    color: var(--ink-soft);
-    max-width: 70ch;
-  }
-
-  ul.plain li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.66em;
-    width: 0.5rem;
-    height: 1px;
-    background: var(--brass);
-  }
-
+  ul.plain li { padding-left: 1.2rem; position: relative; color: var(--ink-soft); max-width: 70ch; }
+  ul.plain li::before { content: ""; position: absolute; left: 0; top: 0.66em; width: 0.5rem; height: 1px; background: var(--brass); }
   ul.plain li b, ol.steps li b { color: var(--ink); font-weight: 600; }
-
   ol.steps { counter-reset: step; }
-
-  ol.steps li {
-    counter-increment: step;
-    padding-left: 2.4rem;
-    position: relative;
-    color: var(--ink-soft);
-    max-width: 70ch;
-  }
-
-  ol.steps li::before {
-    content: counter(step, decimal-leading-zero);
-    position: absolute;
-    left: 0;
-    top: 0.1em;
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--brass);
-    font-weight: 600;
-  }
-
-  /* checklist de auditoria */
-  ul.check { list-style: none; padding: 0; margin: 0.9rem 0; display: grid; gap: 0.5rem; }
-
-  ul.check li {
-    padding-left: 1.9rem;
-    position: relative;
-    font-size: 0.92rem;
-    color: var(--ink-soft);
-    max-width: 70ch;
-  }
-
-  ul.check li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.28em;
-    width: 0.85rem;
-    height: 0.85rem;
-    border: 1px solid var(--rule-firm);
-    border-radius: 2px;
-    background: var(--raised);
-  }
-
-  ul.check li b { color: var(--ink); font-weight: 600; }
-
-  /* ---------- blocos ---------- */
-
-  .callout {
-    border-left: 2px solid var(--brass);
-    background: var(--sunken);
-    padding: 1.1rem 1.3rem;
-    margin: 1.75rem 0;
-  }
+  ol.steps li { counter-increment: step; padding-left: 2.4rem; position: relative; color: var(--ink-soft); max-width: 70ch; }
+  ol.steps li::before { content: counter(step, decimal-leading-zero); position: absolute; left: 0; top: 0.1em; font-family: var(--mono); font-size: 0.72rem; color: var(--brass); font-weight: 600; }
+  .callout { border-left: 2px solid var(--brass); background: var(--sunken); padding: 1.1rem 1.3rem; margin: 1.75rem 0; }
   .callout.warn { border-left-color: var(--critical); }
   .callout.win { border-left-color: var(--positive); }
-
-  .callout .kicker {
-    font-size: 0.66rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--brass);
-    display: block;
-    margin-bottom: 0.5rem;
-  }
+  .callout .kicker { font-size: 0.66rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--brass); display: block; margin-bottom: 0.5rem; }
   .callout.warn .kicker { color: var(--critical); }
   .callout.win .kicker { color: var(--positive); }
   .callout p { font-size: 0.93rem; color: var(--ink-soft); }
-
-  .cols {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: 1.4rem;
-    margin: 1.3rem 0;
-  }
-
-  .card {
-    border: 1px solid var(--rule);
-    background: var(--raised);
-    padding: 1.2rem 1.25rem 1.35rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .card .head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 0.8rem;
-  }
-
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.4rem; margin: 1.3rem 0; }
+  .card { border: 1px solid var(--rule); background: var(--raised); padding: 1.2rem 1.25rem 1.35rem; display: flex; flex-direction: column; gap: 0.6rem; }
+  .card .head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.8rem; }
   .card .title { font-weight: 600; font-size: 1rem; line-height: 1.3; }
   .card p { font-size: 0.88rem; color: var(--ink-soft); margin: 0; }
   .card ul.plain { margin: 0; gap: 0.5rem; }
   .card ul.plain li { font-size: 0.86rem; }
-
-  .pill {
-    font-size: 0.6rem;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-    font-weight: 700;
-    padding: 0.2rem 0.5rem;
-    border-radius: 2px;
-    white-space: nowrap;
-  }
+  .pill { font-size: 0.6rem; letter-spacing: 0.11em; text-transform: uppercase; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 2px; white-space: nowrap; }
   .pill.alta { background: var(--critical-wash); color: var(--critical); }
   .pill.media { background: var(--brass-wash); color: var(--brass); }
   .pill.ok { background: var(--positive-wash); color: var(--positive); }
-
-  /* ---------- tabelas ---------- */
-
   .scroll { overflow-x: auto; margin: 1.2rem 0; }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.87rem;
-    font-variant-numeric: tabular-nums;
-  }
-
-  caption {
-    text-align: left;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    font-weight: 600;
-    padding-bottom: 0.6rem;
-  }
-
-  th {
-    text-align: left;
-    font-size: 0.68rem;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    font-weight: 600;
-    padding: 0 0.75rem 0.5rem;
-    border-bottom: 1px solid var(--rule-firm);
-    white-space: nowrap;
-  }
-
-  td {
-    padding: 0.6rem 0.75rem;
-    border-bottom: 1px solid var(--rule);
-    vertical-align: top;
-  }
-
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; font-variant-numeric: tabular-nums; }
+  caption { text-align: left; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; padding-bottom: 0.6rem; }
+  th { text-align: left; font-size: 0.68rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; padding: 0 0.75rem 0.5rem; border-bottom: 1px solid var(--rule-firm); white-space: nowrap; }
+  td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
   th:first-child, td:first-child { padding-left: 0; }
   th:last-child, td:last-child { padding-right: 0; }
   td.num, th.num { text-align: right; white-space: nowrap; }
   tbody tr:last-child td { border-bottom: none; }
   tr.accent td { background: var(--brass-wash); }
-
-  .verify {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.04em;
-    color: var(--critical);
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  /* ---------- calendário 30 dias ---------- */
-
-  .weeks { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 1.3rem 0; }
-
-  .week { background: var(--raised); padding: 1.1rem 1.2rem 1.25rem; display: grid; gap: 0.8rem; }
-
-  .week-head { display: flex; align-items: baseline; gap: 0.9rem; flex-wrap: wrap; }
-
-  .week-head .no {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    color: var(--brass);
-    letter-spacing: 0.1em;
-    font-weight: 600;
-  }
-
-  .week-head .theme { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; }
-  .week-head .goal { font-size: 0.8rem; color: var(--ink-mute); margin-left: auto; }
-
-  .days { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 0.7rem; }
-
-  .day {
-    border-top: 1px solid var(--rule);
-    padding-top: 0.55rem;
-    display: grid;
-    gap: 0.2rem;
-    font-size: 0.8rem;
-  }
-
-  .day .dl {
-    font-size: 0.62rem;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    font-weight: 600;
-  }
-  .day .dt { color: var(--ink); font-weight: 600; line-height: 1.35; }
-  .day .df { color: var(--ink-mute); font-size: 0.75rem; }
-
-  footer {
-    margin-top: 5rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--rule-firm);
-    font-size: 0.76rem;
-    color: var(--ink-mute);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem 2rem;
-    justify-content: space-between;
-  }
-
+  .verify { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.04em; color: var(--critical); text-transform: uppercase; white-space: nowrap; }
+  footer { margin-top: 5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule-firm); font-size: 0.76rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
   a { color: var(--brass); }
   a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 </style>
@@ -456,7 +101,7 @@
   <header class="cover">
     <div class="firm">BRGX Consultoria</div>
     <h1>Plano de Ação<br><em>90 Dias</em></h1>
-    <p class="lede">De R$ 37,7 mil para R$ 55–60 mil por mês sem contratar, sem obra e sem mídia paga — falando com quem já é cliente.</p>
+    <p class="lede">De R$ 26–27 mil para R$ 33–38 mil por mês. A primeira condição não é vender mais — é parar de perder quem vende.</p>
     <div class="cover-meta">
       <span>Cliente <b>Barú Beauty</b></span>
       <span>Unidade <b>Av. Brig. Faria Lima, 2128</b></span>
@@ -468,681 +113,256 @@
   <nav aria-label="Índice">
     <ol>
       <li><a href="#tese">A tese em uma página</a></li>
-      <li><a href="#p1">Dados e faturamento</a></li>
-      <li><a href="#p2">Google local e parcerias</a></li>
-      <li><a href="#p3">Reposicionamento do Instagram</a></li>
-      <li><a href="#p4">Equipe e experiência física</a></li>
-      <li><a href="#governanca">Governança do contrato</a></li>
-      <li><a href="#campo">Roteiro de campo</a></li>
+      <li><a href="#p1">Retenção de equipe</a></li>
+      <li><a href="#p2">Dados e faturamento</a></li>
+      <li><a href="#p3">Google, Instagram e concorrência</a></li>
+      <li><a href="#p4">Ambiente físico</a></li>
+      <li><a href="#barbearia">A oportunidade da barbearia</a></li>
+      <li><a href="#governanca">Governança e cronograma</a></li>
     </ol>
   </nav>
 
   <!-- ============ TESE ============ -->
   <section id="tese">
-    <div class="marker">
-      <span class="num">00</span>
-      <h2>A tese em uma página</h2>
-      <span class="tag">Leia isto primeiro</span>
+    <div class="marker"><span class="num">00</span><h2>A tese em uma página</h2><span class="tag">Leia isto primeiro</span></div>
+
+    <p>O diagnóstico original deste projeto olhava para um salão que perdeu clientes. Os dados mostram outra coisa: <b>um salão que perdeu profissionais, e a perda de clientes foi consequência.</b></p>
+
+    <div class="callout warn">
+      <span class="kicker">O número que reordena tudo</span>
+      <p><b>78% de rotatividade em 12 meses — 28 de 36 profissionais saíram, levando R$ 264.545 (70% da receita do ano).</b> Houve saída em dez dos doze meses. A cliente do Barú não é fiel ao salão, é fiel a quem a atende. Enquanto a rotatividade não for tratada como causa raiz, qualquer campanha de captação enche um balde sem fundo.</p>
     </div>
 
-    <p>O briefing deste projeto diz que o salão fatura R$ 33 mil e precisa se reerguer. Os dados dizem outra coisa, e a diferença muda o plano inteiro.</p>
-
-    <div class="callout">
-      <span class="kicker">O diagnóstico corrigido</span>
-      <p>R$ 33 mil é a média de doze meses — e esses doze meses incluem a retomada do zero depois da mudança de endereço. <b>O patamar real dos últimos seis meses é R$ 37.709/mês.</b> O ticket por visita saiu de R$ 86 para R$ 231–260. O reposicionamento de preço <b>já funcionou</b>. O problema não é quanto se cobra: é quantas vezes a cadeira gira e quantas clientes voltam.</p>
-    </div>
-
-    <p>Três números definem o trabalho dos próximos 90 dias:</p>
+    <p>A equipe atual — 6 pessoas — fatura R$ 26–27 mil/mês e cresce desde março. É a base real do plano. As alavancas abaixo dependem de uma coisa: <b>que essas 6 pessoas continuem aqui em outubro.</b></p>
 
     <div class="cols">
       <div class="card">
-        <div class="head"><span class="title">6%</span><span class="pill alta">Vazamento nº 1</span></div>
-        <p>Das 77 clientes que fizeram iluminação capilar no ano, <b>só 5 voltaram</b> para a segunda. Num serviço de R$ 869 que exige retoque a cada 45 dias.</p>
+        <div class="head"><span class="title">Pilar 1</span><span class="pill alta">Retenção de equipe</span></div>
+        <p>Estancar a saída antes de qualquer outra coisa. É o único pilar que, se falhar, derruba todos os outros.</p>
       </div>
       <div class="card">
-        <div class="head"><span class="title">59,9%</span><span class="pill alta">Vazamento nº 2</span></div>
-        <p><b>431 das 720 clientes vieram uma única vez.</b> Não existe processo de reagendamento na saída. A porta da frente está aberta; a de trás também.</p>
+        <div class="head"><span class="title">Pilar 2</span><span class="pill media">Dados e faturamento</span></div>
+        <p>Ocupar a agenda que já existe: Bruna, cardápio órfão, conciliação ClassPass/Sheer Me.</p>
       </div>
       <div class="card">
-        <div class="head"><span class="title">115</span><span class="pill alta">Vazamento nº 3</span></div>
-        <p>Visitas em julho, contra 233 em dezembro. <b>A agenda encolheu pela metade</b> enquanto o ticket subia. É por isso que julho fechou em R$ 26,6 mil.</p>
+        <div class="head"><span class="title">Pilar 3</span><span class="pill media">Google, Instagram, concorrência</span></div>
+        <p>Presença digital coerente com o padrão da casa. Concorrência mencionada, nunca combatida.</p>
+      </div>
+      <div class="card">
+        <div class="head"><span class="title">Pilar 4</span><span class="pill media">Ambiente físico</span></div>
+        <p>Edição, não obra. O olhar de moda da dona aplicado ao espaço que já existe.</p>
       </div>
     </div>
+  </section>
 
-    <p>O plano ataca os três na ordem em que dão dinheiro. Nenhuma das cinco alavancas principais exige investimento — todas dependem de falar com quem já passou pela cadeira.</p>
+  <!-- ============ PILAR 1 ============ -->
+  <section id="p1">
+    <div class="marker"><span class="num">01</span><h2>Retenção de equipe</h2><span class="tag">Pilar 1 — o que vem antes de tudo</span></div>
 
+    <p>Este pilar não aponta pessoas nem repete relatos não verificados. Ele traduz cada risco identificado em <b>política, papel e processo</b> — a mesma lógica que protege a operação independente de quem está certo em qualquer episódio específico.</p>
+
+    <h3>Políticas a instalar nos primeiros 30 dias</h3>
     <div class="scroll">
       <table>
-        <caption>As alavancas e o que cada uma vale por mês</caption>
-        <thead>
-          <tr><th>Alavanca</th><th>Base de cálculo</th><th class="num">Ganho/mês</th><th>Prazo</th></tr>
-        </thead>
+        <thead><tr><th>Política</th><th>O que resolve</th><th>Dono</th><th>Prazo</th></tr></thead>
         <tbody>
-          <tr><td><b>Reativação das 250 em risco</b></td><td>15% de conversão × R$ 257 de ticket</td><td class="num">+R$ 9.500</td><td>30 dias</td></tr>
-          <tr><td><b>Régua de retoque da iluminação</b></td><td>77 clientes, ciclo 45 d, 40% adesão, R$ 303</td><td class="num">+R$ 6.200</td><td>60 dias</td></tr>
-          <tr><td><b>Cross-sell unhas → cabelo</b></td><td>258 clientes, 3%/mês × R$ 232</td><td class="num">+R$ 1.800</td><td>60 dias</td></tr>
-          <tr><td><b>Tratamento junto da química</b></td><td>10,3% → 35% de 290 visitas × R$ 213</td><td class="num">+R$ 1.300</td><td>45 dias</td></tr>
-          <tr><td><b>Fim do R$ 0 sem regra</b></td><td>metade dos 410 serviços zerados × R$ 45</td><td class="num">+R$ 770</td><td>15 dias</td></tr>
-          <tr class="accent"><td><b>Total</b></td><td>sobre o patamar atual de R$ 37.709</td><td class="num"><b>+R$ 19.570</b></td><td>90 dias</td></tr>
+          <tr>
+            <td><b>1-a-1 quinzenal com pauta fixa</b></td>
+            <td class="name" style="text-align:left">Canal estruturado de escuta antes que a insatisfação vire pedido de demissão. Pauta: carga, remuneração, agenda, reconhecimento.</td>
+            <td>Direção</td><td class="num">Semana 1</td>
+          </tr>
+          <tr>
+            <td><b>Alçada de publicação em redes</b></td>
+            <td class="name" style="text-align:left">Um responsável único pelo Instagram do salão, fluxo de aprovação, separação clara entre perfil pessoal e institucional.</td>
+            <td>Direção + Recepção</td><td class="num">Semana 1</td>
+          </tr>
+          <tr>
+            <td><b>Modelo de remuneração explícito</b></td>
+            <td class="name" style="text-align:left">Comissão, meta e regra de reajuste por escrito e igual para todos — elimina negociação caso a caso, que é fonte comum de atrito.</td>
+            <td>Direção + Admin</td><td class="num">Semana 2</td>
+          </tr>
+          <tr>
+            <td><b>Trilha de crescimento para Bruna e Lilian</b></td>
+            <td class="name" style="text-align:left">As duas com abertura já conquistada com a dona. Meta, comissão e reconhecimento crescentes amarrados a resultado — reduz o custo de oportunidade de sair.</td>
+            <td>Direção</td><td class="num">Semana 2</td>
+          </tr>
+          <tr class="accent">
+            <td><b>Regulamento interno assinado</b></td>
+            <td class="name" style="text-align:left">Documento próprio (entregue junto deste plano) com capítulo de conduta aplicável a todos, inclusive à direção.</td>
+            <td>Todos</td><td class="num">Semana 3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <span class="kicker">Como medir se está funcionando</span>
+      <p>Um único indicador: <b>nenhuma saída não planejada nos próximos 90 dias.</b> Rotatividade zero é a meta do Pilar 1 — todos os outros pilares dependem dela para produzir retorno.</p>
+    </div>
+
+    <div class="callout warn">
+      <span class="kicker">Nota de metodologia</span>
+      <p>Percepções da equipe sobre a conduta da direção foram ouvidas em campo, mas <b>não entram neste documento</b> — são relato de terceiros ainda não verificado, e não cabem em papel com uma cliente que já responde a processos trabalhistas. A conversa correspondente acontece verbalmente e a sós entre a consultoria e a dona, ancorada apenas nos números acima.</p>
+    </div>
+  </section>
+
+  <!-- ============ PILAR 2 ============ -->
+  <section id="p2">
+    <div class="marker"><span class="num">02</span><h2>Dados e faturamento</h2><span class="tag">Pilar 2</span></div>
+
+    <h3>As três alavancas sobre a agenda que já existe</h3>
+    <ol class="steps">
+      <li><b>Encher a agenda da Bruna.</b> 97 atendimentos no ano com o maior ticket da casa (R$ 407/serviço). Investigar com ela mesma: falta de divulgação, restrição de horário, ou triagem de recepção que não a prioriza.</li>
+      <li><b>Decidir o cardápio órfão.</b> Reflexo/Luzes já é coberto pela Bruna (mesma técnica, dois nomes no sistema — não é lacuna). O que falta mesmo é <b>penteado, maquiagem e corte masculino</b> — ~R$ 9,4 mil/ano de demanda histórica sem ninguém para atender hoje. Três caminhos: treinar a equipe atual, contratar especialista, ou remover do Instagram e do Google para parar de gerar expectativa que não se cumpre.</li>
+      <li><b>Conciliar ClassPass e Sheer Me.</b> 410 serviços a R$ 0 no relatório (13,3% do total) — concentrados em manicure, pedicure e escova, exatamente o cardápio dessas plataformas. Pedir o extrato de repasse dos últimos 12 meses e confirmar se a receita real do salão é maior que os R$ 377.213 registrados.</li>
+    </ol>
+
+    <h3>Régua de recompra — o hábito que falta</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Serviço</th><th class="num">Ciclo</th><th>Gatilho</th></tr></thead>
+        <tbody>
+          <tr><td>Química/coloração (Bruna)</td><td class="num">30–45 dias</td><td>Contato no dia 28</td></tr>
+          <tr><td>Escova/manutenção (Lilian)</td><td class="num">7–15 dias</td><td>Pacote mensal</td></tr>
+          <tr><td>Manicure/pedicure (Lu, Cibele)</td><td class="num">15–21 dias</td><td>Reagendar na saída</td></tr>
+          <tr><td>Sobrancelha/micropigmentação</td><td class="num">30–60 dias</td><td>Conforme técnica</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <span class="kicker">O ritual de dois minutos que sustenta o pilar inteiro</span>
+      <p>Foto do resultado, pedido de avaliação, próxima data — sempre nessa ordem, sempre antes da cliente sair da cadeira. Alimenta Instagram, Google e recompra ao mesmo tempo. Detalhado como POP específico no manual operacional.</p>
+    </div>
+  </section>
+
+  <!-- ============ PILAR 3 ============ -->
+  <section id="p3">
+    <div class="marker"><span class="num">03</span><h2>Google, Instagram e concorrência</h2><span class="tag">Pilar 3</span></div>
+
+    <div class="callout warn">
+      <span class="kicker">Postura sobre concorrência — decisão explícita</span>
+      <p>Concorrentes <b>não entram como alvo de confronto</b> neste plano. Le Fer Coiffure fica no mesmo prédio (2128) e é onde uma ex-profissional está hoje; outro salão fica próximo à Rebouças, relativamente longe. Nenhum dos dois é mencionado publicamente, em post, resposta de avaliação ou conversa com cliente. O foco é construir o novo espaço, não competir com o antigo.</p>
+    </div>
+
+    <h4>A única ação de resgate — elegante, sem confronto</h4>
+    <p>Uma parte mínima das clientes que seguiram profissionais que saíram pode não ter gostado do novo espaço ou do último atendimento — sempre existe essa chance. Uma única ação, sóbria: <b>convite pessoal para conhecer o Barú reformado</b>, sem menção a onde a cliente está hoje, sem desconto agressivo. Só para as clientes de maior valor histórico da lista de órfãs. Detalhes de execução no guia rápido.</p>
+
+    <h4>Google — prioridades</h4>
+    <ul class="plain">
+      <li><b>Reivindicar e blindar a ficha do Google Meu Negócio</b> — endereço com número da loja explícito (prédio tem 4 ocupantes).</li>
+      <li><b>Cadastrar cada serviço com preço</b>, incluindo os que a equipe atual não faz — ou remover, se a decisão do Pilar 2 for não ofertar mais.</li>
+      <li><b>Meta de avaliações:</b> levar a prova do ClassPass (4,8, 67 avaliações) para o Google via QR no salão e pedido no momento do espelho.</li>
+      <li><b>Verificar cadastro fantasma:</b> LZ Beauty aparece registrado na mesma "loja 12" da fachada do Barú — pedir correção/remoção junto ao Google.</li>
+    </ul>
+
+    <h4>Instagram — hoje conduzido pela recepcionista</h4>
+    <ul class="plain">
+      <li><b>Treinamento avançado para a recepcionista</b> — ela já cuida do perfil e tem base; formalizar como função com escopo e horário dedicado.</li>
+      <li><b>Padrão visual único:</b> mesma temperatura de luz e enquadramento em todo post, coerente com o ticket de R$ 400+ da casa.</li>
+      <li><b>Conteúdo sai da alçada pessoal da direção</b> — nenhuma publicação sem passar pelo fluxo definido no Pilar 1.</li>
+      <li><b>Prioridade de pauta:</b> trabalhos de Bruna e Lilian primeiro — são o maior ticket e o que sustenta a régua de recompra.</li>
+    </ul>
+  </section>
+
+  <!-- ============ PILAR 4 ============ -->
+  <section id="p4">
+    <div class="marker"><span class="num">04</span><h2>Ambiente físico</h2><span class="tag">Pilar 4</span></div>
+
+    <p>A fachada tem ossatura boa: dois pavimentos de vidro, letreiro iluminado, número da loja já visível ("2128 Lj 12/13"), luz natural excelente no lavatório, mobiliário de marca. O que falta é <b>edição, não obra</b> — exatamente o tipo de trabalho onde o olhar de moda da dona é um ativo, não um risco.</p>
+
+    <h3>Ações objetivas, todas de custo baixo</h3>
+    <ul class="plain">
+      <li><b>Remover produtos de marcas concorrentes</b> expostos nas bancadas — deixar só a linha da casa (Wella, conforme vitrine).</li>
+      <li><b>Tirar a caixa de papelão</b> da bancada do lavatório e organizar cabos aparentes na área de manicure.</li>
+      <li><b>Curadoria de revistas</b> — trocar a pilha solta por seleção alinhada ao padrão do salão.</li>
+      <li><b>Unificar quadros e TV</b> a uma só paleta — hoje o conteúdo da TV destoa do ambiente claro.</li>
+      <li><b>Sinalização do número da loja</b> no elevador e na portaria — o prédio tem 4 ocupantes de salão/estética.</li>
+    </ul>
+
+    <div class="callout warn">
+      <span class="kicker">Ponto de regularização, não de estética</span>
+      <p>Há animais no salão. Estabelecimento de embelezamento em São Paulo é fiscalizado pela vigilância sanitária, e presença de animais em área de atendimento costuma ser vedada — sobretudo convivendo com produtos químicos. <b>Verificar a norma municipal aplicável.</b> Se confirmada a vedação, isto é item de regularização, e entra como regra de ambiente no regulamento interno.</p>
+    </div>
+  </section>
+
+  <!-- ============ BARBEARIA ============ -->
+  <section id="barbearia">
+    <div class="marker"><span class="num">05</span><h2>A oportunidade da barbearia</h2><span class="tag">Avaliar, não decidir agora</span></div>
+
+    <p>No mesmo prédio (antigo ponto Ringo, do Shopping Iguatemi) há uma barbearia com profissionais de 20–30 anos de carreira e clientela discreta, poderosa, fiel e recorrente. A proprietária quer fechar; os profissionais parecem abertos ao convite.</p>
+
+    <div class="callout warn">
+      <span class="kicker">Condição prévia — não negociável</span>
+      <p><b>Não convidar ninguém enquanto a rotatividade não estiver estancada.</b> Trazer profissionais de décadas de carreira para dentro de uma casa com 78% de rotatividade recente queima o ativo mais valioso da proposta — a reputação deles — e os transforma nas próximas saídas. Este pilar é avaliação, não execução imediata.</p>
+    </div>
+
+    <p>O encaixe estratégico é real: corte masculino e penteado são serviços órfãos hoje, o mezanino está subutilizado, e é clientela que não disputa a agenda feminina de Bruna e Lilian.</p>
+
+    <h4>Três cenários a modelar antes de qualquer convite</h4>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Modelo</th><th>Como funciona</th><th>Risco para o Barú</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>Comissão pura (60–70%)</b></td>
+            <td class="name" style="text-align:left">Barú recebe 30–40% sobre o faturamento gerado pelos barbeiros.</td>
+            <td class="name" style="text-align:left">Só compensa se eles trouxerem a própria demanda — o salão entra só com espaço e estrutura.</td>
+          </tr>
+          <tr>
+            <td><b>Aluguel de cadeira</b></td>
+            <td class="name" style="text-align:left">Valor fixo mensal pelo uso do espaço, sem participação no faturamento.</td>
+            <td class="name" style="text-align:left">Receita previsível para o Barú, mas exige mezanino já pronto e cadeira dedicada.</td>
+          </tr>
+          <tr>
+            <td><b>Parceria PJ (Lei 13.352/2016)</b></td>
+            <td class="name" style="text-align:left">Salão-parceiro: vínculo formal sem CLT, com repasse definido em contrato.</td>
+            <td class="name" style="text-align:left">Modelo mais seguro juridicamente para ambos os lados; exige contrato bem redigido.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Comparar sempre <b>margem líquida por cadeira</b>, nunca o percentual bruto isolado — 70% de comissão pode valer menos que 100% de um aluguel fixo, dependendo do volume real que eles trazem.</p>
+  </section>
+
+  <!-- ============ GOVERNANÇA ============ -->
+  <section id="governanca">
+    <div class="marker"><span class="num">06</span><h2>Governança e cronograma</h2><span class="tag">Como a BRGX entrega</span></div>
+
+    <h4>O que está pronto para amanhã (terça) e quarta</h4>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Documento</th><th>Para quem</th><th>Quando</th></tr></thead>
+        <tbody>
+          <tr><td>Relatório de Performance</td><td>Dona + Administrador</td><td class="num">Terça</td></tr>
+          <tr><td>Este Plano de Ação</td><td>Dona + Administrador</td><td class="num">Terça</td></tr>
+          <tr><td>Pauta da Reunião de Direção</td><td>Dona + Administrador</td><td class="num">Terça</td></tr>
+          <tr><td>Guia Rápido (checklist)</td><td>Consultor, apoio nas duas reuniões</td><td class="num">Terça e quarta</td></tr>
+          <tr><td>Regulamento Interno</td><td>Equipe</td><td class="num">Quarta</td></tr>
+          <tr><td>Material de Integração</td><td>Equipe</td><td class="num">Quarta</td></tr>
+          <tr><td>Manual de POPs</td><td>Equipe</td><td class="num">Quarta</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Painel de indicadores — o que se acompanha toda semana</h4>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Indicador</th><th class="num">Hoje</th><th class="num">Meta 90 dias</th></tr></thead>
+        <tbody>
+          <tr><td>Rotatividade de equipe</td><td class="num">78% (12m)</td><td class="num">Zero saídas</td></tr>
+          <tr><td>Faturamento mensal</td><td class="num">R$ 26–27 mil</td><td class="num">R$ 33–38 mil</td></tr>
+          <tr><td>Atendimentos da Bruna</td><td class="num">~8/mês</td><td class="num">14–16/mês</td></tr>
+          <tr><td>Cardápio órfão</td><td class="num">4 serviços sem atendimento</td><td class="num">Decisão tomada e comunicada</td></tr>
+          <tr><td>Avaliações no Google</td><td class="num">a levantar</td><td class="num">nota ≥ 4,8, +40 avaliações</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="callout win">
       <span class="kicker">Business case do honorário</span>
-      <p>O ganho projetado é de <b>R$ 19,5 mil por mês recorrentes</b> a partir do trimestre. Qualquer honorário de consultoria nessa faixa de mercado se paga várias vezes dentro do próprio ciclo — e o retorno permanece depois que o contrato termina, porque o que se instala é processo, não campanha.</p>
-    </div>
-  </section>
-
-  <!-- ============ PILAR 1 ============ -->
-  <section id="p1">
-    <div class="marker">
-      <span class="num">01</span>
-      <h2>Dados e faturamento</h2>
-      <span class="tag">Pilar 1</span>
-    </div>
-
-    <h3>O que o consumo do último ano revela</h3>
-
-    <p>O salão opera <b>dois negócios sobrepostos na mesma cadeira</b>. Um de alto valor e baixa frequência: 254 visitas acima de R$ 400 que produzem 51,8% de toda a receita. Outro de baixo valor e alto volume: 850 visitas de até R$ 80 — incluindo 260 zeradas — que produzem 8,2%. O segundo consome a agenda de que o primeiro precisaria.</p>
-
-    <p>Manicure e pedicure somam <b>1.718 serviços</b> no ano, mais da metade de todo o volume da casa, e entregam 22,1% da receita a um ticket de R$ 48. Não se trata de eliminar o serviço — ele é porta de entrada e fideliza. Trata-se de <b>deixar de vendê-lo isolado</b>: hoje 258 clientes nunca passaram pelo cabelo.</p>
-
-    <h4>Os gargalos, em ordem de dinheiro</h4>
-    <ol class="steps">
-      <li><b>A iluminação não recompra.</b> 77 clientes, 5 retornos. Nenhuma régua de manutenção, nenhum contato programado. Um retoque de raiz de R$ 303 a cada 45 dias por 40% dessas clientes é a maior alavanca isolada do negócio.</li>
-      <li><b>Não há reagendamento na saída.</b> 59,9% de visita única. A cliente paga, agradece e vai embora sem data marcada. A mediana entre visitas é de 13 dias — puxada pelas unhas —, o que esconde o abandono de quem faz cabelo.</li>
-      <li><b>Cortesia virou hábito.</b> 410 serviços a R$ 0, 13,3% do total, concentrados em Manicure (168), Pedicure (87) e Escova Longo (48). Sem política escrita e sem campo de motivo, é impossível separar convênio de brinde.</li>
-      <li><b>Cross-sell inexistente.</b> 1,55 serviço por visita, e caindo — era 1,74 em março. 61,6% das visitas levam um único serviço.</li>
-      <li><b>Concentração dupla.</b> Três profissionais fazem 47,1% da receita; cem clientes fazem 54,8%. É a mesma exposição que produziu a crise da quebra de sociedade, agora com outros nomes.</li>
-      <li><b>Segunda-feira morta.</b> R$ 32.590 no ano inteiro — o pior dia da semana, contra R$ 85.395 da sexta.</li>
-    </ol>
-
-    <div class="callout warn">
-      <span class="kicker">Hipótese a confirmar em campo — pode reescrever o pilar 1</span>
-      <p>O Barú está listado no <b>ClassPass</b>, com nota 4,8 e 67 avaliações. Os 410 serviços a R$ 0 estão concentrados exatamente nas categorias que o ClassPass vende — escova, manicure, pedicure. <b>A hipótese é que os R$ 0 sejam reservas de ClassPass lançadas sem valor no sistema do salão.</b> Se confirmada, três coisas mudam: (a) a receita real é maior do que o relatório mostra, porque o ClassPass paga por fora; (b) parte das 431 clientes de visita única são usuárias de plataforma que nunca foram convertidas em clientes diretas; (c) existe um canal de aquisição ativo e nenhum mecanismo de conversão sobre ele. <b>Primeira pergunta a fazer na sexta.</b></p>
-    </div>
-
-    <h3>Movimentos do pilar 1</h3>
-
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Movimento</th><th>Como se faz</th><th>Dono</th><th>Prazo</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><b>Régua de recompra por serviço</b></td>
-            <td>Cadastrar o ciclo de cada serviço no sistema: retoque de raiz 30–45 d · iluminação 60–75 d · corte feminino 45–60 d · tratamento 21 d · escova conforme rotina. O sistema passa a sinalizar quem venceu.</td>
-            <td>Recepção</td><td class="num">Semana 1</td>
-          </tr>
-          <tr>
-            <td><b>Agendamento antes da cadeira esvaziar</b></td>
-            <td>Regra sem exceção: nenhuma cliente sai sem a próxima data. A profissional que atendeu faz o convite ainda no espelho, a recepção fecha. Meta: 60% das saídas com data marcada.</td>
-            <td>Equipe toda</td><td class="num">Semana 1</td>
-          </tr>
-          <tr>
-            <td><b>Fila de resgate das 250 em risco</b></td>
-            <td>Lista nominal ordenada por receita histórica. Contato individual da profissional que atendeu, por mensagem pessoal — nunca disparo em massa. 20 contatos por semana, com registro de resposta.</td>
-            <td>Dona + equipe</td><td class="num">Semanas 1–4</td>
-          </tr>
-          <tr>
-            <td><b>Política de cortesia escrita</b></td>
-            <td>Teto mensal por profissional, aprovação da dona acima do teto, e campo obrigatório de motivo no sistema separando convênio, parceria, cortesia comercial e retrabalho.</td>
-            <td>Dona</td><td class="num">Semana 2</td>
-          </tr>
-          <tr>
-            <td><b>Unha deixa de ser vendida sozinha</b></td>
-            <td>Manicure isolada sai da vitrine e passa a existir como combinado (unhas + escova, unhas + sobrancelha). Preço do combinado abaixo da soma, acima da unha avulsa de hoje.</td>
-            <td>Dona</td><td class="num">Semana 3</td>
-          </tr>
-          <tr>
-            <td><b>Tratamento entra no protocolo da química</b></td>
-            <td>Toda química passa a ter o tratamento oferecido como parte do procedimento, não como upsell no caixa. Argumento técnico, não comercial: proteção do investimento que a cliente acabou de fazer no cabelo.</td>
-            <td>Cabeleireiros</td><td class="num">Semana 2</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h4>Régua de recompra — a tabela que vai para a recepção</h4>
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Serviço</th><th class="num">Ticket médio</th><th class="num">Ciclo</th><th>Gatilho de contato</th></tr></thead>
-        <tbody>
-          <tr class="accent"><td>Reflexo / Luzes</td><td class="num">R$ 869</td><td class="num">60–75 dias</td><td>Contato no dia 40 oferecendo o retoque de raiz</td></tr>
-          <tr><td>Retoque de Raiz</td><td class="num">R$ 303</td><td class="num">30–45 dias</td><td>Contato no dia 28</td></tr>
-          <tr><td>Tintura</td><td class="num">R$ 296</td><td class="num">30–45 dias</td><td>Contato no dia 28</td></tr>
-          <tr><td>Corte Feminino</td><td class="num">R$ 259</td><td class="num">45–60 dias</td><td>Contato no dia 40</td></tr>
-          <tr><td>Tratamento</td><td class="num">R$ 213</td><td class="num">21 dias</td><td>Vendido em protocolo de 3 sessões</td></tr>
-          <tr><td>Escova</td><td class="num">R$ 115</td><td class="num">7–15 dias</td><td>Pacote mensal de 4 escovas</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ============ PILAR 2 ============ -->
-  <section id="p2">
-    <div class="marker">
-      <span class="num">02</span>
-      <h2>Google local e parcerias</h2>
-      <span class="tag">Pilar 2</span>
-    </div>
-
-    <div class="callout warn">
-      <span class="kicker">Correção de rota no conjunto competitivo</span>
-      <p>O briefing aponta Studio W e ROM Concept como concorrência. <b>Eles não são o combate real.</b> São operações de outro porte, com anos de autoridade e centenas de avaliações — servem como referência de linguagem e acabamento, não como alvo de disputa no mapa. Brigar por "salão de beleza Faria Lima" contra eles é gastar orçamento para chegar em terceiro. O conjunto competitivo do Barú é outro, e uma parte dele está dentro do próprio edifício.</p>
-    </div>
-
-    <h3>Quem realmente disputa a mesma cliente</h3>
-
-    <div class="scroll">
-      <table>
-        <caption>Conjunto competitivo — porte equivalente</caption>
-        <thead><tr><th>Concorrente</th><th>Onde</th><th>O que se sabe</th><th>A verificar</th></tr></thead>
-        <tbody>
-          <tr class="accent">
-            <td><b>LZ Beauty</b></td>
-            <td>Faria Lima 2128, loja 12 — <b>mesmo prédio</b></td>
-            <td>Posiciona-se como "cabeleireiro das celebridades"; ao mesmo tempo vende progressiva a laser por R$ 90 em site de descontos.</td>
-            <td class="verify">nota · nº reviews · movimento</td>
-          </tr>
-          <tr class="accent">
-            <td><b>Studio M Personale</b></td>
-            <td>Faria Lima 2128, loja 05 — <b>mesmo prédio</b></td>
-            <td>Presente no Fresha com agendamento online ativo.</td>
-            <td class="verify">nota · preços · serviços</td>
-          </tr>
-          <tr>
-            <td><b>Esmalteria Nacional Faria Lima</b></td>
-            <td>Faria Lima 1827, Shopping Vitrine Iguatemy</td>
-            <td>Rede de esmalteria com marca consolidada. Disputa direta com os 1.718 serviços de unha do Barú.</td>
-            <td class="verify">preço da manicure</td>
-          </tr>
-          <tr>
-            <td><b>IT Salão SP</b></td>
-            <td>Vila Olímpia</td>
-            <td>Posicionado em "visagismo, corte e cor". Aberto de segunda a sábado até 21h — captura o pós-expediente que o Barú não trabalha.</td>
-            <td class="verify">nota · ticket</td>
-          </tr>
-          <tr>
-            <td><b>Studio Vivi Lima Beauty Hair</b></td>
-            <td>Itaim Bibi</td>
-            <td>20 anos de casa, especializado em colorimetria — concorrente direto na iluminação.</td>
-            <td class="verify">nota · nº reviews</td>
-          </tr>
-          <tr>
-            <td><b>Salão de Beleza Faria Lima 1568</b></td>
-            <td>Faria Lima 1568, Jardim Paulistano</td>
-            <td>Presente no Fresha.</td>
-            <td class="verify">porte · posicionamento</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="callout warn">
-      <span class="kicker">Limite declarado desta pesquisa</span>
-      <p>As buscas disponíveis não devolvem nota e volume de avaliações do Google Meu Negócio de forma confiável para estes endereços. <b>Nenhum número de concorrente foi estimado.</b> Os campos marcados em vermelho são tarefa de campo: abrir o Google Maps no local, buscar cada concorrente e preencher nota, quantidade de avaliações, categoria primária e faixa de preço. Trinta minutos de trabalho que transformam a tabela acima em benchmark de verdade.</p>
-    </div>
-
-    <div class="callout">
-      <span class="kicker">O achado que ninguém esperava</span>
-      <p>Há <b>pelo menos três salões no mesmo endereço</b> — Barú, LZ Beauty (loja 12) e Studio M Personale (loja 05). Isso tem duas consequências práticas. No Google, endereços compartilhados por múltiplos negócios da mesma categoria confundem o algoritmo e a cliente: <b>o número da loja precisa estar no cadastro, na fachada e em toda comunicação.</b> No comercial, a cliente que sobe no elevador errado é cliente perdida para o vizinho — e o vizinho está vendendo química a R$ 90. O Barú não pode competir nesse preço e não deve tentar; precisa é ficar visivelmente diferente dele.</p>
-    </div>
-
-    <h3>Auditoria do Google Meu Negócio</h3>
-    <p>Checklist para percorrer com o perfil aberto. Cada item não conforme vira tarefa com dono e data.</p>
-
-    <h4>Identidade e cadastro</h4>
-    <ul class="check">
-      <li><b>Categoria primária</b> definida como "Salão de beleza" — a categoria primária é o maior fator isolado de rankeamento local.</li>
-      <li><b>Categorias secundárias</b> preenchidas: Cabeleireiro, Salão de manicure, Studio de sobrancelhas, Salão de beleza feminino.</li>
-      <li><b>Nome exatamente igual</b> ao da fachada — sem palavra-chave enfiada no nome, que é motivo de suspensão.</li>
-      <li><b>Endereço com o número da loja</b>, dado que há outros salões no mesmo prédio.</li>
-      <li><b>NAP idêntico</b> (nome, endereço, telefone) no Google, Instagram, Linktree, ClassPass, Fresha e site.</li>
-      <li><b>Ponto do mapa</b> arrastado até a entrada real do edifício, não ao centroide do lote.</li>
-      <li><b>Horário completo</b>, incluindo sábado, e horários especiais de feriado cadastrados com antecedência.</li>
-      <li><b>Atributos</b> marcados: banheiro acessível, Wi-Fi, agendamento online, pagamento por aproximação, atende por hora marcada.</li>
-    </ul>
-
-    <h4>Serviços e conversão</h4>
-    <ul class="check">
-      <li><b>Serviços cadastrados um a um com preço</b> — especialmente Reflexo, Luzes, Retoque de Raiz e Tratamento, que são o alto ticket.</li>
-      <li><b>Descrição de cada serviço</b> escrita com o vocabulário que a cliente usa ("morena iluminada", "luzes", "retoque de raiz"), não o nome técnico interno.</li>
-      <li><b>Botão de agendamento</b> ativo e apontando para o sistema real, com UTM para medir origem.</li>
-      <li><b>Link do site</b> com UTM. Hoje o destino é um Linktree — aceitável, desde que rastreado.</li>
-      <li><b>Mensagens ativadas</b> com tempo de resposta abaixo de 1 hora no horário comercial.</li>
-      <li><b>Perguntas e respostas semeadas</b>: publicar e responder as 8 dúvidas reais mais frequentes (estacionamento, tempo da luzes, valor médio, atende sábado, aceita cartão, tem manobrista).</li>
-    </ul>
-
-    <h4>Prova visual e social</h4>
-    <ul class="check">
-      <li><b>Mínimo de 20 fotos</b> em alta resolução: fachada com o número da loja, recepção, cadeira, lavatório, e antes/depois de iluminação.</li>
-      <li><b>Foto de capa</b> trocada para o melhor trabalho de iluminação — é o que aparece no resultado de busca.</li>
-      <li><b>Fotos novas toda semana</b>, tiradas no salão, não banco de imagem.</li>
-      <li><b>Posts semanais</b> no perfil — o Google privilegia perfil com atividade recente.</li>
-      <li><b>Meta de avaliações</b>: 4,8 ou mais com volume crescente. O ClassPass já mostra 4,8 com 67 avaliações — a entrega técnica agrada; o que falta é levar essa prova para o Google.</li>
-      <li><b>Pedido de avaliação no momento certo</b>: no espelho, quando a cliente vê o resultado — não por mensagem no dia seguinte.</li>
-      <li><b>QR code na recepção e no espelho</b> levando direto ao formulário de avaliação.</li>
-      <li><b>Resposta a 100% das avaliações em 24h</b>, repetindo na resposta o nome do serviço e do bairro.</li>
-      <li><b>Protocolo para avaliação negativa</b>: responder em público com solução, resolver no privado, nunca discutir.</li>
-    </ul>
-
-    <div class="callout">
-      <span class="kicker">A estratégia de busca — onde dá para ganhar</span>
-      <p>O Barú não vence "salão de beleza Faria Lima". Vence na <b>cauda longa de alta intenção e alto ticket</b>, onde a concorrência é rasa e a cliente já sabe o que quer. Os dados escolhem os termos: iluminação é 19,4% da receita com ticket de R$ 869, e sábado tem o maior ticket por visita da semana. Logo, o esforço vai para <b>"luzes Faria Lima" · "morena iluminada Itaim" · "retoque de raiz Faria Lima" · "salão de beleza aberto sábado Iguatemi" · "escova horário de almoço Faria Lima"</b>. Cada um desses termos vira: um serviço cadastrado no Google com preço, um post no perfil, um destaque no Instagram e uma pergunta respondida no Q&amp;A.</p>
-    </div>
-
-    <h3>Parcerias no entorno — os três anéis</h3>
-
-    <div class="cols">
-      <div class="card">
-        <div class="head"><span class="title">Anel 1 — O próprio edifício e a quadra</span><span class="pill ok">Semana 1</span></div>
-        <ul class="plain">
-          <li><b>Portaria e zeladoria do 2128:</b> a pessoa que orienta quem chega precisa saber qual loja é o Barú. Cortesia de escova para a equipe da portaria resolve em uma semana.</li>
-          <li><b>Lojas e escritórios vizinhos:</b> voucher de primeira escova para funcionários, com validade em segunda e terça — os dias mortos.</li>
-          <li><b>Manobristas e restaurantes da quadra:</b> comissão por indicação registrada.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Anel 2 — Corporativo da Faria Lima</span><span class="pill media">Semanas 2–6</span></div>
-        <ul class="plain">
-          <li><b>RH e facilities dos prédios vizinhos:</b> convênio com desconto fixo para colaboradores, sem custo para a empresa. O argumento de venda é benefício, não desconto.</li>
-          <li><b>Beauty day no lobby:</b> escova e sobrancelha em estande, uma vez por mês, com agendamento no salão como conversão.</li>
-          <li><b>Pacote de escova corporativo:</b> 4 escovas/mês para executivas que precisam de apresentação diária.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Anel 3 — Iguatemi, hotéis e bem-estar</span><span class="pill media">Semanas 4–12</span></div>
-        <ul class="plain">
-          <li><b>Lojas do Iguatemi:</b> voucher de escova para as clientes VIP das marcas — a cliente delas é exatamente a do Barú.</li>
-          <li><b>Concierge de hotel:</b> tabela e comissão para hóspede que precisa de escova ou penteado.</li>
-          <li><b>Pilates, personal e clínicas de dermato:</b> permuta cruzada de indicação, com cartão nominal para rastrear.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="callout">
-      <span class="kicker">Regra de ouro das parcerias</span>
-      <p>Toda parceria é <b>lançada no sistema com valor e motivo</b>, nunca como R$ 0 solto. Sem isso, daqui a doze meses o relatório vai mostrar outros 410 serviços zerados e ninguém vai saber quais deram retorno. Cada parceria também recebe um <b>cupom nominal distinto</b> — é o único jeito de saber qual anel funcionou.</p>
-    </div>
-  </section>
-
-  <!-- ============ PILAR 3 ============ -->
-  <section id="p3">
-    <div class="marker">
-      <span class="num">03</span>
-      <h2>Reposicionamento do Instagram</h2>
-      <span class="tag">Pilar 3 · @barufarialima</span>
-    </div>
-
-    <p>O problema do perfil não é frequência de post — é <b>incoerência entre o que o feed mostra e o que a cadeira cobra</b>. Um salão cujo serviço-âncora custa R$ 869 não pode ter um feed que parece de bairro. E há um desalinhamento adicional a resolver: o discurso oficial fala em "executivas da Faria Lima", mas a listagem pública do salão descreve atendimento a "Jardim Europa, Pinheiros, Morumbi e Brooklin". <b>Escolher um público e falar só com ele</b> é a primeira decisão do pilar.</p>
-
-    <h3>Visual merchandising digital — as regras do feed</h3>
-
-    <div class="cols">
-      <div class="card">
-        <div class="head"><span class="title">Luz e cor</span></div>
-        <ul class="plain">
-          <li><b>Uma única temperatura de cor</b> em todo o feed. Luz quente no cabelo é o que valoriza iluminação — e é a assinatura visual óbvia para quem vende luzes.</li>
-          <li><b>Preset único</b> aplicado a tudo, sem exceção. Coerência importa mais que perfeição individual.</li>
-          <li><b>Nada de flash direto.</b> Luz natural na janela ou aro difuso; flash achata a cor e mata o brilho do fio.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Enquadramento</span></div>
-        <ul class="plain">
-          <li><b>Fundo limpo e fixo</b> — uma parede do salão eleita como cenário oficial. Fundo bagunçado é o que mais derruba percepção de preço.</li>
-          <li><b>Três ângulos obrigatórios</b> por trabalho: frente, perfil e nuca. Sempre os mesmos, sempre na mesma ordem.</li>
-          <li><b>Sem espelho, sem outras pessoas no quadro</b>, sem produto de terceiro à vista.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Grade e estrutura</span></div>
-        <ul class="plain">
-          <li><b>Blocos de três</b>: resultado, bastidor, gente. A grade lida em blocos parece intencional mesmo com post diário.</li>
-          <li><b>Destaques renomeados</b> por serviço, não por mês: Luzes · Escova · Tratamento · O Espaço · Como Chegar.</li>
-          <li><b>Bio com o essencial</b>: o que é, para quem, onde (com número da loja) e um único botão de agendamento.</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3>As três linhas editoriais</h3>
-    <p>Cada linha existe para resolver um número específico do relatório. Não são temas — são instrumentos.</p>
-
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Linha</th><th>Para quem</th><th>Resolve qual número</th><th>Formatos</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><b>Beleza em 60 minutos</b><br><span style="color:var(--ink-mute);font-size:0.82rem">o intervalo de almoço</span></td>
-            <td>Executiva do entorno com uma hora livre e reunião à tarde</td>
-            <td>Ataca a <b>agenda vazia de segunda a quarta</b> e o dia morto de segunda-feira</td>
-            <td>Reel cronometrado do serviço real, com o relógio à vista; carrossel "o que cabe em 60 min"</td>
-          </tr>
-          <tr>
-            <td><b>Depois do expediente</b><br><span style="color:var(--ink-mute);font-size:0.82rem">a transição do dia para a noite</span></td>
-            <td>Quem sai do escritório e tem compromisso à noite</td>
-            <td>Ataca o <b>horário ocioso do fim da tarde</b> — o IT Salão fica aberto até 21h e o Barú não disputa isso</td>
-            <td>Antes/depois de fim de dia; bastidor da lavagem com massagem; penteado rápido</td>
-          </tr>
-          <tr class="accent">
-            <td><b>Bastidor técnico</b><br><span style="color:var(--ink-mute);font-size:0.82rem">autoridade em iluminação</span></td>
-            <td>Quem vai gastar R$ 800+ e precisa confiar antes de sentar</td>
-            <td>Ataca a <b>recompra de 6% na iluminação</b> — ensina o ciclo de manutenção e cria a expectativa do retorno</td>
-            <td>Processo da luzes em etapas; "por que a raiz aparece em 45 dias"; escolha de tom; cuidado em casa</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="callout">
-      <span class="kicker">A linha que mais vale dinheiro</span>
-      <p><b>Bastidor técnico</b> é a mais importante das três e a que ninguém faz direito. Toda cliente que fez luzes e não voltou é alguém que não sabia que precisava voltar. Conteúdo que explica o ciclo de 45 dias não é educativo — é <b>comercial</b>, e sustenta sozinho a alavanca de R$ 6.200/mês do retoque de raiz.</p>
-    </div>
-
-    <h3>Cronograma de 30 dias — Re-estreia Digital</h3>
-
-    <div class="weeks">
-      <div class="week">
-        <div class="week-head">
-          <span class="no">SEMANA 0</span>
-          <span class="theme">Silêncio e preparo</span>
-          <span class="goal">Nada é publicado</span>
-        </div>
-        <div class="days">
-          <div class="day"><span class="dl">Dia 1–2</span><span class="dt">Curadoria do feed</span><span class="df">Arquivar o que não sustenta o ticket. Não apagar — arquivar.</span></div>
-          <div class="day"><span class="dl">Dia 3</span><span class="dt">Cenário oficial</span><span class="df">Eleger a parede, resolver a luz, testar o preset.</span></div>
-          <div class="day"><span class="dl">Dia 4–5</span><span class="dt">Ensaio de banco</span><span class="df">Fotografar 20 trabalhos reais e o espaço. Estoque para 30 dias.</span></div>
-          <div class="day"><span class="dl">Dia 6</span><span class="dt">Bio e destaques</span><span class="df">Reescrever bio, refazer capas, arrumar o Linktree com UTM.</span></div>
-          <div class="day"><span class="dl">Dia 7</span><span class="dt">Teaser</span><span class="df">Um único story: "quinta-feira a gente reabre por aqui".</span></div>
-        </div>
-      </div>
-
-      <div class="week">
-        <div class="week-head">
-          <span class="no">SEMANA 1</span>
-          <span class="theme">Reestreia</span>
-          <span class="goal">Meta: mostrar o padrão novo</span>
-        </div>
-        <div class="days">
-          <div class="day"><span class="dl">Seg</span><span class="dt">Post de reabertura</span><span class="df">Carrossel do espaço. Bastidor técnico.</span></div>
-          <div class="day"><span class="dl">Ter</span><span class="dt">Luzes em 3 ângulos</span><span class="df">Primeiro resultado no padrão novo.</span></div>
-          <div class="day"><span class="dl">Qua</span><span class="dt">Reel 60 minutos</span><span class="df">Escova cronometrada. CTA: agendar no almoço.</span></div>
-          <div class="day"><span class="dl">Qui</span><span class="dt">Quem faz</span><span class="df">Apresentar uma profissional e sua especialidade.</span></div>
-          <div class="day"><span class="dl">Sex</span><span class="dt">Antes e depois</span><span class="df">O trabalho mais forte da semana.</span></div>
-          <div class="day"><span class="dl">Sáb</span><span class="dt">Sábado premium</span><span class="df">Story ao vivo do salão cheio.</span></div>
-        </div>
-      </div>
-
-      <div class="week">
-        <div class="week-head">
-          <span class="no">SEMANA 2</span>
-          <span class="theme">Autoridade técnica</span>
-          <span class="goal">Meta: ensinar o ciclo de 45 dias</span>
-        </div>
-        <div class="days">
-          <div class="day"><span class="dl">Seg</span><span class="dt">"Por que a raiz aparece"</span><span class="df">Carrossel didático. O post mais importante do mês.</span></div>
-          <div class="day"><span class="dl">Ter</span><span class="dt">Escolha de tom</span><span class="df">Como se decide a cor antes de começar.</span></div>
-          <div class="day"><span class="dl">Qua</span><span class="dt">Reel pós-expediente</span><span class="df">Transição escritório → noite.</span></div>
-          <div class="day"><span class="dl">Qui</span><span class="dt">Processo da luzes</span><span class="df">Etapas do serviço de R$ 869.</span></div>
-          <div class="day"><span class="dl">Sex</span><span class="dt">Depoimento em vídeo</span><span class="df">Cliente falando, sem roteiro.</span></div>
-          <div class="day"><span class="dl">Sáb</span><span class="dt">Caixinha de dúvidas</span><span class="df">Alimenta o Q&amp;A do Google depois.</span></div>
-        </div>
-      </div>
-
-      <div class="week">
-        <div class="week-head">
-          <span class="no">SEMANA 3</span>
-          <span class="theme">Prova social e resgate</span>
-          <span class="goal">Meta: puxar as clientes em risco</span>
-        </div>
-        <div class="days">
-          <div class="day"><span class="dl">Seg</span><span class="dt">Campanha de retorno</span><span class="df">"Faz mais de 60 dias?" — conversa, não cupom.</span></div>
-          <div class="day"><span class="dl">Ter</span><span class="dt">Tratamento em foco</span><span class="df">Por que ele acompanha a química.</span></div>
-          <div class="day"><span class="dl">Qua</span><span class="dt">Reel de manicure combinada</span><span class="df">Puxa o cross-sell para o cabelo.</span></div>
-          <div class="day"><span class="dl">Qui</span><span class="dt">Bastidor da equipe</span><span class="df">Gente, não serviço. Humaniza o preço.</span></div>
-          <div class="day"><span class="dl">Sex</span><span class="dt">Avaliações em destaque</span><span class="df">Levar a prova do ClassPass para o feed.</span></div>
-          <div class="day"><span class="dl">Sáb</span><span class="dt">Como chegar</span><span class="df">Vídeo do trajeto até a loja. Resolve o prédio compartilhado.</span></div>
-        </div>
-      </div>
-
-      <div class="week">
-        <div class="week-head">
-          <span class="no">SEMANA 4</span>
-          <span class="theme">Conversão e evento</span>
-          <span class="goal">Meta: encher a agenda de segunda e terça</span>
-        </div>
-        <div class="days">
-          <div class="day"><span class="dl">Seg</span><span class="dt">Pacote de escova</span><span class="df">4 escovas/mês para quem se apresenta todo dia.</span></div>
-          <div class="day"><span class="dl">Ter</span><span class="dt">Convênio corporativo</span><span class="df">Anúncio das parcerias do anel 2.</span></div>
-          <div class="day"><span class="dl">Qua</span><span class="dt">Antes e depois em série</span><span class="df">Três trabalhos, um carrossel.</span></div>
-          <div class="day"><span class="dl">Qui</span><span class="dt">Convite do evento</span><span class="df">Reinauguração no sábado, lista fechada.</span></div>
-          <div class="day"><span class="dl">Sex</span><span class="dt">Contagem regressiva</span><span class="df">Stories com bastidor do preparo.</span></div>
-          <div class="day"><span class="dl">Sáb</span><span class="dt">Reinauguração</span><span class="df">Evento no salão. Conteúdo do mês inteiro sai daqui.</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="callout">
-      <span class="kicker">O que medir no fim dos 30 dias</span>
-      <p>Não é seguidor. É <b>quantos agendamentos entraram pelo link da bio com UTM</b>, quantas mensagens diretas viraram horário marcado, e quantas das 250 clientes em risco responderam a campanha de retorno. Se o número de seguidores subir e a agenda não, o conteúdo está bonito e inútil.</p>
-    </div>
-  </section>
-
-  <!-- ============ PILAR 4 ============ -->
-  <section id="p4">
-    <div class="marker">
-      <span class="num">04</span>
-      <h2>Equipe e experiência física</h2>
-      <span class="tag">Pilar 4</span>
-    </div>
-
-    <h3>Avaliação da equipe — os números que cada um traz</h3>
-
-    <p>A conversa de avaliação precisa sair da impressão e entrar no dado. Estes são os números reais de doze meses, e eles mostram uma equipe de dois pesos: quem trabalha com química e entrega R$ 200–400 por serviço, e quem trabalha com unhas e entrega R$ 44–73.</p>
-
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Profissional</th><th class="num">Receita 12 m</th><th class="num">% da casa</th><th class="num">Serviços</th><th class="num">Ticket/serviço</th><th>Leitura</th></tr></thead>
-        <tbody>
-          <tr><td>Pedro Guilherme Alves</td><td class="num">R$ 71.219</td><td class="num">18,9%</td><td class="num">325</td><td class="num">R$ 219</td><td>Maior volume da casa. Pilar de receita.</td></tr>
-          <tr><td>Aline</td><td class="num">R$ 66.618</td><td class="num">17,7%</td><td class="num">182</td><td class="num">R$ 366</td><td>Alto ticket com metade dos atendimentos.</td></tr>
-          <tr class="accent"><td>Bruna Chaves</td><td class="num">R$ 39.461</td><td class="num">10,5%</td><td class="num">97</td><td class="num">R$ 407</td><td><b>Maior ticket da casa.</b> Agenda subocupada — é aqui que há espaço.</td></tr>
-          <tr><td>Lilian R. M. da Silva</td><td class="num">R$ 37.328</td><td class="num">9,9%</td><td class="num">227</td><td class="num">R$ 164</td><td>Volume alto, ticket médio. Candidata a subir de faixa.</td></tr>
-          <tr><td>Selma</td><td class="num">R$ 25.365</td><td class="num">6,7%</td><td class="num">161</td><td class="num">R$ 158</td><td>Perfil semelhante ao da Lilian.</td></tr>
-          <tr><td>Rosilda Santos Nunes</td><td class="num">R$ 20.146</td><td class="num">5,3%</td><td class="num">445</td><td class="num">R$ 45</td><td>Maior número de atendimentos do salão, menor ticket.</td></tr>
-          <tr><td>Valdinéia dos S. Campos</td><td class="num">R$ 17.336</td><td class="num">4,6%</td><td class="num">395</td><td class="num">R$ 44</td><td>Idem. 63 serviços zerados no ano.</td></tr>
-          <tr><td>Cibelle L. A. Santos</td><td class="num">R$ 14.730</td><td class="num">3,9%</td><td class="num">226</td><td class="num">R$ 65</td><td>Unhas com ticket um pouco acima da média.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="callout">
-      <span class="kicker">A leitura que não está na tabela</span>
-      <p><b>Bruna Chaves tem o maior ticket da casa (R$ 407) e o menor número de atendimentos entre os cabeleireiros (97 no ano — menos de 2 por semana).</b> Se a agenda dela encher no mesmo ritmo do Pedro, são mais de R$ 90 mil anuais sem contratar ninguém. Antes de buscar cliente novo, vale entender por que essa cadeira está vazia: é falta de demanda, disponibilidade, ou a recepção não sabe direcionar?</p>
-    </div>
-
-    <h4>Os seis indicadores de avaliação individual</h4>
-    <ol class="steps">
-      <li><b>Receita gerada e ticket médio</b> — já disponíveis, acima.</li>
-      <li><b>Taxa de recompra da própria carteira</b> — quantas das clientes que atendeu voltaram para ela em 60 dias. É o indicador mais honesto de qualidade.</li>
-      <li><b>Taxa de reagendamento na saída</b> — % de atendimentos que terminaram com próxima data marcada. Meta 60%.</li>
-      <li><b>Attach rate</b> — % dos atendimentos com um segundo serviço vendido. A média da casa hoje é 1,55 serviço/visita.</li>
-      <li><b>Serviços zerados</b> — quantos e por quê. Valdinéia (63), Rosilda (58) e Lilian (51) lideram e precisam de conversa, não de punição.</li>
-      <li><b>Conteúdo entregue</b> — 1 registro por profissional por dia, a partir da semana 1.</li>
-    </ol>
-
-    <h3>Treinar a equipe para registrar em padrão premium</h3>
-
-    <p>O gargalo do Instagram não é ideia, é matéria-prima. Sete pessoas com celular na mão produzem mais material do que qualquer agência — desde que saibam três coisas.</p>
-
-    <div class="cols">
-      <div class="card">
-        <div class="head"><span class="title">O kit fixo</span><span class="pill ok">Custo baixo</span></div>
-        <ul class="plain">
-          <li><b>Um aro de luz</b> com difusor, montado em ponto fixo perto do cenário oficial.</li>
-          <li><b>Marcação no chão</b> com fita: onde a cliente fica, onde quem fotografa fica. Elimina 90% da variação.</li>
-          <li><b>Grade e nível ativados</b> na câmera de todos os celulares, na primeira reunião.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">O protocolo dos 3 ângulos</span><span class="pill ok">2 minutos</span></div>
-        <ul class="plain">
-          <li><b>Antes</b>: uma foto frontal, com a cliente seca, no mesmo ponto.</li>
-          <li><b>Depois</b>: frente, perfil e nuca — sempre nessa ordem, sempre no mesmo ponto.</li>
-          <li><b>Um vídeo de 10 segundos</b> girando o cabelo na luz. É o que mais converte em iluminação.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Autorização e rotina</span><span class="pill media">Formalizar</span></div>
-        <ul class="plain">
-          <li><b>Autorização de imagem</b> assinada na ficha de cadastro, uma vez, para todas as clientes.</li>
-          <li><b>Pasta compartilhada</b> por profissional no celular do salão — nada fica no aparelho pessoal.</li>
-          <li><b>Meta de 1 registro/dia</b> por profissional, revisada na reunião de segunda.</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3>Visual merchandising do espaço físico</h3>
-
-    <p>A dona vem da moda. Esse é o ativo mais subutilizado do negócio: <b>ninguém no conjunto competitivo tem olhar de vitrine</b>. A cliente que paga R$ 869 numa iluminação está comprando resultado técnico e ambiente na mesma nota fiscal — e o ambiente é onde o Barú pode se separar do vizinho de R$ 90 sem gastar quase nada.</p>
-
-    <div class="scroll">
-      <table>
-        <caption>A jornada em seis pontos de contato</caption>
-        <thead><tr><th>Ponto</th><th>O que a cliente percebe hoje</th><th>Movimento</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><b>1. Chegada</b></td>
-            <td>Prédio com três salões e sem sinalização clara de qual é qual.</td>
-            <td>Sinalização com o número da loja no térreo e no elevador. Vídeo "como chegar" no perfil. Portaria treinada.</td>
-          </tr>
-          <tr>
-            <td><b>2. Recepção</b></td>
-            <td>Primeiro contato define a percepção de preço.</td>
-            <td>Um objeto de autoridade em vez de balcão vazio: livro de trabalhos impressos, vitrine de produtos, aroma assinatura. QR de avaliação discreto.</td>
-          </tr>
-          <tr>
-            <td><b>3. Espera</b></td>
-            <td>Tempo morto.</td>
-            <td>Curadoria de revistas de moda coerente com o olhar da dona. Água com gás, café de verdade, taça em vez de copo descartável. Custo marginal, percepção alta.</td>
-          </tr>
-          <tr>
-            <td><b>4. Cadeira</b></td>
-            <td>É onde o serviço acontece e onde o conteúdo nasce.</td>
-            <td>Bancada sem excesso, produtos alinhados com rótulo à frente, capa de qualidade. Fundo limpo — é o cenário das fotos.</td>
-          </tr>
-          <tr>
-            <td><b>5. Lavatório</b></td>
-            <td>O ponto de maior potencial sensorial, quase sempre negligenciado.</td>
-            <td>Massagem no couro cabeludo como protocolo padrão, não cortesia eventual. Toalha quente. É o que aparece nas avaliações do ClassPass — já funciona, falta padronizar.</td>
-          </tr>
-          <tr class="accent">
-            <td><b>6. Espelho e saída</b></td>
-            <td>Momento de maior satisfação — e hoje, momento perdido.</td>
-            <td><b>O ponto mais valioso do salão.</b> É aqui que se pede a foto, a avaliação e o próximo agendamento — nessa ordem, com a cliente ainda olhando o resultado. Nada disso funciona no caixa.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="callout win">
-      <span class="kicker">Se só uma coisa for implantada deste pilar</span>
-      <p>Que seja o <b>ritual do espelho</b>. Foto, avaliação e próxima data, sempre nessa ordem, sempre antes de a cliente levantar. Ele alimenta simultaneamente o Instagram (matéria-prima), o Google (volume de avaliações) e a recompra (a alavanca de R$ 9.500/mês). Um único hábito de dois minutos ataca três dos quatro pilares deste plano.</p>
-    </div>
-  </section>
-
-  <!-- ============ GOVERNANÇA ============ -->
-  <section id="governanca">
-    <div class="marker">
-      <span class="num">05</span>
-      <h2>Governança do contrato</h2>
-      <span class="tag">Como a BRGX entrega</span>
-    </div>
-
-    <p>Honorário fixo recorrente só se sustenta com ritual visível. A cadência abaixo é o que transforma o plano em rotina e o que dá à dona a sensação — correta — de que o dinheiro está trabalhando.</p>
-
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Ritual</th><th>Quando</th><th>Quem</th><th>Saída</th></tr></thead>
-        <tbody>
-          <tr><td><b>Reunião de números</b></td><td>Segunda, 30 min</td><td>Dona + BRGX</td><td>Semana anterior contra meta; travas identificadas</td></tr>
-          <tr><td><b>Fila de resgate</b></td><td>Terça</td><td>Recepção</td><td>20 contatos feitos, respostas registradas</td></tr>
-          <tr><td><b>Revisão de conteúdo</b></td><td>Quinta</td><td>Dona + BRGX</td><td>Pauta dos próximos 7 dias aprovada</td></tr>
-          <tr><td><b>Relatório de performance</b></td><td>Mensal</td><td>BRGX</td><td>Este documento, atualizado</td></tr>
-          <tr><td><b>Revisão de pilares</b></td><td>A cada 30 dias</td><td>Dona + BRGX</td><td>O que continua, o que muda, o que morre</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h4>Painel de 8 indicadores — o que se acompanha toda semana</h4>
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Indicador</th><th class="num">Hoje</th><th class="num">Meta 90 dias</th></tr></thead>
-        <tbody>
-          <tr><td>Faturamento mensal</td><td class="num">R$ 37.709</td><td class="num">R$ 55.000+</td></tr>
-          <tr><td>Visitas no mês</td><td class="num">115 (jul)</td><td class="num">200</td></tr>
-          <tr><td>Ticket por visita</td><td class="num">R$ 257</td><td class="num">manter acima de R$ 250</td></tr>
-          <tr><td>Serviços por visita</td><td class="num">1,55</td><td class="num">1,90</td></tr>
-          <tr><td>Reagendamento na saída</td><td class="num">não medido</td><td class="num">60%</td></tr>
-          <tr><td>Retorno em 60 dias</td><td class="num">46%</td><td class="num">60%</td></tr>
-          <tr><td>Serviços a R$ 0</td><td class="num">13,3%</td><td class="num">abaixo de 5%</td></tr>
-          <tr><td>Avaliações no Google</td><td class="num">a levantar em campo</td><td class="num">+40 avaliações, nota ≥ 4,8</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="callout warn">
-      <span class="kicker">Pré-requisito inegociável</span>
-      <p>Três campos precisam passar a ser registrados a partir da semana 1, ou o relatório do mês que vem terá as mesmas lacunas deste: <b>duração do serviço</b> (sem ela não há taxa de ocupação nem custo de cadeira — foi por isso que esse indicador saiu em branco no relatório), <b>origem da cliente</b> (sem ela não se sabe o que Google, Instagram, ClassPass e indicação realmente trazem) e <b>motivo do valor zerado</b> (sem ele não se separa parceria de cortesia). São três campos. É o investimento mais barato do plano inteiro.</p>
-    </div>
-
-    <h3>Plano de reconquista pós-cisão</h3>
-    <p>309 clientes estão há mais de 180 dias sem voltar, e boa parte migrou com o ex-sócio. Esse grupo pede abordagem diferente do resgate comum — e uma regra de conduta clara.</p>
-
-    <ul class="plain">
-      <li><b>Não se disputa cliente falando do concorrente.</b> Nenhuma menção à cisão, ao ex-sócio ou ao outro salão, em nenhum canal. Quem faz isso perde a cliente e a reputação.</li>
-      <li><b>O convite é sobre o novo endereço</b>, não sobre a história. "Mudamos para a Faria Lima 2128 e o espaço ficou outro — queria muito te mostrar."</li>
-      <li><b>Quem convida é quem atendia.</b> A relação é com a profissional, não com a marca. Se a profissional ficou, a chance é real; se saiu, a cliente provavelmente não volta e não vale o esforço.</li>
-      <li><b>Priorizar por valor histórico</b> — as 100 primeiras respondem por 54,8% da receita da casa. Começar por elas.</li>
-      <li><b>Uma tentativa, sem insistência.</b> Quem não responde entra numa lista de reativação trimestral, não numa régua de cobrança.</li>
-    </ul>
-  </section>
-
-  <!-- ============ CAMPO ============ -->
-  <section id="campo">
-    <div class="marker">
-      <span class="num">06</span>
-      <h2>Roteiro de campo — sexta e sábado</h2>
-      <span class="tag">Antes da apresentação de terça</span>
-    </div>
-
-    <p>Este plano foi construído sobre dados. A visita serve para <b>validar ou derrubar</b> cada hipótese antes de a dona ouvi-las como verdade. As perguntas abaixo estão em ordem de impacto.</p>
-
-    <h4>As cinco perguntas que podem reescrever o plano</h4>
-    <ol class="steps">
-      <li><b>Os R$ 0 são ClassPass?</b> Se sim, a receita real é maior, existe um canal de aquisição ativo, e o pilar 1 passa a ter uma frente nova: converter usuária de plataforma em cliente direta. Pedir o extrato de repasse da plataforma.</li>
-      <li><b>Por que a agenda da Bruna está vazia?</b> R$ 407 de ticket com 97 atendimentos no ano. Falta de demanda, disponibilidade restrita, ou a recepção não direciona? A resposta vale R$ 90 mil/ano.</li>
-      <li><b>O que aconteceu em julho?</b> Queda de 29% nas visitas. Férias de profissional, sazonalidade, saída de alguém, obra no prédio? Sem isso, não se sabe se é tendência ou evento.</li>
-      <li><b>Quanto tempo dura cada serviço?</b> Cronometrar na marra: uma luzes, uma escova longa, uma manicure. Sem duração não há ocupação, e sem ocupação não se sabe se o problema é agenda vazia ou agenda mal usada.</li>
-      <li><b>A cliente encontra o salão?</b> Chegar como cliente chegaria: descer no ponto, entrar no prédio, tentar achar a loja sem perguntar. Cronometrar. Com três salões no mesmo endereço, isso é um número de negócio.</li>
-    </ol>
-
-    <h4>O que observar e cronometrar</h4>
-    <ul class="check">
-      <li><b>Ritual de saída</b> — em quantos atendimentos alguém oferece a próxima data? Contar, não estimar.</li>
-      <li><b>Ritual do lavatório</b> — a massagem acontece sempre ou depende de quem atende?</li>
-      <li><b>Tempo até o primeiro contato</b> quando a cliente entra. Acima de 30 segundos já é problema.</li>
-      <li><b>O que a recepção responde</b> quando perguntam preço de luzes por telefone. Ouvir uma ligação real.</li>
-      <li><b>Cadeiras ocupadas por hora</b>, anotadas de hora em hora nos dois dias. É a taxa de ocupação improvisada.</li>
-      <li><b>Fundo das fotos</b> — fotografar o cenário candidato em três horários para checar a luz.</li>
-      <li><b>Concorrentes do prédio</b> — subir até as lojas 05 e 12, olhar o movimento, a fachada e a tabela de preços.</li>
-      <li><b>Google Maps no local</b> — preencher nota e número de avaliações de cada concorrente da tabela do pilar 2.</li>
-    </ul>
-
-    <div class="callout">
-      <span class="kicker">Como abrir a reunião de terça</span>
-      <p>Não comece pelos problemas. Comece por <b>"o reposicionamento que vocês fizeram deu certo — o ticket triplicou"</b>. É verdade, é mensurável, e muda a postura de quem ouve: a dona entra na conversa como alguém que acertou e precisa de ajuste, não como alguém que fracassou e precisa de resgate. Só depois disso apresente a recompra de 6% na iluminação. Ela vai doer mais e ser aceita melhor.</p>
+      <p>O salto projetado de R$ 26–27 mil para R$ 33–38 mil/mês representa <b>R$ 7–11 mil/mês recorrentes</b> — e, diferente de uma campanha de mídia, o ganho permanece depois que o contrato termina, porque o que se instala é retenção de gente e processo, não tráfego pago.</p>
     </div>
   </section>
 

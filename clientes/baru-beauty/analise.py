@@ -292,6 +292,41 @@ def retention(records):
     }
 
 
+def turnover(records, janela_ativo_dias=45):
+    """
+    Rotatividade de equipe: quem ainda está x quem já saiu, e quanto cada um levou.
+
+    "Ativo" = teve ao menos um lançamento nos últimos `janela_ativo_dias` a partir
+    da última data do relatório. É uma aproximação por ausência de cadastro de
+    desligamento — funciona bem quando a saída é abrupta, como neste caso.
+    """
+    end = max(r["dt"] for r in records)
+    first = {}
+    last = {}
+    receita = collections.defaultdict(float)
+    for r in records:
+        prof = r["profissional"]
+        if not prof or len(prof) < 4:
+            continue
+        first[prof] = min(first.get(prof, r["dt"]), r["dt"])
+        last[prof] = max(last.get(prof, r["dt"]), r["dt"])
+        receita[prof] += r["valor_num"]
+
+    ativos = [p for p in last if (end - last[p]).days <= janela_ativo_dias]
+    sairam = [p for p in last if (end - last[p]).days > janela_ativo_dias]
+    sairam.sort(key=lambda p: -receita[p])
+
+    return {
+        "total_profissionais": len(first),
+        "ativos": ativos,
+        "sairam": sairam,
+        "receita_sairam": sum(receita[p] for p in sairam),
+        "receita_total": sum(receita.values()),
+        "ultima_data": {p: last[p] for p in last},
+        "receita_por_profissional": dict(receita),
+    }
+
+
 def export_csv(records, path, anonimo=True):
     """
     Exporta a base tratada.
@@ -372,6 +407,18 @@ def report(records):
             f"  {name[:34]:36s} {brl(row['receita']):>11}  {row['receita'] / total * 100:>5.1f}%  "
             f"{row['servicos']:>5} serv  médio {brl(row['receita'] / row['servicos'])}"
         )
+
+    turn = turnover(records)
+    print("\nRotatividade de equipe:")
+    print(
+        f"  {turn['total_profissionais']} profissionais no período | "
+        f"{len(turn['ativos'])} ativos | {len(turn['sairam'])} saíram "
+        f"({len(turn['sairam']) / turn['total_profissionais'] * 100:.0f}%)"
+    )
+    print(
+        f"  Receita que saiu com quem foi embora: {brl(turn['receita_sairam'])} "
+        f"({turn['receita_sairam'] / turn['receita_total'] * 100:.0f}% do total)"
+    )
 
     stats = retention(records)
     print("\nIluminação capilar (o carro-chefe declarado):")
