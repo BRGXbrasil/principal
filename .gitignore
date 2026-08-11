@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+
+# Base identificada de clientes — nunca versionar
+clientes/**/base-completa*.csv
+clientes/**/*-com-dados-pessoais.csv
