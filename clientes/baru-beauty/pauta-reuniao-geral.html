@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barú Beauty · Pauta da Reunião de Direção</title>
+<title>Barú Beauty · Pauta da Reunião Geral</title>
 <style>
   :root {
     --ground: #FBF9F6; --raised: #FFFFFF; --sunken: #F3EEE7;
@@ -35,19 +35,25 @@
     --positive: #8FB395; --positive-wash: #1B241C;
   }
   body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; margin: 0; padding: 0 1.5rem 6rem; -webkit-font-smoothing: antialiased; }
-  .sheet { max-width: 54rem; margin: 0 auto; }
+  .sheet { max-width: 56rem; margin: 0 auto; }
   .cover { padding: 4rem 0 2.5rem; border-bottom: 2px solid var(--ink); }
-  .firm { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass); font-weight: 600; }
   .cover h1 { font-family: var(--serif); font-size: clamp(2rem, 5.5vw, 3rem); font-weight: 400; margin: 0.5rem 0; }
-  .cover p { font-family: var(--serif); font-size: 1.05rem; color: var(--ink-soft); max-width: 46ch; }
+  .cover p { font-family: var(--serif); font-size: 1.05rem; color: var(--ink-soft); max-width: 50ch; }
   .meta { font-size: 0.82rem; color: var(--ink-mute); display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1rem; }
   .meta b { color: var(--ink-soft); }
+
+  nav { margin: 2rem 0 0; border: 1px solid var(--rule); background: var(--raised); padding: 1.1rem 1.3rem; }
+  nav ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 0.5rem 1.5rem; counter-reset: toc; }
+  nav li { counter-increment: toc; font-size: 0.85rem; }
+  nav li::before { content: counter(toc, decimal-leading-zero); font-family: var(--mono); font-size: 0.66rem; color: var(--brass); margin-right: 0.6rem; }
+  nav a { color: var(--ink-soft); text-decoration: none; }
+  nav a:hover { color: var(--ink); }
 
   section { padding-top: 3rem; }
   .marker { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--rule-firm); padding-bottom: 0.5rem; margin-bottom: 1.3rem; }
   .marker .num { font-family: var(--mono); font-size: 0.72rem; color: var(--brass); }
   .marker h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; margin: 0; flex: 1; }
-  .marker .tag { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+  .marker .tag { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); white-space: nowrap; }
 
   p { margin: 0 0 1rem; max-width: 68ch; }
   ul.plain, ol.steps { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: 0.7rem; }
@@ -80,6 +86,9 @@
   .checkbox-list li::before { content: ""; position: absolute; left: 0; top: 0.15em; width: 0.85rem; height: 0.85rem; border: 1px solid var(--rule-firm); border-radius: 2px; }
   .checkbox-list li b { color: var(--ink); }
 
+  .person { border: 1px solid var(--rule); background: var(--raised); padding: 0.9rem 1rem; margin-bottom: 0.9rem; }
+  .person .name { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.4rem; color: var(--ink); }
+
   footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule-firm); font-size: 0.74rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
 
   .pdf-btn { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--brass); color: var(--ground); border: none; padding: 0.75rem 1.15rem; border-radius: 999px; font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); transition: transform 0.15s ease, box-shadow 0.15s ease; }
@@ -102,81 +111,123 @@
 <div class="sheet">
 
   <header class="cover">
-    <h1>Pauta da Reunião de Direção</h1>
-    <p>Roteiro para a conversa de terça com a dona e o administrador. Objetivo: alinhar o diagnóstico, tomar as decisões que só eles podem tomar, e sair com números que ainda faltam.</p>
-    <div class="meta"><span>Com <b>Dona + Administrador</b></span><span>Duração sugerida <b>60 a 90 min</b></span></div>
+    <h1>Pauta da Reunião Geral</h1>
+    <p>Reunião única, com toda a equipe. Alinha o diagnóstico, as decisões da direção e os próximos passos que dependem de todos, no mesmo encontro.</p>
+    <div class="meta"><span>Com <b>Dona, Administrador e Equipe</b></span><span>Duração sugerida <b>90 a 120 min</b></span></div>
   </header>
 
-  <section>
+  <nav aria-label="Índice">
+    <ol>
+      <li><a href="#abrir">Como abrir</a></li>
+      <li><a href="#diagnostico">Apresentar o diagnóstico</a></li>
+      <li><a href="#decisoes">Decisões da direção</a></li>
+      <li><a href="#numeros">Números que faltam</a></li>
+      <li><a href="#equipe">Para a equipe</a></li>
+      <li><a href="#individuais">Perguntas individuais</a></li>
+      <li><a href="#fechamento">Fechamento</a></li>
+    </ol>
+  </nav>
+
+  <section id="abrir">
     <div class="marker"><span class="num">01</span><h2>Como abrir</h2><span class="tag">5 min</span></div>
     <div class="callout">
       <span class="kicker">A frase de abertura</span>
-      <p>"A equipe que está aqui hoje fatura R$ 26 a 27 mil por mês e cresceu mês a mês desde março." É verdade, é mensurável, e muda a postura da conversa, quem ouve entra como alguém reconstruindo com sucesso, não fracassando. A conversa sobre rotatividade vem depois.</p>
+      <p>"A equipe que está aqui hoje fatura R$ 26 a 27 mil por mês e cresceu mês a mês desde março." É verdade, é mensurável, e muda a postura da conversa, quem ouve entra como alguém reconstruindo com sucesso, não fracassando.</p>
     </div>
   </section>
 
-  <section>
+  <section id="diagnostico">
     <div class="marker"><span class="num">02</span><h2>Apresentar o diagnóstico</h2><span class="tag">15 min</span></div>
     <ol class="steps">
       <li><b>Baseline real:</b> R$ 26 a 27 mil/mês (não R$ 33 mil, não R$ 37.709), equipe atual, em alta.</li>
       <li><b>O número central:</b> 78% de rotatividade em 12 meses, R$ 264.545 saíram com quem foi embora.</li>
       <li><b>A consequência:</b> 65% das clientes está sem profissional responsável hoje, não é falha de retenção de cliente, é efeito da rotatividade.</li>
-      <li><b>A correção:</b> Reflexo e Luzes são o mesmo serviço, Bruna já cobre, e penteado já é feito por Bruna e Lilian. O que falta mesmo é maquiagem (hoje freelance, pontual) e corte masculino.</li>
+      <li><b>A correção:</b> Reflexo e Luzes são o mesmo serviço, Bruna já cobre, e penteado já é feito por Bruna e Lilian. O que falta mesmo é maquiagem e corte masculino.</li>
+      <li><b>A meta:</b> R$ 50 a 60 mil por mês, com o Plano de Ação 90 Dias completo.</li>
     </ol>
   </section>
 
-  <section>
-    <div class="marker"><span class="num">03</span><h2>A conversa sobre rotatividade</h2><span class="tag">Só com a dona, a sós</span></div>
-    <div class="callout warn">
-      <span class="kicker">Como conduzir</span>
-      <p>Ancorar só no número: <b>78% e R$ 264.545</b>. Perguntar, não afirmar: <b>"O que você acha que está fazendo as pessoas saírem?"</b> Deixar o silêncio trabalhar.</p>
-    </div>
-    <ul class="plain">
-      <li>Perguntar se existe algum acordo de não concorrência com quem saiu, dado que o Le Fer fica no mesmo prédio.</li>
-      <li>Propor a política de alçada de redes sociais como solução prática de organização, não como acusação.</li>
-      <li>Aprovar a lista final do Menu de Experiência, para liberar sua entrada em marketing, relacionamento, indicação e recuperação de clientes.</li>
-    </ul>
-  </section>
-
-  <section>
-    <div class="marker"><span class="num">04</span><h2>Decisões que só eles podem tomar</h2><span class="tag">20 min</span></div>
+  <section id="decisoes">
+    <div class="marker"><span class="num">03</span><h2>Decisões da direção</h2><span class="tag">20 min</span></div>
     <div class="scroll">
       <table>
         <thead><tr><th>Decisão</th><th>Opções</th></tr></thead>
         <tbody>
-          <tr class="accent"><td><b>Corte masculino e maquiagem</b></td><td>Contratar, formalizar parceria fixa com o freelance de maquiagem, ou ajustar o que é anunciado no Instagram e Google</td></tr>
+          <tr class="accent"><td><b>Corte masculino e maquiagem</b></td><td>Contratar ou ajustar o que é anunciado no Instagram e Google</td></tr>
           <tr><td><b>Modelo de remuneração</b></td><td>Documentar comissão/meta por escrito, igual para todos na mesma função</td></tr>
           <tr><td><b>Barbearia do prédio</b></td><td>Avaliar depois de estancar rotatividade: comissão, aluguel de cadeira ou parceria PJ</td></tr>
-          <tr><td><b>Menu de Experiência</b></td><td>Aprovar a lista final de serviços (referência: material já existente do consultor)</td></tr>
-          <tr><td><b>Responsável pelo Instagram</b></td><td>Confirmar recepcionista como responsável única, com fluxo de aprovação</td></tr>
+          <tr><td><b>Menu de Experiência</b></td><td>Aprovar a lista final de serviços</td></tr>
+          <tr><td><b>Responsável pelo Instagram</b></td><td>Confirmar recepção como responsável única, com fluxo de aprovação</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <section>
-    <div class="marker"><span class="num">05</span><h2>Números que faltam, perguntar ao administrador</h2><span class="tag">15 min</span></div>
+  <section id="numeros">
+    <div class="marker"><span class="num">04</span><h2>Números que faltam, perguntar ao administrador</h2><span class="tag">10 min</span></div>
     <ul class="checkbox-list">
       <li><b>Custo fixo mensal</b>: aluguel, condomínio, folha</li>
       <li><b>Ponto de equilíbrio</b>: quanto o salão precisa faturar para não operar no vermelho</li>
       <li><b>% de comissão</b> atual de cada profissional</li>
-      <li>Se existe algum <b>acordo de não concorrência</b> com quem saiu (relevante pelo Le Fer estar no mesmo prédio)</li>
       <li>Vínculo de <b>Miguel e da equipe de sobrancelha</b>: CLT, PJ ou freela?</li>
     </ul>
   </section>
 
-  <section>
-    <div class="marker"><span class="num">06</span><h2>O que sai desta reunião</h2><span class="tag">5 min</span></div>
+  <section id="equipe">
+    <div class="marker"><span class="num">05</span><h2>Para a equipe</h2><span class="tag">25 min</span></div>
     <ul class="plain">
-      <li><b>Decisão sobre corte masculino e maquiagem</b>, para comunicar à equipe na quarta.</li>
+      <li>Apresentar o <b>Material de Integração</b>: quem somos, missão, visão, valores, Os Princípios do Barú.</li>
+      <li>Apresentar o <b>Regulamento Interno</b>, aplicável a todos.</li>
+      <li>Apresentar o <b>Manual de POPs</b>, um procedimento por setor.</li>
+      <li>Explicar o <b>Ritual do Espelho</b>: avaliação e próxima data, sempre nessa ordem, em toda cliente.</li>
+      <li>Explicar o novo fluxo de <b>redes sociais</b>: um responsável único para o Instagram institucional.</li>
+      <li>Apresentar o <b>Menu de Experiência</b>, o programa de indicação e a pesquisa de satisfação de inativas.</li>
+      <li>Anunciar o <b>1-a-1 quinzenal</b> como canal de escuta.</li>
+      <li>Coletar assinatura do termo de ciência do Regulamento e do Termo de Consciência Cultural.</li>
+    </ul>
+  </section>
+
+  <section id="individuais">
+    <div class="marker"><span class="num">06</span><h2>Perguntas individuais</h2><span class="tag">15 min</span></div>
+
+    <div class="person">
+      <div class="name">Bruna</div>
+      <ul class="plain">
+        <li>Sua agenda está cheia ou tem espaço livre?</li>
+        <li>Como você se sente sobre o modelo de remuneração atual?</li>
+      </ul>
+    </div>
+
+    <div class="person">
+      <div class="name">Lilian</div>
+      <ul class="plain">
+        <li>O que houve com a queda de julho vs. junho?</li>
+        <li>Você oferece tratamento em toda escova? Se não, por quê?</li>
+      </ul>
+    </div>
+
+    <div class="person">
+      <div class="name">Luciene (Lu), Cibele, Miguel e equipe de sobrancelha</div>
+      <ul class="plain">
+        <li>Sua agenda tem espaço livre em qual dia/horário?</li>
+        <li>Você sugere serviço de cabelo para sua cliente de unha/sobrancelha?</li>
+        <li>O que falta para você atender mais?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="fechamento">
+    <div class="marker"><span class="num">07</span><h2>Fechamento</h2><span class="tag">10 min</span></div>
+    <ul class="plain">
+      <li><b>Decisão comunicada</b> sobre corte masculino e maquiagem.</li>
       <li><b>Lista final do Menu de Experiência</b> aprovada.</li>
-      <li><b>Autorização para reivindicar o Google Meu Negócio</b> e ajustar a ficha.</li>
+      <li><b>Regulamento e POPs</b> entregues e assinados.</li>
       <li><b>Data do próximo check-in</b>, sugestão: 15 dias.</li>
     </ul>
   </section>
 
   <footer>
-    <span>Barú Beauty · Pauta da Reunião de Direção</span>
+    <span>Barú Beauty · Pauta da Reunião Geral</span>
     <span>Complementar ao Relatório de Performance e ao Plano de Ação 90 Dias</span>
   </footer>
 
