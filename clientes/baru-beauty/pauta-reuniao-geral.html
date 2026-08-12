@@ -34,11 +34,11 @@
     --critical: #D97C6A; --critical-wash: #2E1B17;
     --positive: #8FB395; --positive-wash: #1B241C;
   }
-  body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; margin: 0; padding: 0 1.5rem 6rem; -webkit-font-smoothing: antialiased; }
+  body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; margin: 0; padding: 0 1.5rem 6rem; -webkit-font-smoothing: antialiased; }
   .sheet { max-width: 56rem; margin: 0 auto; }
   .cover { padding: 4rem 0 2.5rem; border-bottom: 2px solid var(--ink); }
   .cover h1 { font-family: var(--serif); font-size: clamp(2rem, 5.5vw, 3rem); font-weight: 400; margin: 0.5rem 0; }
-  .cover p { font-family: var(--serif); font-size: 1.05rem; color: var(--ink-soft); max-width: 50ch; }
+  .cover p { color: var(--ink-mute); font-size: 0.92rem; max-width: 56ch; margin: 0; }
   .meta { font-size: 0.82rem; color: var(--ink-mute); display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1rem; }
   .meta b { color: var(--ink-soft); }
 
@@ -49,47 +49,39 @@
   nav a { color: var(--ink-soft); text-decoration: none; }
   nav a:hover { color: var(--ink); }
 
-  section { padding-top: 3rem; }
-  .marker { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--rule-firm); padding-bottom: 0.5rem; margin-bottom: 1.3rem; }
+  section { padding-top: 2.75rem; }
+  .marker { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--rule-firm); padding-bottom: 0.5rem; margin-bottom: 1.1rem; }
   .marker .num { font-family: var(--mono); font-size: 0.72rem; color: var(--brass); }
-  .marker h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; margin: 0; flex: 1; }
+  .marker h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; margin: 0; flex: 1; }
   .marker .tag { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); white-space: nowrap; }
 
-  p { margin: 0 0 1rem; max-width: 68ch; }
-  ul.plain, ol.steps { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: 0.7rem; }
-  ul.plain li { padding-left: 1.15rem; position: relative; color: var(--ink-soft); font-size: 0.93rem; }
+  h3 { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); font-weight: 700; margin: 1.3rem 0 0.6rem; }
+  h3:first-child { margin-top: 0; }
+
+  ul.plain { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+  ul.plain li { padding-left: 1.1rem; position: relative; color: var(--ink-soft); font-size: 0.92rem; }
   ul.plain li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 0.45rem; height: 1px; background: var(--brass); }
   ul.plain li b { color: var(--ink); font-weight: 600; }
-  ol.steps { counter-reset: s; }
-  ol.steps li { counter-increment: s; padding-left: 2.1rem; position: relative; color: var(--ink-soft); font-size: 0.93rem; }
-  ol.steps li::before { content: counter(s, decimal-leading-zero); position: absolute; left: 0; top: 0; font-family: var(--mono); font-size: 0.68rem; color: var(--brass); font-weight: 700; }
-  ol.steps li b { color: var(--ink); }
 
-  .callout { border-left: 2px solid var(--brass); background: var(--sunken); padding: 1rem 1.2rem; margin: 1.5rem 0; font-size: 0.9rem; color: var(--ink-soft); }
-  .callout.warn { border-left-color: var(--critical); }
-  .callout b { color: var(--ink); }
-  .callout .kicker { font-size: 0.64rem; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700; color: var(--brass); display: block; margin-bottom: 0.4rem; }
-  .callout.warn .kicker { color: var(--critical); }
+  .checkbox-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+  .checkbox-list li { padding-left: 1.7rem; position: relative; font-size: 0.92rem; color: var(--ink-soft); }
+  .checkbox-list li::before { content: ""; position: absolute; left: 0; top: 0.15em; width: 0.8rem; height: 0.8rem; border: 1px solid var(--rule-firm); border-radius: 2px; }
+  .checkbox-list li b { color: var(--ink); }
 
-  .scroll { overflow-x: auto; margin: 1rem 0; }
+  .scroll { overflow-x: auto; margin: 0.5rem 0; }
   table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-  th { text-align: left; font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; padding: 0 0.6rem 0.4rem; border-bottom: 1px solid var(--rule-firm); }
-  td { padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { text-align: left; font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; padding: 0 0.6rem 0.4rem; border-bottom: 1px solid var(--rule-firm); }
+  td { padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
   th:first-child, td:first-child { padding-left: 0; }
   th:last-child, td:last-child { padding-right: 0; }
-  td.num, th.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
   tbody tr:last-child td { border-bottom: none; }
   tr.accent td { background: var(--brass-wash); }
 
-  .checkbox-list { list-style: none; padding: 0; margin: 0.8rem 0; display: grid; gap: 0.55rem; }
-  .checkbox-list li { padding-left: 1.8rem; position: relative; font-size: 0.9rem; color: var(--ink-soft); }
-  .checkbox-list li::before { content: ""; position: absolute; left: 0; top: 0.15em; width: 0.85rem; height: 0.85rem; border: 1px solid var(--rule-firm); border-radius: 2px; }
-  .checkbox-list li b { color: var(--ink); }
+  .person { border: 1px solid var(--rule); background: var(--raised); padding: 0.8rem 0.95rem; margin-bottom: 0.7rem; }
+  .person .name { font-weight: 700; font-size: 0.88rem; margin-bottom: 0.35rem; color: var(--ink); }
+  .person ul.plain { gap: 0.35rem; }
 
-  .person { border: 1px solid var(--rule); background: var(--raised); padding: 0.9rem 1rem; margin-bottom: 0.9rem; }
-  .person .name { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.4rem; color: var(--ink); }
-
-  footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule-firm); font-size: 0.74rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
+  footer { margin-top: 3rem; padding-top: 1.1rem; border-top: 1px solid var(--rule-firm); font-size: 0.72rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
 
   .pdf-btn { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--brass); color: var(--ground); border: none; padding: 0.75rem 1.15rem; border-radius: 999px; font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); transition: transform 0.15s ease, box-shadow 0.15s ease; }
   .pdf-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
@@ -112,43 +104,47 @@
 
   <header class="cover">
     <h1>Pauta da Reunião Geral</h1>
-    <p>Reunião única, com toda a equipe. Alinha o diagnóstico, as decisões da direção e os próximos passos que dependem de todos, no mesmo encontro.</p>
+    <p>Reunião única, com toda a equipe. Formato de tópicos, objetivo, sem valores de faturamento.</p>
     <div class="meta"><span>Com <b>Dona, Administrador e Equipe</b></span><span>Duração sugerida <b>90 a 120 min</b></span></div>
   </header>
 
   <nav aria-label="Índice">
     <ol>
-      <li><a href="#abrir">Como abrir</a></li>
-      <li><a href="#diagnostico">Apresentar o diagnóstico</a></li>
+      <li><a href="#abrir">Abertura</a></li>
+      <li><a href="#diagnostico">Diagnóstico</a></li>
       <li><a href="#decisoes">Decisões da direção</a></li>
-      <li><a href="#numeros">Números que faltam</a></li>
-      <li><a href="#equipe">Para a equipe</a></li>
+      <li><a href="#numeros">Perguntas ao administrador</a></li>
+      <li><a href="#regulamento">Regulamento Interno</a></li>
+      <li><a href="#pops">Manual de POPs</a></li>
+      <li><a href="#relacionamento">Menu de Experiência e relacionamento</a></li>
       <li><a href="#individuais">Perguntas individuais</a></li>
       <li><a href="#fechamento">Fechamento</a></li>
     </ol>
   </nav>
 
   <section id="abrir">
-    <div class="marker"><span class="num">01</span><h2>Como abrir</h2><span class="tag">5 min</span></div>
-    <div class="callout">
-      <span class="kicker">A frase de abertura</span>
-      <p>"A equipe que está aqui hoje cresceu mês a mês desde março." É verdade, é mensurável, e muda a postura da conversa, quem ouve entra como alguém reconstruindo com sucesso, não fracassando.</p>
-    </div>
+    <div class="marker"><span class="num">01</span><h2>Abertura</h2><span class="tag">5 min</span></div>
+    <ul class="plain">
+      <li>Tom: reconstrução em curso, não fracasso.</li>
+      <li>Equipe atual cresceu mês a mês desde março.</li>
+      <li>Objetivo da reunião: alinhar diagnóstico, decisões e novos materiais, tudo de uma vez.</li>
+    </ul>
   </section>
 
   <section id="diagnostico">
-    <div class="marker"><span class="num">02</span><h2>Apresentar o diagnóstico</h2><span class="tag">15 min</span></div>
-    <ol class="steps">
-      <li><b>Baseline real:</b> a equipe atual está em crescimento constante desde março, mês após mês.</li>
-      <li><b>O número central:</b> 78% de rotatividade em 12 meses, boa parte da receita saiu com quem foi embora.</li>
-      <li><b>A consequência:</b> 65% das clientes está sem profissional responsável hoje, não é falha de retenção de cliente, é efeito da rotatividade.</li>
-      <li><b>A correção:</b> Reflexo e Luzes são o mesmo serviço, Bruna já cobre, e penteado já é feito por Bruna e Lilian. O que falta mesmo é maquiagem e corte masculino.</li>
-      <li><b>A meta:</b> crescimento significativo de faturamento, com o Plano de Ação 90 Dias completo.</li>
-    </ol>
+    <div class="marker"><span class="num">02</span><h2>Diagnóstico</h2><span class="tag">10 min</span></div>
+    <ul class="plain">
+      <li>Equipe atual em crescimento constante desde março, mês após mês.</li>
+      <li>78% de rotatividade em 12 meses. Boa parte da receita saiu com quem foi embora.</li>
+      <li>65% das clientes está sem profissional responsável hoje. Efeito da rotatividade, não falha de retenção de cliente.</li>
+      <li>Reflexo e Luzes são o mesmo serviço, Bruna já cobre. Penteado já é feito por Bruna e Lilian.</li>
+      <li>Seguem sem atendimento fixo: maquiagem e corte masculino.</li>
+      <li>Meta: crescimento significativo de faturamento, com o Plano de Ação 90 Dias completo.</li>
+    </ul>
   </section>
 
   <section id="decisoes">
-    <div class="marker"><span class="num">03</span><h2>Decisões da direção</h2><span class="tag">20 min</span></div>
+    <div class="marker"><span class="num">03</span><h2>Decisões da direção</h2><span class="tag">15 min</span></div>
     <div class="scroll">
       <table>
         <thead><tr><th>Decisão</th><th>Opções</th></tr></thead>
@@ -157,38 +153,77 @@
           <tr><td><b>Modelo de remuneração</b></td><td>Documentar comissão/meta por escrito, igual para todos na mesma função</td></tr>
           <tr><td><b>Barbearia do prédio</b></td><td>Avaliar depois de estancar rotatividade: comissão, aluguel de cadeira ou parceria PJ</td></tr>
           <tr><td><b>Menu de Experiência</b></td><td>Aprovar a lista final de serviços</td></tr>
-          <tr><td><b>Responsável pelo Instagram</b></td><td>Confirmar recepção como responsável única, com fluxo de aprovação</td></tr>
+          <tr><td><b>Publicação no Instagram</b></td><td>Confirmar recepção como responsável pela publicação</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section id="numeros">
-    <div class="marker"><span class="num">04</span><h2>Números que faltam, perguntar ao administrador</h2><span class="tag">10 min</span></div>
+    <div class="marker"><span class="num">04</span><h2>Perguntas ao administrador</h2><span class="tag">10 min</span></div>
     <ul class="checkbox-list">
       <li><b>Custo fixo mensal</b>: aluguel, condomínio, folha</li>
-      <li><b>Ponto de equilíbrio</b>: quanto o salão precisa faturar para não operar no vermelho</li>
+      <li><b>Ponto de equilíbrio</b> do salão</li>
       <li><b>% de comissão</b> atual de cada profissional</li>
       <li>Vínculo de <b>Miguel e da equipe de sobrancelha</b>: CLT, PJ ou freela?</li>
     </ul>
   </section>
 
-  <section id="equipe">
-    <div class="marker"><span class="num">05</span><h2>Para a equipe</h2><span class="tag">25 min</span></div>
+  <section id="regulamento">
+    <div class="marker"><span class="num">05</span><h2>Regulamento Interno</h2><span class="tag">15 min</span></div>
+
+    <h3>Os Princípios do Barú</h3>
     <ul class="plain">
-      <li>Apresentar o <b>Material de Integração</b>: quem somos, missão, visão, valores, Os Princípios do Barú.</li>
-      <li>Apresentar o <b>Regulamento Interno</b>, aplicável a todos.</li>
-      <li>Apresentar o <b>Manual de POPs</b>, um procedimento por setor.</li>
-      <li>Explicar o <b>Ritual do Espelho</b>: avaliação e próxima data, sempre nessa ordem, em toda cliente.</li>
-      <li>Explicar o novo fluxo de <b>redes sociais</b>: um responsável único para o Instagram institucional.</li>
-      <li>Apresentar o <b>Menu de Experiência</b>, o programa de indicação e a pesquisa de satisfação de inativas.</li>
-      <li>Anunciar o <b>1-a-1 quinzenal</b> como canal de escuta.</li>
-      <li>Coletar assinatura do termo de ciência do Regulamento e do Termo de Consciência Cultural.</li>
+      <li>10 compromissos de atendimento e convivência, apresentados em bloco.</li>
+    </ul>
+
+    <h3>Responsabilidades com agenda</h3>
+    <ul class="plain">
+      <li>Área de clientes e área de equipe são separadas. Alimentação e pausas só na área de equipe.</li>
+      <li>Postura de prontidão durante o horário de trabalho.</li>
+      <li>Serviço entre profissionais: preferencialmente segunda e terça, no máximo quarta, com aviso prévio, sem prejudicar cliente.</li>
+    </ul>
+
+    <h3>Conduta, redes sociais e confidencialidade</h3>
+    <ul class="plain">
+      <li>Respeito e limite profissional entre todos, sem distinção de cargo.</li>
+      <li>Fotos e vídeos de colegas só com consentimento de quem aparece.</li>
+      <li>Dados de clientes pertencem ao salão. Uso de cada profissional é restrito à própria atuação.</li>
+    </ul>
+
+    <h3>Parcerias</h3>
+    <ul class="plain">
+      <li>Unilateral: quem propõe cobre a parte da outra.</li>
+      <li>Bilateral: cada lado investe a própria parte.</li>
+      <li>Retorno de toda parceria é contabilizado ao final.</li>
+    </ul>
+  </section>
+
+  <section id="pops">
+    <div class="marker"><span class="num">06</span><h2>Manual de POPs</h2><span class="tag">10 min</span></div>
+    <ul class="plain">
+      <li>Um procedimento por setor: Recepção, Retenção e Reagendamento, Cabelo, Unhas, Sobrancelha e Estética, Limpeza, Governança.</li>
+      <li>Sem nomes de profissionais nos POPs, só função.</li>
+      <li>Ritual do Espelho em destaque no POP de Retenção e Reagendamento: avaliação e próxima data, sempre nessa ordem.</li>
+    </ul>
+  </section>
+
+  <section id="relacionamento">
+    <div class="marker"><span class="num">07</span><h2>Menu de Experiência e relacionamento</h2><span class="tag">10 min</span></div>
+    <ul class="plain">
+      <li>Menu de Experiência: lista final a aprovar pela direção.</li>
+      <li>Ativação por serviço, dentro da janela de retorno de cada categoria.</li>
+      <li>Pós-atendimento semanal para clientes novas.</li>
+      <li>Reconhecimento para quem retorna em até 30 dias.</li>
+      <li>Programa de indicação: 2 indicações pagantes geram benefício.</li>
+      <li>Pesquisa de satisfação de clientes inativas (60+ dias sem visitar).</li>
+      <li>Ação fixa para aniversariantes do mês.</li>
+      <li>1-a-1 quinzenal como canal de escuta.</li>
     </ul>
   </section>
 
   <section id="individuais">
-    <div class="marker"><span class="num">06</span><h2>Perguntas individuais</h2><span class="tag">15 min</span></div>
+    <div class="marker"><span class="num">08</span><h2>Perguntas individuais</h2><span class="tag">15 min</span></div>
 
     <div class="person">
       <div class="name">Bruna</div>
@@ -217,12 +252,13 @@
   </section>
 
   <section id="fechamento">
-    <div class="marker"><span class="num">07</span><h2>Fechamento</h2><span class="tag">10 min</span></div>
+    <div class="marker"><span class="num">09</span><h2>Fechamento</h2><span class="tag">10 min</span></div>
     <ul class="plain">
-      <li><b>Decisão comunicada</b> sobre corte masculino e maquiagem.</li>
-      <li><b>Lista final do Menu de Experiência</b> aprovada.</li>
-      <li><b>Regulamento e POPs</b> entregues e assinados.</li>
-      <li><b>Data do próximo check-in</b>, sugestão: 15 dias.</li>
+      <li>Decisão comunicada sobre corte masculino e maquiagem.</li>
+      <li>Lista final do Menu de Experiência aprovada.</li>
+      <li>Regulamento e POPs entregues.</li>
+      <li>Termo de ciência do Regulamento e Termo de Consciência Cultural assinados.</li>
+      <li>Data do próximo check-in, sugestão: 15 dias.</li>
     </ul>
   </section>
 
