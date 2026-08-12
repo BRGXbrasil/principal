@@ -1,5 +1,9 @@
-<title>Barú Beauty — Pauta da Reunião de Direção</title>
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barú Beauty · Pauta da Reunião de Direção</title>
 <style>
   :root {
     --ground: #FBF9F6; --raised: #FFFFFF; --sunken: #F3EEE7;
@@ -77,45 +81,60 @@
   .checkbox-list li b { color: var(--ink); }
 
   footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule-firm); font-size: 0.74rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
+
+  .pdf-btn { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--brass); color: var(--ground); border: none; padding: 0.75rem 1.15rem; border-radius: 999px; font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .pdf-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
+  .pdf-btn:active { transform: translateY(0); }
+  .pdf-btn svg { width: 1rem; height: 1rem; flex-shrink: 0; }
+  @media print {
+    .pdf-btn { display: none !important; }
+    body { padding: 0 !important; background: #fff !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
 </style>
 
+</head>
+<body>
+<button class="pdf-btn" onclick="window.print()" aria-label="Baixar PDF deste documento">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+  Baixar PDF
+</button>
 <div class="sheet">
 
   <header class="cover">
-    <div class="firm">BRGX Consultoria</div>
     <h1>Pauta da Reunião de Direção</h1>
     <p>Roteiro para a conversa de terça com a dona e o administrador. Objetivo: alinhar o diagnóstico, tomar as decisões que só eles podem tomar, e sair com números que ainda faltam.</p>
-    <div class="meta"><span>Com <b>Dona + Administrador</b></span><span>Duração sugerida <b>60–90 min</b></span></div>
+    <div class="meta"><span>Com <b>Dona + Administrador</b></span><span>Duração sugerida <b>60 a 90 min</b></span></div>
   </header>
 
   <section>
     <div class="marker"><span class="num">01</span><h2>Como abrir</h2><span class="tag">5 min</span></div>
     <div class="callout">
       <span class="kicker">A frase de abertura</span>
-      <p>"A equipe que está aqui hoje fatura R$ 26 a 27 mil por mês e cresceu mês a mês desde março." É verdade, é mensurável, e muda a postura da conversa — quem ouve entra como alguém reconstruindo com sucesso, não fracassando. A conversa sobre rotatividade vem depois.</p>
+      <p>"A equipe que está aqui hoje fatura R$ 26 a 27 mil por mês e cresceu mês a mês desde março." É verdade, é mensurável, e muda a postura da conversa, quem ouve entra como alguém reconstruindo com sucesso, não fracassando. A conversa sobre rotatividade vem depois.</p>
     </div>
   </section>
 
   <section>
     <div class="marker"><span class="num">02</span><h2>Apresentar o diagnóstico</h2><span class="tag">15 min</span></div>
     <ol class="steps">
-      <li><b>Baseline real:</b> R$ 26–27 mil/mês (não R$ 33 mil, não R$ 37.709) — equipe atual, em alta.</li>
+      <li><b>Baseline real:</b> R$ 26 a 27 mil/mês (não R$ 33 mil, não R$ 37.709), equipe atual, em alta.</li>
       <li><b>O número central:</b> 78% de rotatividade em 12 meses, R$ 264.545 saíram com quem foi embora.</li>
-      <li><b>A consequência:</b> 65% da carteira de clientes é órfã — não é falha de retenção de cliente, é efeito da rotatividade.</li>
-      <li><b>A correção:</b> Reflexo e Luzes são o mesmo serviço — Bruna já cobre. O cardápio realmente órfão é só penteado, maquiagem e corte masculino.</li>
+      <li><b>A consequência:</b> 65% das clientes está sem profissional responsável hoje, não é falha de retenção de cliente, é efeito da rotatividade.</li>
+      <li><b>A correção:</b> Reflexo e Luzes são o mesmo serviço, Bruna já cobre, e penteado já é feito por Bruna e Lilian. O que falta mesmo é maquiagem (hoje freelance, pontual) e corte masculino.</li>
     </ol>
   </section>
 
   <section>
-    <div class="marker"><span class="num">03</span><h2>A conversa reservada sobre rotatividade</h2><span class="tag">Só com a dona, a sós</span></div>
+    <div class="marker"><span class="num">03</span><h2>A conversa sobre rotatividade</h2><span class="tag">Só com a dona, a sós</span></div>
     <div class="callout warn">
       <span class="kicker">Como conduzir</span>
-      <p>Ancorar só no número: <b>78% e R$ 264.545</b>. Não repetir relatos da equipe sobre conduta — são percepções de terceiros, não verificadas, e não cabem em documento nem em conversa com terceiros presentes (o administrador fica de fora desta parte). Perguntar, não afirmar: <b>"O que você acha que está fazendo as pessoas saírem?"</b> Deixar o silêncio trabalhar.</p>
+      <p>Ancorar só no número: <b>78% e R$ 264.545</b>. Perguntar, não afirmar: <b>"O que você acha que está fazendo as pessoas saírem?"</b> Deixar o silêncio trabalhar.</p>
     </div>
     <ul class="plain">
-      <li>Perguntar sobre o histórico de sociedades e processos anteriores — só para entender o padrão, sem julgamento.</li>
-      <li>Propor a política de alçada de redes sociais como solução prática, não como acusação.</li>
-      <li>Confirmar se ela topa o regulamento interno valer também para ela mesma.</li>
+      <li>Perguntar se existe algum acordo de não concorrência com quem saiu, dado que o Le Fer fica no mesmo prédio.</li>
+      <li>Propor a política de alçada de redes sociais como solução prática de organização, não como acusação.</li>
+      <li>Aprovar a lista final do Menu de Experiência, para liberar sua entrada em marketing, relacionamento, indicação e recuperação de clientes.</li>
     </ul>
   </section>
 
@@ -125,10 +144,10 @@
       <table>
         <thead><tr><th>Decisão</th><th>Opções</th></tr></thead>
         <tbody>
-          <tr class="accent"><td><b>Cardápio órfão</b></td><td>Treinar equipe atual em penteado/maquiagem, contratar especialista, ou remover do Instagram e Google</td></tr>
-          <tr><td><b>Modelo de remuneração</b></td><td>Formalizar comissão/meta por escrito, igual para todos</td></tr>
-          <tr><td><b>Barbearia do prédio</b></td><td>Avaliar depois de estancar rotatividade — comissão, aluguel de cadeira ou parceria PJ</td></tr>
-          <tr><td><b>Gatos no salão</b></td><td>Verificar norma de vigilância sanitária antes da próxima fiscalização</td></tr>
+          <tr class="accent"><td><b>Corte masculino e maquiagem</b></td><td>Contratar, formalizar parceria fixa com o freelance de maquiagem, ou ajustar o que é anunciado no Instagram e Google</td></tr>
+          <tr><td><b>Modelo de remuneração</b></td><td>Documentar comissão/meta por escrito, igual para todos na mesma função</td></tr>
+          <tr><td><b>Barbearia do prédio</b></td><td>Avaliar depois de estancar rotatividade: comissão, aluguel de cadeira ou parceria PJ</td></tr>
+          <tr><td><b>Menu de Experiência</b></td><td>Aprovar a lista final de serviços (referência: material já existente do consultor)</td></tr>
           <tr><td><b>Responsável pelo Instagram</b></td><td>Confirmar recepcionista como responsável única, com fluxo de aprovação</td></tr>
         </tbody>
       </table>
@@ -136,32 +155,32 @@
   </section>
 
   <section>
-    <div class="marker"><span class="num">05</span><h2>Números que faltam — perguntar ao administrador</h2><span class="tag">15 min</span></div>
+    <div class="marker"><span class="num">05</span><h2>Números que faltam, perguntar ao administrador</h2><span class="tag">15 min</span></div>
     <ul class="checkbox-list">
-      <li>Extrato de repasse do <b>ClassPass</b> dos últimos 12 meses (concilia os R$ 0 do relatório)</li>
-      <li>Extrato de repasse do <b>Sheer Me</b> dos últimos 12 meses</li>
-      <li><b>Custo fixo mensal</b> — aluguel, condomínio, folha</li>
-      <li><b>Ponto de equilíbrio</b> — quanto o salão precisa faturar para não operar no vermelho</li>
+      <li><b>Custo fixo mensal</b>: aluguel, condomínio, folha</li>
+      <li><b>Ponto de equilíbrio</b>: quanto o salão precisa faturar para não operar no vermelho</li>
       <li><b>% de comissão</b> atual de cada profissional</li>
       <li>Se existe algum <b>acordo de não concorrência</b> com quem saiu (relevante pelo Le Fer estar no mesmo prédio)</li>
-      <li>Vínculo de <b>Miguel e Tamy</b> — CLT, PJ ou freela?</li>
+      <li>Vínculo de <b>Miguel e Tamy</b>: CLT, PJ ou freela?</li>
     </ul>
   </section>
 
   <section>
     <div class="marker"><span class="num">06</span><h2>O que sai desta reunião</h2><span class="tag">5 min</span></div>
     <ul class="plain">
-      <li><b>Decisão sobre o cardápio órfão</b> — para comunicar à equipe na quarta.</li>
-      <li><b>Confirmação do regulamento interno</b> — data de assinatura pela equipe.</li>
+      <li><b>Decisão sobre corte masculino e maquiagem</b>, para comunicar à equipe na quarta.</li>
+      <li><b>Lista final do Menu de Experiência</b> aprovada.</li>
       <li><b>Autorização para reivindicar o Google Meu Negócio</b> e ajustar a ficha.</li>
-      <li><b>Compromisso da dona</b> com a política de redes sociais (mesmo capítulo que vale para todos).</li>
-      <li><b>Data do próximo check-in</b> — sugestão: 15 dias.</li>
+      <li><b>Data do próximo check-in</b>, sugestão: 15 dias.</li>
     </ul>
   </section>
 
   <footer>
-    <span>BRGX Consultoria · Barú Beauty · Pauta da Reunião de Direção</span>
+    <span>Barú Beauty · Pauta da Reunião de Direção</span>
     <span>Complementar ao Relatório de Performance e ao Plano de Ação 90 Dias</span>
   </footer>
 
 </div>
+
+</body>
+</html>

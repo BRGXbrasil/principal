@@ -1,5 +1,9 @@
-<title>Barú Beauty — Manual de POPs</title>
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barú Beauty · Manual de POPs</title>
 <style>
   :root {
     --ground: #FBF9F6; --raised: #FFFFFF; --sunken: #F3EEE7;
@@ -33,7 +37,6 @@
   body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; margin: 0; padding: 0 1.5rem 6rem; -webkit-font-smoothing: antialiased; }
   .sheet { max-width: 54rem; margin: 0 auto; }
   .cover { padding: 4rem 0 2.5rem; border-bottom: 2px solid var(--ink); }
-  .firm { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass); font-weight: 600; }
   .cover h1 { font-family: var(--serif); font-size: clamp(2rem, 5.5vw, 3rem); font-weight: 400; margin: 0.5rem 0; }
   .cover p { font-family: var(--serif); font-size: 1.05rem; color: var(--ink-soft); max-width: 48ch; }
 
@@ -62,30 +65,44 @@
   .callout .kicker { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: var(--brass); display: block; margin-bottom: 0.35rem; }
   .callout.new { border-left-color: var(--positive); }
   .callout.new .kicker { color: var(--positive); }
+  .callout.feature { border-left-color: var(--brass); background: var(--brass-wash); }
 
   .doc-footer { font-size: 0.66rem; letter-spacing: 0.04em; color: var(--ink-mute); text-align: center; margin-top: 1.5rem; padding-top: 0.8rem; border-top: 1px solid var(--rule); }
 
   footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule-firm); font-size: 0.74rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
+
+  .pdf-btn { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--brass); color: var(--ground); border: none; padding: 0.75rem 1.15rem; border-radius: 999px; font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .pdf-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
+  .pdf-btn:active { transform: translateY(0); }
+  .pdf-btn svg { width: 1rem; height: 1rem; flex-shrink: 0; }
+  @media print {
+    .pdf-btn { display: none !important; }
+    body { padding: 0 !important; background: #fff !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
 </style>
 
+</head>
+<body>
+<button class="pdf-btn" onclick="window.print()" aria-label="Baixar PDF deste documento">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+  Baixar PDF
+</button>
 <div class="sheet">
 
   <header class="cover">
-    <div class="firm">BRGX Consultoria</div>
     <h1>Manual de POPs</h1>
-    <p>Procedimentos Operacionais Padrão do Barú Beauty. Documento de uso operacional e treinamento — consulte o setor e a tarefa necessária durante o trabalho.</p>
+    <p>Procedimentos Operacionais Padrão do Barú Beauty, separados por setor. Documento de uso operacional e treinamento, consulte o setor e a tarefa necessária durante o trabalho.</p>
   </header>
 
   <nav aria-label="Índice">
     <ol>
       <li><a href="#regras">Regras gerais</a></li>
       <li><a href="#recepcao">Recepção, Agenda e Relacionamento</a></li>
-      <li><a href="#retencao">Retenção e Reagendamento <em>(novo)</em></a></li>
-      <li><a href="#redes">Redes Sociais <em>(novo)</em></a></li>
+      <li><a href="#retencao">Retenção e Reagendamento</a></li>
+      <li><a href="#redes">Redes Sociais</a></li>
       <li><a href="#tecnicos">Parceiros Técnicos</a></li>
-      <li><a href="#estoque">Estoque e Suprimentos</a></li>
       <li><a href="#limpeza">Limpeza e Ambientes</a></li>
-      <li><a href="#manutencao">Manutenção</a></li>
       <li><a href="#governanca">Governança e Pendências</a></li>
     </ol>
   </nav>
@@ -95,8 +112,8 @@
     <ol class="items">
       <li>Cumprir o padrão de apresentação, postura e comunicação definido pela empresa.</li>
       <li>Usar linguagem simples, educada e objetiva com clientes, equipe e parceiros.</li>
-      <li>Registrar no sistema tudo que afetar agenda, atendimento, estoque, caixa, limpeza ou segurança.</li>
-      <li>Comunicar a liderança no mesmo momento em caso de erro, atraso, falta de material, divergência, risco ou reclamação.</li>
+      <li>Registrar no sistema tudo que afetar agenda, atendimento, caixa, limpeza ou segurança.</li>
+      <li>Comunicar a liderança no mesmo momento em caso de erro, atraso, divergência, risco ou reclamação.</li>
       <li>Não improvisar fora do padrão. Em dúvida, parar e acionar o responsável.</li>
     </ol>
   </section>
@@ -116,7 +133,7 @@
     <h3>Cadastro e agendamento</h3>
     <ol class="items">
       <li>Solicitar nome completo, telefone e data de aniversário com gentileza.</li>
-      <li>Registrar como a cliente conheceu o salão (Instagram, Google, indicação, ClassPass, Sheer Me).</li>
+      <li>Registrar como a cliente conheceu o salão (Instagram, Google, indicação, ClassPass).</li>
       <li>Verificar histórico da cliente antes de oferecer horários.</li>
       <li>Priorizar o profissional escolhido quando houver disponibilidade.</li>
       <li>Registrar o agendamento e confirmar data, horário, serviço e profissional antes de encerrar.</li>
@@ -126,42 +143,56 @@
     <ol class="items">
       <li>Confirmar serviços realizados antes de cobrar.</li>
       <li>Se a cliente relatar insatisfação, não cobrar antes de acionar a liderança.</li>
-      <li>Todo lançamento com valor zerado (ClassPass, Sheer Me, cortesia) leva <b>motivo obrigatório no sistema</b>.</li>
+      <li>Todo lançamento com valor zerado (ClassPass ou cortesia) leva <b>motivo obrigatório no sistema</b>.</li>
       <li>Não deixar a cliente sair sem pagamento ou autorização da liderança.</li>
     </ol>
   </section>
 
   <section id="retencao">
-    <div class="marker"><span class="num">02</span><h2>Retenção e Reagendamento</h2><span class="tag">Novo · toda a equipe técnica</span></div>
+    <div class="marker"><span class="num">02</span><h2>Retenção e Reagendamento</h2><span class="tag">Toda a equipe técnica</span></div>
     <div class="callout new">
       <span class="kicker">Por que este POP existe</span>
-      <p>65% da carteira do salão nunca voltou depois da primeira visita. Este procedimento existe para reverter isso — é a alavanca mais importante deste ciclo.</p>
+      <p>65% das clientes do salão está sem profissional responsável hoje. Este procedimento existe para reverter isso, é a alavanca mais importante deste ciclo.</p>
     </div>
     <p class="obj">Garantir que toda cliente saia com o próximo passo definido, e que nenhuma recompra dependa da cliente lembrar sozinha.</p>
+
+    <div class="callout feature">
+      <span class="kicker">Destaque · Ritual do Espelho</span>
+      <p>Sempre nesta ordem, ao final de todo atendimento: <b>1.</b> fotografar o resultado, com autorização já registrada no cadastro. <b>2.</b> pedir a avaliação no momento em que a cliente está mais satisfeita, antes de sair da cadeira. <b>3.</b> oferecer a próxima data ali mesmo. É o procedimento de maior prioridade deste manual.</p>
+    </div>
+
+    <h3>Fluxo de reagendamento</h3>
     <ol class="items">
-      <li>Ao finalizar o atendimento, fotografar o resultado com autorização já registrada no cadastro.</li>
-      <li>Pedir a avaliação no momento em que a cliente está mais satisfeita — antes de sair da cadeira.</li>
-      <li>Oferecer a próxima data ali mesmo, conforme o ciclo do serviço: química/coloração 30–45 dias, escova 7–15 dias, manicure/pedicure 15–21 dias, sobrancelha 30–60 dias.</li>
+      <li>Oferecer a próxima data ainda na cadeira, conforme a janela de ativação do serviço (média por categoria: química/coloração, escova, manicure/pedicure, sobrancelha, cada uma com seu ciclo natural de retorno).</li>
       <li>Registrar o reagendamento no sistema, mesmo que provisório.</li>
-      <li>Se a cliente não quiser marcar na hora, anotar a data-limite de contato de retorno (dia 28–40 após o atendimento, conforme o serviço).</li>
-      <li>Recepção revisa semanalmente a lista de clientes que passaram da data-limite sem retorno e aciona contato.</li>
+      <li>Se a cliente não quiser marcar na hora, anotar a janela de contato de retorno conforme o serviço.</li>
+      <li>Recepção revisa semanalmente a lista de clientes que passaram da janela sem retorno.</li>
+      <li>Contato de reagendamento sempre com horários concretos oferecidos, nunca perguntas em aberto.</li>
+    </ol>
+
+    <h3>Ativação por serviço e programa de relacionamento</h3>
+    <ol class="items">
+      <li>Toda cliente nova recebe contato de acompanhamento em até uma semana após o primeiro atendimento.</li>
+      <li>Cliente que retorna dentro de 30 dias da última visita recebe reconhecimento com um item do Menu de Experiência.</li>
+      <li>Melhores clientes são convidadas a indicar. A cada 2 indicações pagantes, a cliente recebe um conjunto de serviços do Menu de Experiência.</li>
+      <li>Aniversariantes do mês recebem comunicação com uma semana de antecedência e um benefício do Menu de Experiência.</li>
     </ol>
   </section>
 
   <section id="redes">
-    <div class="marker"><span class="num">03</span><h2>Redes Sociais</h2><span class="tag">Novo · responsável designado + equipe</span></div>
+    <div class="marker"><span class="num">03</span><h2>Redes Sociais</h2><span class="tag">Responsável designado + equipe</span></div>
     <div class="callout new">
       <span class="kicker">Por que este POP existe</span>
-      <p>O Instagram do salão precisa de um fluxo único e previsível — protege a marca e evita ruído entre quem participa.</p>
+      <p>O Instagram do salão precisa de um fluxo único e previsível, protege a marca e evita ruído entre quem participa.</p>
     </div>
     <p class="obj">Manter o perfil institucional coerente com o padrão da casa, com autoria e aprovação claras.</p>
     <ol class="items">
-      <li>Um único responsável publica no perfil institucional — hoje, a recepção.</li>
-      <li>Profissionais enviam fotos e vídeos ao responsável; não publicam diretamente no perfil do salão.</li>
+      <li>Um único responsável publica no perfil institucional, hoje, a recepção.</li>
+      <li>Profissionais enviam fotos e vídeos ao responsável, não publicam diretamente no perfil do salão.</li>
       <li>Toda imagem de cliente exige autorização prévia, registrada no cadastro.</li>
       <li>Padrão visual: luz natural, fundo limpo, três ângulos em resultado de cabelo (frente, perfil, nuca).</li>
       <li>Conteúdo institucional não é publicado em perfil pessoal como se fosse do salão.</li>
-      <li>Qualquer dúvida sobre o que pode ou não ser publicado é resolvida com a direção antes da postagem, não depois.</li>
+      <li>Qualquer dúvida sobre o que pode ou não ser publicado é resolvida com a gestão antes da postagem, não depois.</li>
     </ol>
   </section>
 
@@ -175,15 +206,15 @@
       <li>Confirmar serviço contratado e expectativa antes de iniciar.</li>
       <li>Executar com técnica, higiene, cuidado e discrição.</li>
       <li>Confirmar satisfação antes de finalizar.</li>
-      <li>Lançar o serviço correto na comanda — nunca deixar em branco ou genérico.</li>
-      <li>Aplicar o POP de Retenção e Reagendamento ao final de todo atendimento.</li>
+      <li>Lançar o serviço correto na comanda, nunca deixar em branco ou genérico.</li>
+      <li>Aplicar o Ritual do Espelho e o POP de Retenção e Reagendamento ao final de todo atendimento.</li>
     </ol>
 
-    <h3>Cabelo — química e iluminação (Bruna, Lilian)</h3>
+    <h3>Cabelo, química, iluminação e penteado (Bruna, Lilian)</h3>
     <ol class="items">
       <li>Confirmar histórico químico, manutenção anterior e limite técnico antes de iniciar.</li>
       <li>Alinhar resultado possível com a cliente antes de começar.</li>
-      <li>Oferecer tratamento complementar em toda química — não deixar como decisão só da cliente perguntar.</li>
+      <li>Oferecer tratamento complementar em toda química, não deixar como decisão só da cliente perguntar.</li>
       <li>Orientar manutenção em casa e ciclo de retorno.</li>
     </ol>
 
@@ -191,7 +222,7 @@
     <ol class="items">
       <li>Confirmar formato, comprimento, cor e preferência da cliente.</li>
       <li>Usar materiais limpos, esterilizados ou descartáveis, abertos diante da cliente quando aplicável.</li>
-      <li>Ao atender cliente de cabelo, mencionar o serviço de unhas como complemento — e vice-versa.</li>
+      <li>Ao atender cliente de cabelo, mencionar o serviço de unhas como complemento, e vice-versa.</li>
     </ol>
 
     <h3>Sobrancelha, depilação e micropigmentação (Luciene, Tamy, Miguel)</h3>
@@ -200,48 +231,33 @@
       <li>Garantir privacidade no procedimento.</li>
       <li>Orientar cuidados pós-procedimento e prazo de manutenção.</li>
     </ol>
-  </section>
 
-  <section id="estoque">
-    <div class="marker"><span class="num">05</span><h2>Estoque e Suprimentos</h2></div>
-    <p class="obj">Garantir materiais disponíveis, controle de consumo e estoque organizado.</p>
+    <h3>Corte masculino e maquiagem, freelance/pontual</h3>
     <ol class="items">
-      <li>Conferir nota, quantidade, marca e validade no recebimento.</li>
-      <li>Guardar por categoria, uso e validade.</li>
-      <li>Usar primeiro os produtos com vencimento mais próximo.</li>
-      <li>Não expor em bancada de atendimento produtos de marca não utilizada pela casa.</li>
-      <li>Registrar itens abaixo do mínimo e acionar compra antes de faltar.</li>
+      <li>Profissional freelance de maquiagem segue os mesmos padrões de acolhimento, execução e Ritual do Espelho.</li>
+      <li>Agendamento de maquiagem confirmado com a recepção antes de prometer horário à cliente.</li>
+      <li>Corte masculino sem profissional fixo até decisão da direção. Recepção não agenda esse serviço enquanto a decisão não for comunicada.</li>
     </ol>
   </section>
 
   <section id="limpeza">
-    <div class="marker"><span class="num">06</span><h2>Limpeza e Ambientes</h2></div>
+    <div class="marker"><span class="num">05</span><h2>Limpeza e Ambientes</h2></div>
     <p class="obj">Manter ambientes limpos, seguros, organizados e prontos para atendimento.</p>
     <ol class="items">
       <li>Higienizar bancadas, cadeiras, espelhos e superfícies de contato na abertura.</li>
       <li>Revisar banheiros em horários definidos ao longo do dia.</li>
-      <li>Manter fundo do ambiente de atendimento sem caixas, cabos aparentes ou objetos fora do lugar — é o cenário de toda foto do salão.</li>
-      <li>Curadoria de revistas e materiais de espera — nada solto ou desalinhado.</li>
-      <li><b>Animais:</b> restritos a áreas administrativas, sem contato com clientes ou produtos, conforme regra do Regulamento Interno.</li>
-    </ol>
-  </section>
-
-  <section id="manutencao">
-    <div class="marker"><span class="num">07</span><h2>Manutenção</h2></div>
-    <p class="obj">Manter estrutura e equipamentos funcionando com segurança.</p>
-    <ol class="items">
-      <li>Verificar iluminação, hidráulica, elétrica aparente e mobiliário periodicamente.</li>
-      <li>Registrar itens com falha e comunicar a liderança.</li>
-      <li>Retirar de uso qualquer equipamento com risco.</li>
+      <li>Manter fundo do ambiente de atendimento sem caixas, cabos aparentes ou objetos fora do lugar, é o cenário de toda foto do salão.</li>
+      <li>Curadoria de revistas e materiais de espera, nada solto ou desalinhado.</li>
+      <li>Não expor em bancada de atendimento produtos de marca não utilizada pela casa.</li>
     </ol>
   </section>
 
   <section id="governanca">
-    <div class="marker"><span class="num">08</span><h2>Governança e Pendências</h2><span class="tag">Direção e administração</span></div>
+    <div class="marker"><span class="num">06</span><h2>Governança e Pendências</h2><span class="tag">Direção e administração</span></div>
     <p class="obj">Garantir execução, controle de pendências e melhoria contínua dos POPs.</p>
     <ol class="items">
       <li>Revisar pendências do dia e priorizar as que impactam cliente, caixa ou agenda.</li>
-      <li>Apresentar o POP antes de cobrar execução — nunca cobrar sem ter treinado.</li>
+      <li>Apresentar o POP antes de cobrar execução, nunca cobrar sem ter treinado.</li>
       <li>Atualizar POP apenas com autorização da liderança, comunicando a mudança a todos os envolvidos.</li>
       <li>Realizar o 1-a-1 quinzenal com pauta fixa, conforme Regulamento Interno.</li>
     </ol>
@@ -250,8 +266,11 @@
   <div class="doc-footer">Documento interno · Procedimento Operacional Padrão · Uso operacional e treinamento</div>
 
   <footer>
-    <span>BRGX Consultoria · Barú Beauty · Manual de POPs</span>
-    <span>Adaptado do padrão de operação BRGX · Regras de Retenção e Redes Sociais específicas deste ciclo</span>
+    <span>Barú Beauty · Manual de POPs</span>
+    <span>Separado por setor · Retenção e Redes Sociais são POPs específicos deste ciclo</span>
   </footer>
 
 </div>
+
+</body>
+</html>

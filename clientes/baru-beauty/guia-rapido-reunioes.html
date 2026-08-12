@@ -1,5 +1,9 @@
-<title>Barú Beauty — Guia Rápido</title>
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barú Beauty · Guia Rápido</title>
 <style>
   :root {
     --ground: #FBF9F6; --raised: #FFFFFF; --sunken: #F3EEE7;
@@ -33,7 +37,6 @@
   body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 15.5px; line-height: 1.5; margin: 0; padding: 0 1.25rem 5rem; -webkit-font-smoothing: antialiased; }
   .sheet { max-width: 64rem; margin: 0 auto; }
   .cover { padding: 3rem 0 2rem; border-bottom: 2px solid var(--ink); }
-  .firm { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); font-weight: 600; }
   .cover h1 { font-family: var(--serif); font-size: clamp(1.9rem, 5vw, 2.8rem); font-weight: 400; margin: 0.4rem 0; }
   .cover p { color: var(--ink-mute); font-size: 0.9rem; max-width: 60ch; margin: 0; }
 
@@ -46,7 +49,7 @@
 
   ul.tight { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
   ul.tight li { padding-left: 1rem; position: relative; font-size: 0.87rem; color: var(--ink-soft); line-height: 1.4; }
-  ul.tight li::before { content: "—"; position: absolute; left: 0; color: var(--brass); }
+  ul.tight li::before { content: "•"; position: absolute; left: 0; color: var(--brass); }
   ul.tight li b { color: var(--ink); }
 
   .checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4rem; }
@@ -70,42 +73,58 @@
   .section-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; margin: 0 0 1rem; }
 
   footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule-firm); font-size: 0.7rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
+
+  .pdf-btn { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--brass); color: var(--ground); border: none; padding: 0.75rem 1.15rem; border-radius: 999px; font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .pdf-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
+  .pdf-btn:active { transform: translateY(0); }
+  .pdf-btn svg { width: 1rem; height: 1rem; flex-shrink: 0; }
+  @media print {
+    .pdf-btn { display: none !important; }
+    body { padding: 0 !important; background: #fff !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
 </style>
 
+</head>
+<body>
+<button class="pdf-btn" onclick="window.print()" aria-label="Baixar PDF deste documento">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+  Baixar PDF
+</button>
 <div class="sheet">
 
   <header class="cover">
-    <div class="firm">BRGX Consultoria</div>
     <h1>Guia Rápido</h1>
-    <p>Checklist de consulta durante as reuniões de terça (direção) e quarta (equipe). Listas objetivas — a justificativa completa de cada item está nos documentos longos.</p>
+    <p>Checklist de consulta durante as reuniões de terça (direção) e quarta (equipe). Listas objetivas, a justificativa completa de cada item está nos documentos longos.</p>
   </header>
 
   <!-- ================= NUMEROS CENTRAIS ================= -->
   <div class="block" style="margin-top:2rem">
-    <h2>Os 5 números que sustentam tudo</h2>
+    <h2>Os números que sustentam tudo</h2>
     <ul class="tight">
-      <li><span class="num-fact">78%</span> de rotatividade em 12 meses — 28 de 36 profissionais saíram</li>
+      <li><span class="num-fact">78%</span> de rotatividade em 12 meses, 28 de 36 profissionais saíram</li>
       <li><span class="num-fact">R$ 264.545</span> de receita que saiu com quem foi embora (70% do ano)</li>
-      <li><span class="num-fact win">R$ 26–27 mil/mês</span> é a baseline real da equipe atual — em alta desde março</li>
-      <li><span class="num-fact">65%</span> da carteira de clientes (465 de 720) é órfã — nunca atendida por quem ficou</li>
-      <li><span class="num-fact win">Reflexo = Luzes</span> — mesmo serviço, Bruna já cobre. Órfão real é só penteado/maquiagem/corte masculino</li>
+      <li><span class="num-fact win">R$ 26 a 27 mil/mês</span> é a baseline real da equipe atual, em alta desde março</li>
+      <li><span class="num-fact win">R$ 50 a 60 mil/mês</span> é a meta do Plano de Ação 90 Dias</li>
+      <li><span class="num-fact">65%</span> das clientes (465 de 720) está sem profissional responsável hoje</li>
+      <li><span class="num-fact win">Reflexo = Luzes</span>, e penteado já é feito por Bruna e Lilian. Falta mesmo corte masculino e maquiagem (freelance)</li>
     </ul>
   </div>
 
   <hr class="divider">
-  <h2 class="section-title">Reunião de terça — Dona + Administrador</h2>
+  <h2 class="section-title">Reunião de terça, Dona + Administrador</h2>
 
   <div class="grid2">
     <div>
       <div class="block">
         <h2>Tópicos, em ordem</h2>
         <ul class="tight">
-          <li><b>Abertura</b> — "a equipe atual fatura R$ 26–27 mil e cresce desde março"</li>
-          <li><b>Diagnóstico</b> — baseline, rotatividade, carteira órfã, correção Reflexo=Luzes</li>
-          <li><b>Conversa reservada</b> sobre rotatividade — só com a dona, sem o administrador</li>
-          <li><b>Decisões</b> — cardápio órfão, remuneração, barbearia, gatos, Instagram</li>
-          <li><b>Números faltantes</b> — pedir ao administrador</li>
-          <li><b>Fechamento</b> — o que sai desta reunião, próximo check-in</li>
+          <li><b>Abertura</b>: "a equipe atual fatura R$ 26 a 27 mil e cresce desde março"</li>
+          <li><b>Diagnóstico</b>: baseline, rotatividade, clientes sem profissional responsável, correção Reflexo=Luzes e penteado</li>
+          <li><b>Conversa</b> sobre rotatividade, só com a dona</li>
+          <li><b>Decisões</b>: corte masculino/maquiagem, remuneração, barbearia, Menu de Experiência, Instagram</li>
+          <li><b>Números faltantes</b>, pedir ao administrador</li>
+          <li><b>Fechamento</b>: o que sai desta reunião, próximo check-in</li>
         </ul>
       </div>
 
@@ -113,9 +132,9 @@
         <h2>Perguntas para a Dona</h2>
         <ul class="tight">
           <li>O que você acha que está fazendo as pessoas saírem?</li>
-          <li>Topa que o regulamento valha também para você?</li>
           <li>Existe acordo de não concorrência com quem saiu?</li>
-          <li>Quer treinar a equipe atual em penteado/maquiagem, contratar, ou tirar do cardápio?</li>
+          <li>Quer contratar, formalizar parceria com o freelance de maquiagem, ou ajustar o menu de serviços para corte masculino e maquiagem?</li>
+          <li>Aprova a lista final do Menu de Experiência?</li>
           <li>Confirma a recepcionista como responsável única do Instagram?</li>
         </ul>
       </div>
@@ -125,17 +144,15 @@
       <div class="block">
         <h2>Perguntas para o Administrador</h2>
         <ul class="tight">
-          <li>Extrato de repasse do <b>ClassPass</b> — últimos 12 meses</li>
-          <li>Extrato de repasse do <b>Sheer Me</b> — últimos 12 meses</li>
           <li>Custo fixo mensal (aluguel, condomínio, folha)</li>
           <li>Ponto de equilíbrio do salão</li>
           <li>% de comissão atual, por profissional</li>
-          <li>Vínculo de Miguel e Tamy — CLT, PJ ou freela?</li>
+          <li>Vínculo de Miguel e Tamy, CLT, PJ ou freela?</li>
         </ul>
       </div>
 
       <div class="block">
-        <h2>Ações de ambiente — lista objetiva</h2>
+        <h2>Ações de ambiente, lista objetiva</h2>
         <ul class="checklist">
           <li>Remover produtos de marca concorrente das bancadas</li>
           <li>Tirar caixa de papelão da bancada do lavatório</li>
@@ -143,25 +160,24 @@
           <li>Curar seleção de revistas na espera</li>
           <li>Unificar paleta de quadros e conteúdo da TV</li>
           <li>Sinalizar número da loja no elevador/portaria (2128 Lj 12/13)</li>
-          <li>Verificar norma sanitária sobre animais no salão</li>
         </ul>
       </div>
     </div>
   </div>
 
   <hr class="divider">
-  <h2 class="section-title">Instagram e Google — listas objetivas</h2>
+  <h2 class="section-title">Instagram e Google, listas objetivas</h2>
 
   <div class="grid2">
     <div class="block">
       <h2>Instagram</h2>
       <ul class="checklist">
         <li>Definir recepcionista como responsável única de publicação</li>
-        <li>Treinamento avançado para ela — escopo formal, horário dedicado</li>
+        <li>Treinamento avançado para ela, escopo formal, horário dedicado</li>
         <li>Padrão visual único: luz natural, fundo limpo, 3 ângulos</li>
         <li>Fluxo de aprovação antes de qualquer post</li>
         <li>Priorizar trabalhos de Bruna e Lilian na pauta</li>
-        <li>Nenhuma publicação da direção fora do fluxo</li>
+        <li>Nenhuma publicação fora do fluxo definido</li>
       </ul>
     </div>
     <div class="block">
@@ -171,7 +187,7 @@
         <li>Endereço com número da loja explícito</li>
         <li>Cadastrar cada serviço com preço</li>
         <li>Levar avaliações do ClassPass (4,8 · 67) para o Google via QR</li>
-        <li>Checar e pedir correção do cadastro fantasma "LZ Beauty — loja 12"</li>
+        <li>Checar e pedir correção do cadastro fantasma "LZ Beauty, loja 12"</li>
         <li>Não mencionar concorrentes em nenhuma resposta ou post</li>
       </ul>
     </div>
@@ -181,44 +197,60 @@
   <h2 class="section-title">Mudanças na recepção</h2>
   <div class="block">
     <ul class="checklist">
-      <li>Registrar <b>origem</b> de cada cliente nova (Instagram, Google, indicação, ClassPass, Sheer Me)</li>
-      <li>Aplicar o <b>ritual do espelho</b> em toda cliente: foto → avaliação → próxima data</li>
+      <li>Registrar <b>origem</b> de cada cliente nova (Instagram, Google, indicação, ClassPass)</li>
+      <li>Aplicar o <b>ritual do espelho</b> em toda cliente: foto, avaliação, próxima data</li>
       <li>Nenhum lançamento a R$ 0 sem <b>motivo registrado</b> no sistema</li>
-      <li>Oferecer próxima data na régua certa: química 30–45d, escova 7–15d, unhas 15–21d, sobrancelha 30–60d</li>
-      <li>Revisão semanal da lista de clientes com data-limite de retorno vencida</li>
-      <li>Não subir conteúdo direto ao Instagram — encaminhar ao responsável</li>
+      <li>Oferecer próxima data conforme a média da categoria de cada serviço</li>
+      <li>Revisão semanal da lista de clientes com janela de retorno vencida</li>
+      <li>Pós-atendimento semanal para toda cliente nova</li>
+      <li>Registrar clientes que retornam em até 30 dias, para o benefício de recorrência</li>
+      <li>Não subir conteúdo direto ao Instagram, encaminhar ao responsável</li>
     </ul>
   </div>
 
   <hr class="divider">
-  <h2 class="section-title">Reunião de quarta — Equipe</h2>
+  <h2 class="section-title">Menu de Experiência</h2>
+  <div class="block">
+    <ul class="tight">
+      <li>Itens já confirmados: ritual express de tratamento, spa das mãos, imersão terapêutica dos pés, buço, sobrancelha, upgrade de serviço</li>
+      <li>Lista completa a fechar com o material de referência já existente</li>
+      <li>Usado em: marketing, relacionamento, indicação, recuperação de clientes</li>
+      <li>Benefício do plano de recorrência de 30 dias</li>
+      <li>Benefício do programa de indicação (2 clientes pagantes indicadas)</li>
+      <li>Voucher da pesquisa de satisfação de inativas</li>
+      <li>Benefício da ação de aniversariantes do mês</li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+  <h2 class="section-title">Reunião de quarta, Equipe</h2>
 
   <div class="grid2">
     <div>
       <div class="block">
         <h2>Tópicos coletivos</h2>
         <ul class="tight">
-          <li><b>Abertura positiva</b> — a casa está crescendo, isto é sobre organizar o que já funciona</li>
+          <li><b>Abertura positiva</b>: a casa está crescendo, isto é sobre organizar o que já funciona</li>
           <li>Apresentar o <b>Material de Integração</b></li>
-          <li>Apresentar o <b>Regulamento Interno</b> — vale para todos, inclusive a direção</li>
+          <li>Apresentar o <b>Regulamento Interno</b></li>
           <li>Apresentar o <b>Manual de POPs</b> por setor</li>
           <li>Explicar o <b>ritual do espelho</b> e por que ele importa</li>
           <li>Explicar o novo fluxo de <b>redes sociais</b></li>
+          <li>Apresentar o <b>Menu de Experiência</b> e o programa de indicação</li>
           <li>Anunciar o <b>1-a-1 quinzenal</b> como canal de escuta</li>
-          <li>Coletar assinatura do termo de ciência do regulamento</li>
+          <li>Coletar assinatura do termo de ciência do regulamento e do termo de consciência cultural</li>
         </ul>
       </div>
     </div>
 
     <div>
       <div class="block">
-        <h2>Perguntas individuais — por pessoa</h2>
+        <h2>Perguntas individuais, por pessoa</h2>
 
         <div class="person">
           <div class="name">Bruna</div>
           <ul class="tight">
-            <li>Sua agenda está cheia ou tem buraco? (dado: ~17% de ocupação estimada)</li>
-            <li>Quer aprender penteado ou maquiagem?</li>
+            <li>Sua agenda está cheia ou tem espaço livre?</li>
             <li>Como você se sente sobre o modelo de remuneração atual?</li>
           </ul>
         </div>
@@ -226,16 +258,15 @@
         <div class="person">
           <div class="name">Lilian</div>
           <ul class="tight">
-            <li>O que houve com a queda de julho (-38% vs. junho)?</li>
+            <li>O que houve com a queda de julho vs. junho?</li>
             <li>Você oferece tratamento em toda escova? Se não, por quê?</li>
-            <li>Quer subir para mais química/coloração?</li>
           </ul>
         </div>
 
         <div class="person">
           <div class="name">Luciene (Lu), Cibele, Miguel, Tamy</div>
           <ul class="tight">
-            <li>Sua agenda tem buraco em qual dia/horário?</li>
+            <li>Sua agenda tem espaço livre em qual dia/horário?</li>
             <li>Você sugere serviço de cabelo para sua cliente de unha/sobrancelha?</li>
             <li>O que falta para você atender mais?</li>
           </ul>
@@ -250,20 +281,24 @@
     <table class="mini">
       <thead><tr><th>O quê</th><th>Como</th><th>Quando</th><th>Quem colabora</th></tr></thead>
       <tbody>
-        <tr><td><b>Retenção de equipe</b></td><td>1-a-1, regulamento, alçada de redes</td><td>Semanas 1–3</td><td>Direção</td></tr>
+        <tr><td><b>Retenção de equipe</b></td><td>1-a-1, regulamento, alçada de redes</td><td>Semanas 1 a 3</td><td>Direção</td></tr>
         <tr><td><b>Ritual do espelho</b></td><td>Foto, avaliação, reagendamento</td><td>Imediato</td><td>Toda a equipe</td></tr>
-        <tr><td><b>Conciliar plataformas</b></td><td>Extratos ClassPass/Sheer Me</td><td>Semana 1</td><td>Administrador</td></tr>
-        <tr><td><b>Google e Instagram</b></td><td>Reivindicar ficha, novo fluxo de posts</td><td>Semanas 1–2</td><td>Direção + Recepção</td></tr>
-        <tr><td><b>Ambiente</b></td><td>Edição de bancadas, sinalização</td><td>Semanas 1–2</td><td>Direção</td></tr>
-        <tr><td><b>Barbearia</b></td><td>Avaliar 3 modelos, só após rotatividade zerada</td><td>A partir do dia 60</td><td>Direção + BRGX</td></tr>
-        <tr><td><b>Check-in</b></td><td>Revisão de indicadores</td><td>A cada 15 dias</td><td>Direção + BRGX</td></tr>
+        <tr><td><b>Menu de Experiência</b></td><td>Aprovar lista, publicar, treinar equipe</td><td>Semanas 1 a 2</td><td>Direção + equipe</td></tr>
+        <tr><td><b>Relacionamento e recorrência</b></td><td>Ativação por serviço, indicação, pesquisa de satisfação, aniversariantes</td><td>Semanas 2 a 4</td><td>Recepção + equipe</td></tr>
+        <tr><td><b>Google e Instagram</b></td><td>Reivindicar ficha, novo fluxo de posts</td><td>Semanas 1 a 2</td><td>Direção + Recepção</td></tr>
+        <tr><td><b>Ambiente</b></td><td>Edição de bancadas, sinalização</td><td>Semanas 1 a 2</td><td>Direção</td></tr>
+        <tr><td><b>Barbearia</b></td><td>Avaliar 3 modelos, só após rotatividade zerada</td><td>A partir do dia 60</td><td>Direção</td></tr>
+        <tr><td><b>Check-in</b></td><td>Revisão de indicadores</td><td>A cada 15 dias</td><td>Direção</td></tr>
       </tbody>
     </table>
   </div>
 
   <footer>
-    <span>BRGX Consultoria · Barú Beauty · Guia Rápido</span>
-    <span>Complementar aos 7 documentos completos do pacote</span>
+    <span>Barú Beauty · Guia Rápido</span>
+    <span>Complementar aos demais documentos do pacote de gestão</span>
   </footer>
 
 </div>
+
+</body>
+</html>
