@@ -1,236 +1,143 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barú Beauty · Material de Integração</title>
-<style>
-  :root {
-    --ground: #FBF9F6; --raised: #FFFFFF; --sunken: #F3EEE7;
-    --ink: #241C17; --ink-soft: #574A41; --ink-mute: #7A6E64;
-    --rule: #E3DACE; --rule-firm: #C9BCAA;
-    --brass: #A67C3D; --brass-wash: #F5EBDA;
-    --critical: #9E3B2E; --critical-wash: #F8E9E6;
-    --positive: #4A6B4F; --positive-wash: #E9F0E9;
-    --serif: 'Hoefler Text', 'Playfair Display', Georgia, 'Times New Roman', serif;
-    --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    --mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --ground: #17120F; --raised: #1F1915; --sunken: #221B16;
-      --ink: #F0EAE3; --ink-soft: #C6B9AC; --ink-mute: #9C8D7F;
-      --rule: #33291F; --rule-firm: #4A3B2D;
-      --brass: #D4A55E; --brass-wash: #2A2015;
-      --critical: #D97C6A; --critical-wash: #2E1B17;
-      --positive: #8FB395; --positive-wash: #1B241C;
-    }
-  }
-  :root[data-theme="dark"] {
-    --ground: #17120F; --raised: #1F1915; --sunken: #221B16;
-    --ink: #F0EAE3; --ink-soft: #C6B9AC; --ink-mute: #9C8D7F;
-    --rule: #33291F; --rule-firm: #4A3B2D;
-    --brass: #D4A55E; --brass-wash: #2A2015;
-    --critical: #D97C6A; --critical-wash: #2E1B17;
-    --positive: #8FB395; --positive-wash: #1B241C;
-  }
-  body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.62; margin: 0; padding: 0 1.5rem 6rem; -webkit-font-smoothing: antialiased; }
-  .sheet { max-width: 52rem; margin: 0 auto; }
-  .cover { padding: 4rem 0 2.5rem; border-bottom: 2px solid var(--ink); }
-  .cover h1 { font-family: var(--serif); font-size: clamp(2rem, 5.5vw, 3rem); font-weight: 400; margin: 0.5rem 0; }
-  .cover p { font-family: var(--serif); font-size: 1.05rem; color: var(--ink-soft); max-width: 48ch; }
-
-  nav { margin: 2rem 0 0; border: 1px solid var(--rule); background: var(--raised); padding: 1.1rem 1.3rem; }
-  nav ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 0.5rem 1.5rem; counter-reset: toc; }
-  nav li { counter-increment: toc; font-size: 0.85rem; }
-  nav li::before { content: counter(toc, decimal-leading-zero); font-family: var(--mono); font-size: 0.66rem; color: var(--brass); margin-right: 0.6rem; }
-  nav a { color: var(--ink-soft); text-decoration: none; }
-  nav a:hover { color: var(--ink); }
-
-  section { padding-top: 3rem; }
-  .marker { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--rule-firm); padding-bottom: 0.5rem; margin-bottom: 1.3rem; }
-  .marker .num { font-family: var(--mono); font-size: 0.72rem; color: var(--brass); }
-  .marker h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; margin: 0; flex: 1; }
-
-  p { margin: 0 0 1rem; max-width: 68ch; font-size: 0.95rem; }
-  ul.plain, ol.steps { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: 0.7rem; }
-  ul.plain li { padding-left: 1.15rem; position: relative; color: var(--ink-soft); font-size: 0.93rem; }
-  ul.plain li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 0.45rem; height: 1px; background: var(--brass); }
-  ul.plain li b { color: var(--ink); font-weight: 600; }
-  ol.steps { counter-reset: s; }
-  ol.steps li { counter-increment: s; padding-left: 2.1rem; position: relative; color: var(--ink-soft); font-size: 0.93rem; }
-  ol.steps li::before { content: counter(s, decimal-leading-zero); position: absolute; left: 0; top: 0; font-family: var(--mono); font-size: 0.68rem; color: var(--brass); font-weight: 700; }
-  ol.steps li b { color: var(--ink); }
-
-  .callout { border-left: 2px solid var(--brass); background: var(--sunken); padding: 1rem 1.2rem; margin: 1.4rem 0; font-size: 0.9rem; color: var(--ink-soft); }
-  .callout b { color: var(--ink); }
-  .callout .kicker { font-size: 0.64rem; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700; color: var(--brass); display: block; margin-bottom: 0.4rem; }
-
-  .checklist { list-style: none; padding: 0; margin: 0.8rem 0; display: grid; gap: 0.55rem; }
-  .checklist li { padding-left: 1.8rem; position: relative; font-size: 0.9rem; color: var(--ink-soft); }
-  .checklist li::before { content: ""; position: absolute; left: 0; top: 0.15em; width: 0.85rem; height: 0.85rem; border: 1px solid var(--rule-firm); border-radius: 2px; }
-  .checklist li b { color: var(--ink); }
-
-  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; margin: 1rem 0; }
-  .card { border: 1px solid var(--rule); background: var(--raised); padding: 1rem 1.1rem; }
-  .card .t { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.4rem; }
-  .card p { font-size: 0.85rem; margin: 0; color: var(--ink-soft); }
-
-  .goldrule { display: grid; gap: 0.5rem; margin: 1rem 0; }
-  .goldrule .rule { display: flex; gap: 0.8rem; align-items: baseline; padding: 0.6rem 0.85rem; background: var(--raised); border: 1px solid var(--rule); }
-  .goldrule .n { font-family: var(--serif); font-size: 1.15rem; color: var(--brass); min-width: 1.4rem; }
-  .goldrule .t { font-size: 0.85rem; color: var(--ink-soft); }
-  .goldrule .t b { color: var(--ink); }
-
-  .pledge { border: 1px dashed var(--rule-firm); padding: 1.3rem; margin: 1.2rem 0; font-family: var(--serif); font-size: 1rem; color: var(--ink-soft); font-style: italic; }
-
-  footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule-firm); font-size: 0.74rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
-
-  .pdf-btn { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--brass); color: var(--ground); border: none; padding: 0.75rem 1.15rem; border-radius: 999px; font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); transition: transform 0.15s ease, box-shadow 0.15s ease; }
-  .pdf-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
-  .pdf-btn:active { transform: translateY(0); }
-  .pdf-btn svg { width: 1rem; height: 1rem; flex-shrink: 0; }
-  @media print {
-    .pdf-btn { display: none !important; }
-    body { padding: 0 !important; background: #fff !important; }
-    a { color: inherit !important; text-decoration: none !important; }
-  }
-</style>
-
-</head>
-<body>
-<button class="pdf-btn" onclick="window.print()" aria-label="Baixar PDF deste documento">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-  Baixar PDF
-</button>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barú Beauty · Material de Integração</title><style>
+:root {
+  --ground:#FBF9F6; --raised:#FFFFFF; --sunken:#F3EEE7;
+  --ink:#241C17; --ink-soft:#574A41; --ink-mute:#7A6E64;
+  --rule:#E3DACE; --rule-firm:#C9BCAA; --brass:#A67C3D;
+  --critical:#9E3B2E; --positive:#4A6B4F;
+  --serif:'Hoefler Text','Playfair Display',Georgia,'Times New Roman',serif;
+  --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.62;margin:0;padding:0 1.5rem 5rem;-webkit-font-smoothing:antialiased}
+.sheet{max-width:52rem;margin:0 auto}
+.cover{padding:4rem 0 2.5rem;border-bottom:2px solid var(--ink)}
+.cover h1{font-family:var(--serif);font-size:clamp(2rem,5.5vw,3rem);font-weight:400;margin:.5rem 0}
+.cover p{font-family:var(--serif);font-size:1.05rem;color:var(--ink-soft);max-width:50ch}
+nav{margin:2rem 0 0;border:1px solid var(--rule);background:var(--raised);padding:1.1rem 1.3rem}
+nav ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.5rem 1.5rem;counter-reset:toc}
+nav li{counter-increment:toc;font-size:.85rem}
+nav li::before{content:counter(toc,decimal-leading-zero);font-family:var(--mono);font-size:.66rem;color:var(--brass);margin-right:.6rem}
+nav a{color:var(--ink-soft);text-decoration:none}
+section{padding-top:3rem}
+.marker{display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid var(--rule-firm);padding-bottom:.5rem;margin-bottom:1.3rem}
+.marker .num{font-family:var(--mono);font-size:.72rem;color:var(--brass)}
+.marker h2{font-family:var(--serif);font-size:1.6rem;font-weight:400;margin:0;flex:1}
+h3{font-size:.94rem;font-weight:700;margin:1.6rem 0 .5rem}
+p{margin:0 0 1rem;max-width:68ch;font-size:.95rem}
+ol.arts,ol.steps,ul.plain{list-style:none;padding:0;margin:.8rem 0;display:grid;gap:.75rem}
+ol.arts{counter-reset:art}
+ol.arts li{counter-increment:art;padding-left:2.2rem;position:relative;color:var(--ink-soft);font-size:.93rem}
+ol.arts li::before{content:"Art. " counter(art);position:absolute;left:0;top:0;font-family:var(--mono);font-size:.66rem;color:var(--brass);font-weight:700}
+ol.arts li b,ul.plain li b,ol.steps li b{color:var(--ink)}
+ul.plain li{padding-left:1.15rem;position:relative;color:var(--ink-soft);font-size:.93rem}
+ul.plain li::before{content:"";position:absolute;left:0;top:.62em;width:.45rem;height:1px;background:var(--brass)}
+ol.steps{counter-reset:s}
+ol.steps li{counter-increment:s;padding-left:2.1rem;position:relative;color:var(--ink-soft);font-size:.93rem}
+ol.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:0;font-family:var(--mono);font-size:.68rem;color:var(--brass);font-weight:700}
+.goldrule{display:grid;gap:.5rem;margin:1rem 0}
+.goldrule .rule{display:flex;gap:.8rem;align-items:baseline;padding:.65rem .85rem;background:var(--raised);border:1px solid var(--rule)}
+.goldrule .n{font-family:var(--serif);font-size:1.15rem;color:var(--brass);min-width:1.4rem}
+.goldrule .t{font-size:.86rem;color:var(--ink-soft)}
+.callout{border-left:2px solid var(--brass);background:var(--sunken);padding:1rem 1.2rem;margin:1.4rem 0;font-size:.9rem;color:var(--ink-soft)}
+.callout b{color:var(--ink)}
+.callout .kicker{font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--brass);display:block;margin-bottom:.4rem}
+.sign{margin-top:1.5rem;padding:1.3rem;border:1px dashed var(--rule-firm);font-size:.9rem;color:var(--ink-soft)}
+.sign .field{margin:.7rem 0;border-bottom:1px solid var(--rule-firm);padding-bottom:.3rem}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem;margin:1rem 0}
+.card{border:1px solid var(--rule);background:var(--raised);padding:1rem 1.1rem}
+.card .t{font-weight:600;font-size:.92rem;margin-bottom:.4rem}
+.card p{font-size:.85rem;margin:0;color:var(--ink-soft)}
+.pledge{border:1px dashed var(--rule-firm);padding:1.3rem;margin:1.2rem 0;font-family:var(--serif);font-size:1rem;color:var(--ink-soft);font-style:italic}
+.checklist{list-style:none;padding:0;margin:.8rem 0;display:grid;gap:.55rem}
+.checklist li{padding-left:1.8rem;position:relative;font-size:.9rem;color:var(--ink-soft)}
+.checklist li::before{content:"";position:absolute;left:0;top:.15em;width:.85rem;height:.85rem;border:1px solid var(--rule-firm);border-radius:2px}
+.checklist li b{color:var(--ink)}
+footer{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--rule-firm);font-size:.74rem;color:var(--ink-mute);display:flex;flex-wrap:wrap;gap:.4rem 2rem;justify-content:space-between}
+.pdf-btn{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;background:var(--brass);color:var(--ground);border:none;padding:.75rem 1.15rem;border-radius:999px;font-family:var(--sans);font-size:.82rem;font-weight:600;cursor:pointer}
+@media print{.pdf-btn{display:none!important}body{padding:0!important;background:#fff!important}a{color:inherit!important;text-decoration:none!important}}
+</style></head><body>
+<button class="pdf-btn" onclick="window.print()">Baixar PDF</button>
 <div class="sheet">
+<header class="cover"><h1>Material de Integração</h1><p>Bem-vindo ao Barú Beauty. Este material apresenta a casa, seus princípios e a forma como queremos construir juntos uma experiência consistente, profissional e de alto padrão.</p></header>
+<nav aria-label="Índice"><ol><li><a href="#quemsomos">Quem somos</a></li><li><a href="#mvv">Missão, Visão e Valores</a></li><li><a href="#muda">O que muda a partir de agora</a></li><li><a href="#principios">Princípios do Barú</a></li><li><a href="#espelho">Ritual do Espelho</a></li><li><a href="#captura">Captura de conteúdo</a></li><li><a href="#cultura">Jeito Barú</a></li><li><a href="#checklist">Integração</a></li></ol></nav>
 
-  <header class="cover">
-    <h1>Material de Integração</h1>
-    <p>Barú Beauty entra em um novo ciclo. Este material apresenta quem somos, o que muda, por quê, e como cada pessoa da equipe participa. Não é sobre o que ficou para trás, é sobre onde a casa está indo.</p>
-  </header>
+<section id="quemsomos"><div class="marker"><span class="num">01</span><h2>Quem somos</h2></div>
+<p>O Barú Beauty é uma casa de beleza e bem-estar na Av. Brigadeiro Faria Lima, construída por profissionais que compartilham um mesmo espaço e uma mesma preocupação: entregar uma experiência de alto padrão para cada cliente.</p>
+<p>O crescimento da casa exige organização, clareza e constância. Este material apresenta a forma como queremos trabalhar juntos.</p>
+</section>
 
-  <nav aria-label="Índice">
-    <ol>
-      <li><a href="#quemsomos">Quem somos</a></li>
-      <li><a href="#mvv">Missão, Visão e Valores</a></li>
-      <li><a href="#muda">O que muda a partir de agora</a></li>
-      <li><a href="#principios">Os Princípios do Barú</a></li>
-      <li><a href="#espelho">O Ritual do Espelho</a></li>
-      <li><a href="#captura">Captura de conteúdo</a></li>
-      <li><a href="#termo">Termo de Consciência Cultural</a></li>
-      <li><a href="#checklist">Checklist do Novo Membro</a></li>
-    </ol>
-  </nav>
-
-  <section id="quemsomos">
-    <div class="marker"><span class="num">01</span><h2>Quem somos</h2></div>
-    <p>O Barú Beauty é um salão de beleza na Av. Brigadeiro Faria Lima, com anos de história. A equipe atual, Bruna, Lilian, Luciene, Cibele e Miguel, tem faturamento em crescimento desde março.</p>
-    <div class="callout">
-      <span class="kicker">Por que este material existe agora</span>
-      <p>Este é o momento de <b>organizar o que já funciona</b> e dar previsibilidade para quem trabalha aqui. Não é campanha, nem propaganda, é base.</p>
-    </div>
-  </section>
-
-  <section id="mvv">
-    <div class="marker"><span class="num">02</span><h2>Missão, Visão e Valores</h2></div>
-    <div class="cols">
-      <div class="card"><div class="t">Missão</div><p>Entregar excelência em beleza e bem-estar, com técnica, cuidado e constância, em cada atendimento, para cada cliente.</p></div>
-      <div class="card"><div class="t">Visão</div><p>Ser reconhecido na Faria Lima como referência em salão de beleza e serviços de cabelo, com padrão de atendimento de mercado de luxo.</p></div>
-    </div>
-    <h3 style="font-size:0.94rem;font-weight:700;margin:1.4rem 0 0.6rem">Valores</h3>
-    <ul class="plain">
-      <li><b>Excelência técnica</b>: o resultado no cabelo e na pele fala antes de qualquer palavra.</li>
-      <li><b>Constância</b>: o mesmo padrão de cuidado em todo atendimento, para toda cliente.</li>
-      <li><b>Respeito</b>: entre equipe, com a cliente, e com a marca.</li>
-      <li><b>Imparcialidade</b>: oportunidades de agenda e de indicação de serviço são distribuídas com base em dados, nunca em preferência pessoal, com o objetivo de manter a agenda de todos ocupada.</li>
-      <li><b>Transparência</b>: erro se comunica, não se esconde.</li>
-    </ul>
-  </section>
-
-  <section id="muda">
-    <div class="marker"><span class="num">03</span><h2>O que muda a partir de agora</h2></div>
-    <div class="cols">
-      <div class="card"><div class="t">Conversa individual quinzenal</div><p>1-a-1 com pauta fixa, espaço para trazer o que precisar antes que vire problema.</p></div>
-      <div class="card"><div class="t">Regras claras por escrito</div><p>Regulamento interno vale para todo mundo.</p></div>
-      <div class="card"><div class="t">Ritual do espelho</div><p>Avaliação e próxima data, em toda cliente, sempre nessa ordem.</p></div>
-      <div class="card"><div class="t">POPs por setor</div><p>Cada rotina documentada, reduz retrabalho e dúvida no dia a dia.</p></div>
-      <div class="card"><div class="t">Menu de Experiência</div><p>Serviços simples e de alto valor percebido, usados em relacionamento, indicação e recuperação de clientes.</p></div>
-    </div>
-  </section>
-
-  <section id="principios">
-    <div class="marker"><span class="num">04</span><h2>Os Princípios do Barú</h2></div>
-    <p>Dez compromissos que definem o padrão de atendimento e convivência da casa, detalhados no Regulamento Interno.</p>
-    <div class="goldrule">
-      <div class="rule"><span class="n">1</span><span class="t"><b>Pontualidade é respeito.</b></span></div>
-      <div class="rule"><span class="n">2</span><span class="t"><b>Apresentação comunica padrão.</b></span></div>
-      <div class="rule"><span class="n">3</span><span class="t"><b>Celular não compete com a cliente.</b></span></div>
-      <div class="rule"><span class="n">4</span><span class="t"><b>Escuta vem antes da execução.</b></span></div>
-      <div class="rule"><span class="n">5</span><span class="t"><b>O espaço reflete a marca.</b></span></div>
-      <div class="rule"><span class="n">6</span><span class="t"><b>Erro não se esconde.</b></span></div>
-      <div class="rule"><span class="n">7</span><span class="t"><b>O clima interno não chega à cliente.</b></span></div>
-      <div class="rule"><span class="n">8</span><span class="t"><b>Todos representam a marca.</b></span></div>
-      <div class="rule"><span class="n">9</span><span class="t"><b>Nenhuma cliente sai sem o próximo passo marcado.</b></span></div>
-      <div class="rule"><span class="n">10</span><span class="t"><b>Excelência é constância.</b></span></div>
-    </div>
-  </section>
-
-  <section id="espelho">
-    <div class="marker"><span class="num">05</span><h2>O Ritual do Espelho, o hábito mais importante</h2></div>
-    <p>Sempre nessa ordem, sempre antes da cliente sair da cadeira:</p>
-    <ol class="steps">
-      <li><b>Pedido de avaliação</b>, no momento em que a cliente está mais satisfeita.</li>
-      <li><b>Próxima data</b>, reagendar ali, não deixar para "ela ligar depois".</li>
-    </ol>
-    <p style="font-size:0.85rem;color:var(--ink-mute)">Esse hábito sozinho alimenta o Instagram, o Google e a taxa de retorno ao mesmo tempo. É o procedimento de maior prioridade da casa.</p>
-  </section>
-
-  <section id="captura">
-    <div class="marker"><span class="num">06</span><h2>Captura de conteúdo, para quem participa do Instagram</h2></div>
-    <ul class="plain">
-      <li><b>Luz natural</b> sempre que possível, evitando flash direto.</li>
-      <li><b>Três ângulos padrão</b> em resultado de cabelo: frente, perfil, nuca.</li>
-      <li><b>Fundo limpo</b>, sem bagunça de bancada atrás da cliente.</li>
-      <li>Envie para a recepcionista, responsável pelo Instagram, não publique direto do seu celular.</li>
-    </ul>
-  </section>
-
-  <section id="termo">
-    <div class="marker"><span class="num">07</span><h2>Termo de Consciência Cultural</h2></div>
-    <p>Leitura e adesão consciente ao jeito de ser do Barú, além das regras escritas.</p>
-    <div class="pledge">
-      "Entendo que o Barú Beauty é uma casa de excelência técnica e de padrão de atendimento constante. Comprometo-me a representar esse padrão em cada atendimento, a tratar colegas e clientes com respeito, e a buscar a gestão sempre que tiver dúvida, antes de improvisar."
-    </div>
-    <div class="checklist">
-      <li>Li e entendi a Missão, Visão e Valores do Barú</li>
-      <li>Conheço os Princípios do Barú e o Regulamento Interno</li>
-      <li>Assinei este termo de consciência cultural</li>
-    </div>
-  </section>
-
-  <section id="checklist">
-    <div class="marker"><span class="num">08</span><h2>Checklist do Novo Membro</h2></div>
-    <ul class="checklist">
-      <li>Recebi apresentação institucional da casa (Quem Somos, Missão, Visão e Valores)</li>
-      <li>Li e entendi o <b>Regulamento Interno</b></li>
-      <li>Conheço os <b>Princípios do Barú</b></li>
-      <li>Sei qual é o <b>meu POP de setor</b> e onde consultá-lo</li>
-      <li>Entendo o <b>Ritual do Espelho</b> e já pratico em todo atendimento</li>
-      <li>Sei para quem envio fotos e vídeos para o Instagram</li>
-      <li>Conheço o <b>Menu de Experiência</b> e como ele é usado</li>
-      <li>Tenho clareza do meu modelo de remuneração, por escrito</li>
-      <li>Assinei o <b>termo de ciência</b> do regulamento e o Termo de Consciência Cultural</li>
-      <li>Conversei com a gestão sobre expectativas para este ciclo</li>
-    </ul>
-  </section>
-
-  <footer>
-    <span>Barú Beauty · Material de Integração</span>
-    <span>Complementar ao Regulamento Interno e ao Manual de POPs</span>
-  </footer>
-
+<section id="mvv"><div class="marker"><span class="num">02</span><h2>Missão, Visão e Valores</h2></div>
+<div class="cols">
+<div class="card"><div class="t">Missão</div><p>Entregar excelência em beleza e bem-estar, com técnica, cuidado e constância, em cada atendimento, para cada cliente.</p></div>
+<div class="card"><div class="t">Visão</div><p>Ser reconhecido na Faria Lima como referência em salão de beleza, com padrão de atendimento de alto nível.</p></div>
 </div>
+<h3>Valores</h3><ul class="plain">
+<li><b>Excelência técnica:</b> o resultado fala antes de qualquer palavra.</li>
+<li><b>Constância:</b> o mesmo padrão de cuidado em todo atendimento.</li>
+<li><b>Respeito:</b> entre profissionais, com a cliente e com a casa.</li>
+<li><b>Imparcialidade:</b> oportunidades de agenda e indicação são distribuídas com base em critérios objetivos, buscando manter todos os profissionais ativos e ocupados.</li>
+<li><b>Transparência:</b> problemas são comunicados e tratados.</li>
+</ul></section>
 
-</body>
-</html>
+<section id="muda"><div class="marker"><span class="num">03</span><h2>O que muda a partir de agora</h2></div>
+<div class="cols">
+<div class="card"><div class="t">Conversa individual</div><p>Espaço periódico para alinhar expectativas, ouvir sugestões e tratar questões diretamente.</p></div>
+<div class="card"><div class="t">Padrões claros</div><p>Os principais padrões de funcionamento e atendimento ficam reunidos por escrito.</p></div>
+<div class="card"><div class="t">Ritual do Espelho</div><p>Avaliação e próxima data em todo atendimento.</p></div>
+<div class="card"><div class="t">POPs por setor</div><p>Rotinas organizadas para facilitar o dia a dia e manter o padrão.</p></div>
+<div class="card"><div class="t">Menu de Experiência</div><p>Serviços de alto valor percebido usados para relacionamento, indicação e recuperação de clientes.</p></div>
+</div></section>
+
+<section id="principios"><div class="marker"><span class="num">04</span><h2>Os Princípios do Barú</h2></div>
+<p>Dez compromissos que orientam a experiência da cliente e a convivência na casa.</p>
+<div class="goldrule">
+<div class="rule"><span class="n">1</span><span class="t"><b>Pontualidade é respeito.</b></span></div>
+<div class="rule"><span class="n">2</span><span class="t"><b>Apresentação comunica padrão.</b></span></div>
+<div class="rule"><span class="n">3</span><span class="t"><b>Celular não compete com a cliente.</b></span></div>
+<div class="rule"><span class="n">4</span><span class="t"><b>Escuta vem antes da execução.</b></span></div>
+<div class="rule"><span class="n">5</span><span class="t"><b>O espaço reflete a marca.</b></span></div>
+<div class="rule"><span class="n">6</span><span class="t"><b>Erro não se esconde.</b></span></div>
+<div class="rule"><span class="n">7</span><span class="t"><b>O clima interno não chega à cliente.</b></span></div>
+<div class="rule"><span class="n">8</span><span class="t"><b>Todos representam o Barú.</b></span></div>
+<div class="rule"><span class="n">9</span><span class="t"><b>Nenhuma cliente sai sem o próximo passo.</b></span></div>
+<div class="rule"><span class="n">10</span><span class="t"><b>Excelência é constância.</b></span></div>
+</div></section>
+
+<section id="espelho"><div class="marker"><span class="num">05</span><h2>O Ritual do Espelho</h2></div>
+<p>O hábito mais importante para transformar um bom atendimento em relacionamento.</p>
+<p>Sempre antes da cliente sair da cadeira:</p>
+<ol class="steps"><li><b>Pedido de avaliação.</b></li><li><b>Próxima data.</b> Oferecer e, sempre que possível, já deixar o próximo atendimento marcado.</li></ol>
+</section>
+
+<section id="captura"><div class="marker"><span class="num">06</span><h2>Captura de conteúdo</h2></div>
+<p>Para profissionais que participam da produção de conteúdo do Barú:</p>
+<ul class="plain">
+<li><b>Luz natural</b> sempre que possível.</li>
+<li><b>Três ângulos padrão</b> para resultados de cabelo: frente, perfil e nuca.</li>
+<li><b>Fundo limpo</b>, sem elementos desnecessários ao redor da cliente.</li>
+<li>Fotos e vídeos destinados ao Instagram do Barú devem ser enviados à pessoa responsável pelo canal.</li>
+</ul></section>
+
+<section id="cultura"><div class="marker"><span class="num">07</span><h2>Jeito Barú</h2></div>
+<p>Mais do que seguir procedimentos, fazer parte do Barú significa contribuir para uma casa organizada, respeitosa e consistente.</p>
+<div class="pledge">“Quero fazer parte de uma casa onde técnica, cuidado, respeito e constância aparecem em cada atendimento. Quando tiver dúvida, vou conversar com a gestão. Quando identificar um problema, vou comunicar. E, no contato com a cliente e com os demais profissionais, vou preservar o padrão que estamos construindo juntos.”</div>
+</section>
+
+<section id="checklist"><div class="marker"><span class="num">08</span><h2>Integração</h2></div>
+<ul class="checklist">
+<li>Conheço a casa, seus serviços e sua proposta.</li>
+<li>Conheço a <b>Missão, Visão e Valores</b> do Barú.</li>
+<li>Conheço os <b>Princípios do Barú</b> e os padrões de funcionamento.</li>
+<li>Sei qual é o <b>POP do meu setor</b> e onde consultá-lo.</li>
+<li>Entendo o <b>Ritual do Espelho</b> e aplico em meus atendimentos.</li>
+<li>Conheço o <b>Menu de Experiência</b> e sua finalidade.</li>
+<li>Tenho clareza sobre as condições da minha atuação profissional na casa.</li>
+<li>Recebi e compreendi o documento de padrões de funcionamento e convivência.</li>
+<li>Conversei com a gestão sobre expectativas para este ciclo.</li>
+</ul></section>
+
+<footer><span>Barú Beauty · Material de Integração</span><span>Documento de referência da casa</span></footer>
+</div></body></html>

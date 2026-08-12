@@ -1,254 +1,162 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barú Beauty · Regulamento Interno</title>
-<style>
-  :root {
-    --ground: #FBF9F6; --raised: #FFFFFF; --sunken: #F3EEE7;
-    --ink: #241C17; --ink-soft: #574A41; --ink-mute: #7A6E64;
-    --rule: #E3DACE; --rule-firm: #C9BCAA;
-    --brass: #A67C3D; --brass-wash: #F5EBDA;
-    --critical: #9E3B2E; --critical-wash: #F8E9E6;
-    --positive: #4A6B4F; --positive-wash: #E9F0E9;
-    --serif: 'Hoefler Text', 'Playfair Display', Georgia, 'Times New Roman', serif;
-    --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    --mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --ground: #17120F; --raised: #1F1915; --sunken: #221B16;
-      --ink: #F0EAE3; --ink-soft: #C6B9AC; --ink-mute: #9C8D7F;
-      --rule: #33291F; --rule-firm: #4A3B2D;
-      --brass: #D4A55E; --brass-wash: #2A2015;
-      --critical: #D97C6A; --critical-wash: #2E1B17;
-      --positive: #8FB395; --positive-wash: #1B241C;
-    }
-  }
-  :root[data-theme="dark"] {
-    --ground: #17120F; --raised: #1F1915; --sunken: #221B16;
-    --ink: #F0EAE3; --ink-soft: #C6B9AC; --ink-mute: #9C8D7F;
-    --rule: #33291F; --rule-firm: #4A3B2D;
-    --brass: #D4A55E; --brass-wash: #2A2015;
-    --critical: #D97C6A; --critical-wash: #2E1B17;
-    --positive: #8FB395; --positive-wash: #1B241C;
-  }
-  body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.62; margin: 0; padding: 0 1.5rem 6rem; -webkit-font-smoothing: antialiased; }
-  .sheet { max-width: 52rem; margin: 0 auto; }
-  .cover { padding: 4rem 0 2.5rem; border-bottom: 2px solid var(--ink); }
-  .cover h1 { font-family: var(--serif); font-size: clamp(2rem, 5.5vw, 3rem); font-weight: 400; margin: 0.5rem 0; }
-  .cover p { font-family: var(--serif); font-size: 1.05rem; color: var(--ink-soft); max-width: 48ch; }
-
-  nav { margin: 2rem 0 0; border: 1px solid var(--rule); background: var(--raised); padding: 1.1rem 1.3rem; }
-  nav ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 0.5rem 1.5rem; counter-reset: toc; }
-  nav li { counter-increment: toc; font-size: 0.85rem; }
-  nav li::before { content: counter(toc, decimal-leading-zero); font-family: var(--mono); font-size: 0.66rem; color: var(--brass); margin-right: 0.6rem; }
-  nav a { color: var(--ink-soft); text-decoration: none; }
-  nav a:hover { color: var(--ink); }
-
-  section { padding-top: 3rem; }
-  .marker { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--rule-firm); padding-bottom: 0.5rem; margin-bottom: 1.3rem; }
-  .marker .num { font-family: var(--mono); font-size: 0.72rem; color: var(--brass); }
-  .marker h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; margin: 0; flex: 1; }
-  h3 { font-size: 0.94rem; font-weight: 700; margin: 1.6rem 0 0.5rem; }
-
-  p { margin: 0 0 1rem; max-width: 68ch; font-size: 0.95rem; }
-  ol.arts { list-style: none; padding: 0; margin: 0.8rem 0; display: grid; gap: 0.9rem; counter-reset: art; }
-  ol.arts li { counter-increment: art; padding-left: 2.2rem; position: relative; color: var(--ink-soft); font-size: 0.93rem; }
-  ol.arts li::before { content: "Art. " counter(art); position: absolute; left: 0; top: 0; font-family: var(--mono); font-size: 0.66rem; color: var(--brass); font-weight: 700; }
-  ol.arts li b { color: var(--ink); }
-
-  .goldrule { display: grid; gap: 0.6rem; margin: 1rem 0; }
-  .goldrule .rule { display: flex; gap: 0.9rem; align-items: baseline; padding: 0.7rem 0.9rem; background: var(--raised); border: 1px solid var(--rule); }
-  .goldrule .n { font-family: var(--serif); font-size: 1.3rem; color: var(--brass); min-width: 1.6rem; }
-  .goldrule .t { font-size: 0.9rem; color: var(--ink-soft); }
-  .goldrule .t b { color: var(--ink); }
-
-  .callout { border-left: 2px solid var(--brass); background: var(--sunken); padding: 1rem 1.2rem; margin: 1.4rem 0; font-size: 0.9rem; color: var(--ink-soft); }
-  .callout.warn { border-left-color: var(--critical); }
-  .callout b { color: var(--ink); }
-  .callout .kicker { font-size: 0.64rem; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700; color: var(--brass); display: block; margin-bottom: 0.4rem; }
-  .callout.warn .kicker { color: var(--critical); }
-
-  .sign { margin-top: 1.5rem; padding: 1.3rem; border: 1px dashed var(--rule-firm); font-size: 0.9rem; color: var(--ink-soft); }
-  .sign .field { margin: 0.7rem 0; border-bottom: 1px solid var(--rule-firm); padding-bottom: 0.3rem; }
-
-  footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule-firm); font-size: 0.74rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
-
-  .pdf-btn { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--brass); color: var(--ground); border: none; padding: 0.75rem 1.15rem; border-radius: 999px; font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); transition: transform 0.15s ease, box-shadow 0.15s ease; }
-  .pdf-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
-  .pdf-btn:active { transform: translateY(0); }
-  .pdf-btn svg { width: 1rem; height: 1rem; flex-shrink: 0; }
-  @media print {
-    .pdf-btn { display: none !important; }
-    body { padding: 0 !important; background: #fff !important; }
-    a { color: inherit !important; text-decoration: none !important; }
-  }
-</style>
-
-</head>
-<body>
-<button class="pdf-btn" onclick="window.print()" aria-label="Baixar PDF deste documento">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-  Baixar PDF
-</button>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barú Beauty · Padrões de Funcionamento e Convivência</title><style>
+:root {
+  --ground:#FBF9F6; --raised:#FFFFFF; --sunken:#F3EEE7;
+  --ink:#241C17; --ink-soft:#574A41; --ink-mute:#7A6E64;
+  --rule:#E3DACE; --rule-firm:#C9BCAA; --brass:#A67C3D;
+  --critical:#9E3B2E; --positive:#4A6B4F;
+  --serif:'Hoefler Text','Playfair Display',Georgia,'Times New Roman',serif;
+  --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.62;margin:0;padding:0 1.5rem 5rem;-webkit-font-smoothing:antialiased}
+.sheet{max-width:52rem;margin:0 auto}
+.cover{padding:4rem 0 2.5rem;border-bottom:2px solid var(--ink)}
+.cover h1{font-family:var(--serif);font-size:clamp(2rem,5.5vw,3rem);font-weight:400;margin:.5rem 0}
+.cover p{font-family:var(--serif);font-size:1.05rem;color:var(--ink-soft);max-width:50ch}
+nav{margin:2rem 0 0;border:1px solid var(--rule);background:var(--raised);padding:1.1rem 1.3rem}
+nav ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.5rem 1.5rem;counter-reset:toc}
+nav li{counter-increment:toc;font-size:.85rem}
+nav li::before{content:counter(toc,decimal-leading-zero);font-family:var(--mono);font-size:.66rem;color:var(--brass);margin-right:.6rem}
+nav a{color:var(--ink-soft);text-decoration:none}
+section{padding-top:3rem}
+.marker{display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid var(--rule-firm);padding-bottom:.5rem;margin-bottom:1.3rem}
+.marker .num{font-family:var(--mono);font-size:.72rem;color:var(--brass)}
+.marker h2{font-family:var(--serif);font-size:1.6rem;font-weight:400;margin:0;flex:1}
+h3{font-size:.94rem;font-weight:700;margin:1.6rem 0 .5rem}
+p{margin:0 0 1rem;max-width:68ch;font-size:.95rem}
+ol.arts,ol.steps,ul.plain{list-style:none;padding:0;margin:.8rem 0;display:grid;gap:.75rem}
+ol.arts{counter-reset:art}
+ol.arts li{counter-increment:art;padding-left:2.2rem;position:relative;color:var(--ink-soft);font-size:.93rem}
+ol.arts li::before{content:"Art. " counter(art);position:absolute;left:0;top:0;font-family:var(--mono);font-size:.66rem;color:var(--brass);font-weight:700}
+ol.arts li b,ul.plain li b,ol.steps li b{color:var(--ink)}
+ul.plain li{padding-left:1.15rem;position:relative;color:var(--ink-soft);font-size:.93rem}
+ul.plain li::before{content:"";position:absolute;left:0;top:.62em;width:.45rem;height:1px;background:var(--brass)}
+ol.steps{counter-reset:s}
+ol.steps li{counter-increment:s;padding-left:2.1rem;position:relative;color:var(--ink-soft);font-size:.93rem}
+ol.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:0;font-family:var(--mono);font-size:.68rem;color:var(--brass);font-weight:700}
+.goldrule{display:grid;gap:.5rem;margin:1rem 0}
+.goldrule .rule{display:flex;gap:.8rem;align-items:baseline;padding:.65rem .85rem;background:var(--raised);border:1px solid var(--rule)}
+.goldrule .n{font-family:var(--serif);font-size:1.15rem;color:var(--brass);min-width:1.4rem}
+.goldrule .t{font-size:.86rem;color:var(--ink-soft)}
+.callout{border-left:2px solid var(--brass);background:var(--sunken);padding:1rem 1.2rem;margin:1.4rem 0;font-size:.9rem;color:var(--ink-soft)}
+.callout b{color:var(--ink)}
+.callout .kicker{font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--brass);display:block;margin-bottom:.4rem}
+.sign{margin-top:1.5rem;padding:1.3rem;border:1px dashed var(--rule-firm);font-size:.9rem;color:var(--ink-soft)}
+.sign .field{margin:.7rem 0;border-bottom:1px solid var(--rule-firm);padding-bottom:.3rem}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem;margin:1rem 0}
+.card{border:1px solid var(--rule);background:var(--raised);padding:1rem 1.1rem}
+.card .t{font-weight:600;font-size:.92rem;margin-bottom:.4rem}
+.card p{font-size:.85rem;margin:0;color:var(--ink-soft)}
+.pledge{border:1px dashed var(--rule-firm);padding:1.3rem;margin:1.2rem 0;font-family:var(--serif);font-size:1rem;color:var(--ink-soft);font-style:italic}
+.checklist{list-style:none;padding:0;margin:.8rem 0;display:grid;gap:.55rem}
+.checklist li{padding-left:1.8rem;position:relative;font-size:.9rem;color:var(--ink-soft)}
+.checklist li::before{content:"";position:absolute;left:0;top:.15em;width:.85rem;height:.85rem;border:1px solid var(--rule-firm);border-radius:2px}
+.checklist li b{color:var(--ink)}
+footer{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--rule-firm);font-size:.74rem;color:var(--ink-mute);display:flex;flex-wrap:wrap;gap:.4rem 2rem;justify-content:space-between}
+.pdf-btn{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;background:var(--brass);color:var(--ground);border:none;padding:.75rem 1.15rem;border-radius:999px;font-family:var(--sans);font-size:.82rem;font-weight:600;cursor:pointer}
+@media print{.pdf-btn{display:none!important}body{padding:0!important;background:#fff!important}a{color:inherit!important;text-decoration:none!important}}
+</style></head><body>
+<button class="pdf-btn" onclick="window.print()">Baixar PDF</button>
 <div class="sheet">
+<header class="cover"><h1>Padrões de Funcionamento e Convivência</h1><p>Barú Beauty é uma casa formada por profissionais independentes que compartilham espaço, estrutura e um padrão de experiência. Este documento reúne os principais critérios para o bom funcionamento da casa e para uma experiência consistente para cada cliente.</p></header>
+<nav aria-label="Índice"><ol><li><a href="#proposito">Propósito</a></li><li><a href="#principios">Princípios do Barú</a></li><li><a href="#agenda">Agenda e disponibilidade</a></li><li><a href="#apresentacao">Apresentação pessoal</a></li><li><a href="#atendimento">Atendimento à cliente</a></li><li><a href="#convivencia">Convivência profissional</a></li><li><a href="#redes">Redes sociais e imagem</a></li><li><a href="#materiais">Materiais, produtos e equipamentos</a></li><li><a href="#agendamento">Agendamento e cancelamento</a></li><li><a href="#confidencialidade">Confidencialidade</a></li><li><a href="#parcerias">Parcerias e ações</a></li><li><a href="#final">Disposições finais</a></li></ol></nav>
 
-  <header class="cover">
-    <h1>Regulamento Interno</h1>
-    <p>Documento de referência do Barú Beauty. Baseado no modelo comum de regulamentos de salões de beleza, adaptado à realidade da casa e às referências de padrão de mercado de luxo. Aplica-se a todas as pessoas que atuam na operação, com vínculo CLT ou parceria PJ.</p>
-  </header>
+<section id="proposito"><div class="marker"><span class="num">01</span><h2>Propósito</h2></div>
+<p>O Barú Beauty é construído por profissionais independentes que atuam em parceria com a casa. Cada profissional mantém sua identidade, sua técnica e sua forma de trabalhar, dentro de um ambiente que tem um padrão comum de experiência.</p>
+<p>Este documento reúne os principais padrões de funcionamento, atendimento e convivência do Barú.</p>
+</section>
 
-  <nav aria-label="Índice">
-    <ol>
-      <li><a href="#propósito">Propósito e abrangência</a></li>
-      <li><a href="#principios">Os Princípios do Barú</a></li>
-      <li><a href="#agenda">Responsabilidades com Agenda</a></li>
-      <li><a href="#apresentacao">Apresentação pessoal</a></li>
-      <li><a href="#atendimento">Atendimento à cliente</a></li>
-      <li><a href="#conduta">Conduta e convivência</a></li>
-      <li><a href="#redes">Redes sociais e imagem</a></li>
-      <li><a href="#materiais">Materiais, produtos e equipamentos</a></li>
-      <li><a href="#agendamento">Agendamento e cancelamento</a></li>
-      <li><a href="#confidencialidade">Confidencialidade</a></li>
-      <li><a href="#parcerias">Parcerias</a></li>
-      <li><a href="#disposicoes">Disposições finais</a></li>
-    </ol>
-  </nav>
+<section id="principios"><div class="marker"><span class="num">02</span><h2>Os Princípios do Barú</h2></div>
+<p>Dez compromissos que orientam a experiência da cliente e a convivência na casa.</p>
+<div class="goldrule">
+<div class="rule"><span class="n">1</span><span class="t"><b>Pontualidade é respeito.</b> Com a cliente, com os profissionais e com a casa.</span></div>
+<div class="rule"><span class="n">2</span><span class="t"><b>Apresentação comunica padrão.</b> A imagem acompanha a qualidade do serviço.</span></div>
+<div class="rule"><span class="n">3</span><span class="t"><b>Celular não compete com a cliente.</b> Durante o atendimento, a atenção está no que importa.</span></div>
+<div class="rule"><span class="n">4</span><span class="t"><b>Escuta vem antes da execução.</b> Entender bem é o primeiro passo para entregar melhor.</span></div>
+<div class="rule"><span class="n">5</span><span class="t"><b>O espaço reflete a marca.</b> Cada profissional cuida do ambiente que compartilha.</span></div>
+<div class="rule"><span class="n">6</span><span class="t"><b>Erro não se esconde.</b> Transparência e responsabilidade vêm primeiro.</span></div>
+<div class="rule"><span class="n">7</span><span class="t"><b>O clima interno não chega à cliente.</b> Questões entre profissionais são tratadas com respeito e discrição.</span></div>
+<div class="rule"><span class="n">8</span><span class="t"><b>Todos representam o Barú.</b> Dentro e fora da casa, a imagem merece cuidado.</span></div>
+<div class="rule"><span class="n">9</span><span class="t"><b>Nenhuma cliente sai sem o próximo passo.</b> Avaliação e próxima data fazem parte da experiência.</span></div>
+<div class="rule"><span class="n">10</span><span class="t"><b>Excelência é constância.</b> O padrão precisa aparecer todos os dias.</span></div>
+</div></section>
 
-  <section id="propósito">
-    <div class="marker"><span class="num">01</span><h2>Propósito e abrangência</h2></div>
-    <ol class="arts">
-      <li><b>Este regulamento existe para proteger três coisas ao mesmo tempo</b>: a experiência da cliente, a imagem da marca, e cada pessoa que trabalha aqui.</li>
-      <li><b>Aplica-se a todos</b> que atuam no Barú Beauty, independente do vínculo: CLT, parceria PJ (Lei 13.352/2016) ou prestação eventual.</li>
-      <li>Um salão de padrão de mercado de luxo se distingue pela constância: o mesmo cuidado, na mesma medida, em todo atendimento, para toda cliente. Este documento existe para tornar essa constância possível, não dependente de quem está de plantão.</li>
-      <li>Em caso de dúvida sobre qualquer artigo, a orientação é <b>parar e perguntar à gestão</b>, nunca improvisar.</li>
-    </ol>
-  </section>
+<section id="agenda"><div class="marker"><span class="num">03</span><h2>Agenda e disponibilidade</h2></div>
+<ol class="arts">
+<li>Imprevistos, atrasos e indisponibilidades devem ser comunicados à gestão com a maior antecedência possível.</li>
+<li>Alterações de agenda que afetem clientes ou a operação devem ser alinhadas previamente com a gestão.</li>
+<li><b>Área de clientes e área de equipe são separadas.</b> Alimentação, pausas e assuntos internos acontecem na área destinada à equipe.</li>
+<li><b>Disponibilidade faz diferença.</b> Quando estiver na casa e sem atendimento, o profissional deve permanecer acessível e disponível para novas oportunidades de atendimento.</li>
+<li>Serviços entre profissionais devem ser combinados previamente e não podem prejudicar atendimentos, agenda ou disponibilidade para clientes.</li>
+</ol></section>
 
-  <section id="principios">
-    <div class="marker"><span class="num">02</span><h2>Os Princípios do Barú</h2></div>
-    <p>Dez compromissos que definem o padrão de atendimento e convivência da casa.</p>
-    <div class="goldrule">
-      <div class="rule"><span class="n">1</span><span class="t"><b>Pontualidade é respeito.</b> Com a cliente, com a equipe, com a marca.</span></div>
-      <div class="rule"><span class="n">2</span><span class="t"><b>Apresentação comunica padrão.</b> Fala antes de você falar.</span></div>
-      <div class="rule"><span class="n">3</span><span class="t"><b>Celular não compete com a cliente.</b> Presença total em cada atendimento.</span></div>
-      <div class="rule"><span class="n">4</span><span class="t"><b>Escuta vem antes da execução.</b> Entender bem é o primeiro passo para entregar melhor.</span></div>
-      <div class="rule"><span class="n">5</span><span class="t"><b>O espaço reflete a marca.</b> Ambiente cuidado, sempre.</span></div>
-      <div class="rule"><span class="n">6</span><span class="t"><b>Erro não se esconde.</b> Transparência e responsabilidade.</span></div>
-      <div class="rule"><span class="n">7</span><span class="t"><b>O clima interno não chega à cliente.</b> Profissionalismo em qualquer circunstância.</span></div>
-      <div class="rule"><span class="n">8</span><span class="t"><b>Todos representam a marca</b>, dentro e fora do salão.</span></div>
-      <div class="rule"><span class="n">9</span><span class="t"><b>Nenhuma cliente sai sem o próximo passo marcado.</b> Avaliação e reagendamento, o Ritual do Espelho.</span></div>
-      <div class="rule"><span class="n">10</span><span class="t"><b>Excelência é constância.</b> O padrão que sustentamos todos os dias.</span></div>
-    </div>
-  </section>
+<section id="apresentacao"><div class="marker"><span class="num">04</span><h2>Apresentação pessoal</h2></div>
+<ol class="arts">
+<li>Traje de trabalho limpo e alinhado ao padrão da casa.</li>
+<li>Higiene pessoal, unhas e cabelo cuidados fazem parte da apresentação profissional.</li>
+</ol></section>
 
-  <section id="agenda">
-    <div class="marker"><span class="num">03</span><h2>Responsabilidades com Agenda</h2></div>
-    <ol class="arts">
-      <li>Atrasos e ausências devem ser comunicados à gestão com a maior antecedência possível, e nunca substituídos por aviso a colegas.</li>
-      <li>Trocas de horário entre profissionais dependem de aprovação prévia da gestão, para manter a cobertura de agenda.</li>
-      <li><b>Área de clientes e área de equipe são separadas.</b> Alimentação, pausas e assuntos internos acontecem na área de equipe, nunca na área de atendimento.</li>
-      <li>Postura de prontidão: cada profissional se mantém disponível e visível para atendimento durante seu horário de trabalho, mesmo entre um cliente e outro.</li>
-      <li><b>Serviços entre profissionais</b> (quando uma pessoa da equipe atende outra) acontecem preferencialmente às segundas e terças-feiras, no máximo até quarta-feira, sempre com aviso prévio à gestão e sem prejudicar a agenda ou a disponibilidade para atendimento de clientes.</li>
-    </ol>
-  </section>
+<section id="atendimento"><div class="marker"><span class="num">05</span><h2>Atendimento à cliente</h2></div>
+<ol class="arts">
+<li>A cliente é recebida pelo nome e o serviço é confirmado antes do início.</li>
+<li>O <b>Ritual do Espelho</b> acontece ao final de todo atendimento: primeiro o pedido de avaliação, depois a oferta da próxima data.</li>
+<li>Reclamações são recebidas com respeito, sem discussão diante da cliente, e encaminhadas à gestão.</li>
+<li>Nenhum serviço é cobrado sem ter sido realizado ou confirmado.</li>
+</ol></section>
 
-  <section id="apresentacao">
-    <div class="marker"><span class="num">04</span><h2>Apresentação pessoal</h2></div>
-    <ol class="arts">
-      <li>Uniforme ou traje de trabalho limpo, alinhado à identidade visual da casa, definido pela gestão.</li>
-      <li>Higiene pessoal, unhas e cabelo cuidados são parte da apresentação de quem trabalha com beleza.</li>
-    </ol>
-  </section>
+<section id="convivencia"><div class="marker"><span class="num">06</span><h2>Convivência profissional</h2></div>
+<ol class="arts">
+<li>Respeito, cordialidade e limite profissional orientam a convivência entre todos.</li>
+<li><b>Comentários pessoais sobre aparência, vida privada ou desempenho de outros profissionais não fazem parte da cultura do Barú.</b></li>
+<li>Divergências são tratadas diretamente e em particular, nunca diante de clientes.</li>
+<li>A gestão mantém espaço de conversa individual para que questões possam ser tratadas com clareza e antecedência.</li>
+</ol></section>
 
-  <section id="atendimento">
-    <div class="marker"><span class="num">05</span><h2>Atendimento à cliente</h2></div>
-    <ol class="arts">
-      <li>Toda cliente é recebida pelo nome, com confirmação do serviço agendado antes do início.</li>
-      <li>O <b>Ritual do Espelho</b> acontece ao final de todo atendimento: pedido de avaliação e oferta da próxima data, sempre nesta ordem, antes da cliente sair da cadeira.</li>
-      <li>Reclamações da cliente são acolhidas sem debate no salão e encaminhadas à gestão no mesmo dia.</li>
-      <li>Nenhuma cliente é cobrada por serviço não realizado ou não confirmado, e nenhuma cliente sai sem pagamento ou autorização expressa da gestão.</li>
-    </ol>
-  </section>
+<section id="redes"><div class="marker"><span class="num">07</span><h2>Redes sociais e imagem</h2></div>
+<ol class="arts">
+<li>Fotos e vídeos de outros profissionais só são publicados com o consentimento de quem aparece.</li>
+<li>Publicações relacionadas ao Barú devem preservar o padrão da marca e não expor clientes, profissionais ou situações internas.</li>
+<li>Conteúdos destinados aos canais do Barú seguem o fluxo definido pela casa.</li>
+</ol></section>
 
-  <section id="conduta">
-    <div class="marker"><span class="num">06</span><h2>Conduta e convivência</h2></div>
-    <ol class="arts">
-      <li>Relações no ambiente de trabalho pautam-se por <b>respeito, cordialidade e limite profissional</b>, sem distinção de cargo ou vínculo.</li>
-      <li><b>Comentários pessoais sobre aparência, vida privada ou desempenho de colegas</b> não fazem parte da cultura do salão, vindos de qualquer pessoa.</li>
-      <li>Divergências são tratadas <b>em conversa direta e reservada</b>, nunca expostas na frente de clientes ou nas redes sociais.</li>
-      <li>A gestão mantém <b>canal de escuta estruturado</b>, 1-a-1 quinzenal com pauta fixa, para qualquer colaborador levantar questões antes que virem conflito.</li>
-    </ol>
-  </section>
+<section id="materiais"><div class="marker"><span class="num">08</span><h2>Materiais, produtos e equipamentos</h2></div>
+<ol class="arts">
+<li>Materiais, produtos e equipamentos da casa devem ser utilizados de acordo com os procedimentos definidos para cada setor.</li>
+<li>Danos, mau uso ou falta de material devem ser comunicados à gestão assim que identificados.</li>
+</ol></section>
 
-  <section id="redes">
-    <div class="marker"><span class="num">07</span><h2>Redes sociais e imagem</h2></div>
-    <ol class="arts">
-      <li><b>Fotos e vídeos de colegas de trabalho</b> só são publicados com o consentimento de quem aparece.</li>
-      <li>Qualquer publicação sobre o salão feita em perfil pessoal deve ser <b>coerente com o padrão da marca</b> e não pode expor clientes, colegas ou situações internas.</li>
-    </ol>
-  </section>
+<section id="agendamento"><div class="marker"><span class="num">09</span><h2>Agendamento e cancelamento</h2></div>
+<ol class="arts">
+<li>Alterações ou cancelamentos que afetem a agenda devem ser comunicados à recepção e à gestão com antecedência.</li>
+<li>Cancelamentos ou reagendamentos solicitados pela cliente seguem a política vigente do Barú.</li>
+<li>Toda cliente deve receber a oferta da próxima data ao final do atendimento.</li>
+</ol></section>
 
-  <section id="materiais">
-    <div class="marker"><span class="num">08</span><h2>Materiais, produtos e equipamentos</h2></div>
-    <ol class="arts">
-      <li>Materiais, produtos e equipamentos do salão são usados exclusivamente em atendimento, seguindo os Procedimentos Operacionais Padrão (documento à parte).</li>
-      <li>Qualquer dano, mau uso ou falta de material é comunicado à gestão no mesmo dia, sem exceção.</li>
-    </ol>
-  </section>
+<section id="confidencialidade"><div class="marker"><span class="num">10</span><h2>Confidencialidade</h2></div>
+<ol class="arts">
+<li>Dados de clientes, histórico de atendimento e informações de contato devem ser tratados com confidencialidade e utilizados exclusivamente para a relação profissional com a cliente.</li>
+<li>Informações internas sobre faturamento, remuneração, fornecedores, clientes ou decisões da casa não devem ser compartilhadas fora da operação.</li>
+</ol></section>
 
-  <section id="agendamento">
-    <div class="marker"><span class="num">09</span><h2>Agendamento e cancelamento</h2></div>
-    <ol class="arts">
-      <li>Alterações e cancelamentos de agenda por parte da equipe são comunicados à recepção com antecedência mínima definida pela gestão.</li>
-      <li>Cancelamentos ou reagendamentos solicitados pela cliente seguem a política vigente do salão, comunicada no ato do agendamento.</li>
-      <li>Toda cliente sai do atendimento com a próxima data oferecida, conforme o Ritual do Espelho e o fluxo de reagendamento do Manual de POPs.</li>
-    </ol>
-  </section>
+<section id="parcerias"><div class="marker"><span class="num">11</span><h2>Parcerias e ações</h2></div>
+<ol class="arts">
+<li><b>Parceria unilateral:</b> quando uma das partes propõe a ação, ela assume o investimento correspondente à participação da outra, conforme combinado.</li>
+<li><b>Parceria bilateral:</b> quando as partes participam do investimento, cada uma assume a parte previamente combinada.</li>
+<li>O resultado das ações é acompanhado ao final para orientar futuras decisões.</li>
+</ol></section>
 
-  <section id="confidencialidade">
-    <div class="marker"><span class="num">10</span><h2>Confidencialidade</h2></div>
-    <ol class="arts">
-      <li>Dados de clientes (contato, histórico de atendimento, preferências) <b>pertencem ao salão</b>. Cada profissional os utiliza apenas dentro de sua própria atuação, para atender bem quem já é ou pode ser sua cliente, e não pode compartilhá-los fora da operação.</li>
-      <li>Informações internas sobre faturamento, remuneração, fornecedores ou clientes não são discutidas fora do ambiente de trabalho.</li>
-    </ol>
-  </section>
+<section id="final"><div class="marker"><span class="num">12</span><h2>Disposições finais</h2></div>
+<ol class="arts">
+<li>Os padrões da casa podem ser atualizados conforme a evolução da operação.</li>
+<li>Alterações relevantes são comunicadas aos profissionais antes de entrarem em prática.</li>
+<li>Questões não previstas neste documento são tratadas diretamente com a gestão.</li>
+</ol>
+<div class="sign"><p><b>Ciência</b></p><p>Declaro que recebi, li e compreendi os padrões de funcionamento e convivência do Barú Beauty.</p>
+<div class="field">Nome completo:</div><div class="field">Serviço / atuação:</div><div class="field">Assinatura:</div><div class="field">Data: ___/___/______</div></div>
+</section>
 
-  <section id="parcerias">
-    <div class="marker"><span class="num">11</span><h2>Parcerias</h2></div>
-    <ol class="arts">
-      <li><b>Parceria unilateral:</b> quando uma das partes propõe a ação, ela cobre o investimento correspondente à parte da outra.</li>
-      <li><b>Parceria bilateral:</b> ambas as partes investem na ação, e nenhuma cobre a parte da outra.</li>
-      <li>Toda parceria, unilateral ou bilateral, tem seu retorno contabilizado ao final da ação, para orientar decisões futuras.</li>
-    </ol>
-  </section>
-
-  <section id="disposicoes">
-    <div class="marker"><span class="num">12</span><h2>Disposições finais</h2></div>
-    <ol class="arts">
-      <li>Este regulamento é documento vivo, revisado a cada ciclo de acompanhamento da operação.</li>
-      <li>Alterações são comunicadas a toda a equipe antes de entrarem em vigor.</li>
-      <li>Casos não previstos aqui são resolvidos pela gestão, com base nos Princípios do Barú.</li>
-    </ol>
-  </section>
-
-  <div class="sign">
-    <p style="margin-bottom:0.5rem"><b>Termo de ciência</b></p>
-    <p style="font-size:0.85rem">Declaro estar ciente deste Regulamento Interno e me comprometo a segui-lo integralmente durante minha atuação no Barú Beauty.</p>
-    <div class="field">Nome completo:</div>
-    <div class="field">Função / vínculo:</div>
-    <div class="field">Assinatura:</div>
-    <div class="field">Data: ___/___/______</div>
-  </div>
-
-  <footer>
-    <span>Barú Beauty · Regulamento Interno</span>
-    <span>Documento vivo, revisão a cada ciclo de acompanhamento</span>
-  </footer>
-
-</div>
-
-</body>
-</html>
+<footer><span>Barú Beauty · Padrões de Funcionamento e Convivência</span><span>Documento de referência da casa</span></footer>
+</div></body></html>
