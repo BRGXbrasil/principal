@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barú Beauty — Material de Integração</title>
+<title>Barú Beauty · Material de Integração</title>
 <style>
   :root {
     --ground: #FBF9F6; --raised: #FFFFFF; --sunken: #F3EEE7;
@@ -37,9 +37,15 @@
   body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.62; margin: 0; padding: 0 1.5rem 6rem; -webkit-font-smoothing: antialiased; }
   .sheet { max-width: 52rem; margin: 0 auto; }
   .cover { padding: 4rem 0 2.5rem; border-bottom: 2px solid var(--ink); }
-  .firm { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass); font-weight: 600; }
   .cover h1 { font-family: var(--serif); font-size: clamp(2rem, 5.5vw, 3rem); font-weight: 400; margin: 0.5rem 0; }
   .cover p { font-family: var(--serif); font-size: 1.05rem; color: var(--ink-soft); max-width: 48ch; }
+
+  nav { margin: 2rem 0 0; border: 1px solid var(--rule); background: var(--raised); padding: 1.1rem 1.3rem; }
+  nav ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 0.5rem 1.5rem; counter-reset: toc; }
+  nav li { counter-increment: toc; font-size: 0.85rem; }
+  nav li::before { content: counter(toc, decimal-leading-zero); font-family: var(--mono); font-size: 0.66rem; color: var(--brass); margin-right: 0.6rem; }
+  nav a { color: var(--ink-soft); text-decoration: none; }
+  nav a:hover { color: var(--ink); }
 
   section { padding-top: 3rem; }
   .marker { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--rule-firm); padding-bottom: 0.5rem; margin-bottom: 1.3rem; }
@@ -70,6 +76,14 @@
   .card .t { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.4rem; }
   .card p { font-size: 0.85rem; margin: 0; color: var(--ink-soft); }
 
+  .goldrule { display: grid; gap: 0.5rem; margin: 1rem 0; }
+  .goldrule .rule { display: flex; gap: 0.8rem; align-items: baseline; padding: 0.6rem 0.85rem; background: var(--raised); border: 1px solid var(--rule); }
+  .goldrule .n { font-family: var(--serif); font-size: 1.15rem; color: var(--brass); min-width: 1.4rem; }
+  .goldrule .t { font-size: 0.85rem; color: var(--ink-soft); }
+  .goldrule .t b { color: var(--ink); }
+
+  .pledge { border: 1px dashed var(--rule-firm); padding: 1.3rem; margin: 1.2rem 0; font-family: var(--serif); font-size: 1rem; color: var(--ink-soft); font-style: italic; }
+
   footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule-firm); font-size: 0.74rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
 </style>
 
@@ -78,69 +92,129 @@
 <div class="sheet">
 
   <header class="cover">
-    <div class="firm">BRGX Consultoria</div>
     <h1>Material de Integração</h1>
-    <p>Barú Beauty entra em um novo ciclo. Este material apresenta o que muda, por quê, e como cada pessoa da equipe participa. Não é sobre o que ficou para trás — é sobre onde a casa está indo.</p>
+    <p>Barú Beauty entra em um novo ciclo. Este material apresenta quem somos, o que muda, por quê, e como cada pessoa da equipe participa. Não é sobre o que ficou para trás, é sobre onde a casa está indo.</p>
   </header>
 
-  <section>
+  <nav aria-label="Índice">
+    <ol>
+      <li><a href="#quemsomos">Quem somos</a></li>
+      <li><a href="#mvv">Missão, Visão e Valores</a></li>
+      <li><a href="#muda">O que muda a partir de agora</a></li>
+      <li><a href="#principios">Os Princípios do Barú</a></li>
+      <li><a href="#espelho">O Ritual do Espelho</a></li>
+      <li><a href="#captura">Captura de conteúdo</a></li>
+      <li><a href="#termo">Termo de Consciência Cultural</a></li>
+      <li><a href="#checklist">Checklist do Novo Membro</a></li>
+    </ol>
+  </nav>
+
+  <section id="quemsomos">
     <div class="marker"><span class="num">01</span><h2>Quem somos</h2></div>
-    <p>O Barú Beauty é um salão de beleza na Av. Brigadeiro Faria Lima, com 12 anos de história e especialidade em iluminação capilar. A equipe atual — <b>Bruna, Lilian, Luciene, Cibele, Miguel e Tamy</b> — é quem sustenta a casa hoje, com faturamento em crescimento desde março.</p>
+    <p>O Barú Beauty é um salão de beleza na Av. Brigadeiro Faria Lima, com 12 anos de história e especialidade em iluminação capilar. A equipe atual, Bruna, Lilian, Luciene, Cibele, Miguel e Tamy, é quem sustenta a casa hoje, com faturamento em crescimento desde março.</p>
     <div class="callout">
       <span class="kicker">Por que este material existe agora</span>
-      <p>A BRGX foi contratada para ajudar o Barú a crescer de forma sustentável. A primeira etapa não é campanha nem propaganda — é <b>organizar o que já funciona</b> e dar previsibilidade para quem trabalha aqui.</p>
+      <p>Este é o momento de <b>organizar o que já funciona</b> e dar previsibilidade para quem trabalha aqui. Não é campanha, nem propaganda, é base.</p>
     </div>
   </section>
 
-  <section>
-    <div class="marker"><span class="num">02</span><h2>O que muda a partir de agora</h2></div>
+  <section id="mvv">
+    <div class="marker"><span class="num">02</span><h2>Missão, Visão e Valores</h2></div>
     <div class="cols">
-      <div class="card"><div class="t">Conversa individual quinzenal</div><p>1-a-1 com pauta fixa — espaço para trazer o que precisar antes que vire problema.</p></div>
-      <div class="card"><div class="t">Regras claras por escrito</div><p>Regulamento interno vale para todo mundo, inclusive a direção.</p></div>
-      <div class="card"><div class="t">Ritual do espelho</div><p>Foto, avaliação, próxima data — em toda cliente, sempre nessa ordem.</p></div>
-      <div class="card"><div class="t">Instagram com responsável único</div><p>Fluxo de aprovação claro, sem publicação solta.</p></div>
-      <div class="card"><div class="t">POPs por setor</div><p>Cada rotina documentada — reduz retrabalho e dúvida no dia a dia.</p></div>
-      <div class="card"><div class="t">Relatório individual mensal</div><p>Bruna e Lilian já recebem o primeiro. Os demais entram no próximo ciclo.</p></div>
+      <div class="card"><div class="t">Missão</div><p>Entregar excelência em beleza e bem-estar, com técnica, cuidado e constância, em cada atendimento, para cada cliente.</p></div>
+      <div class="card"><div class="t">Visão</div><p>Ser reconhecido na Faria Lima como referência em iluminação capilar e em padrão de atendimento de salão de mercado de luxo.</p></div>
     </div>
-  </section>
-
-  <section>
-    <div class="marker"><span class="num">03</span><h2>O ritual do espelho — o hábito mais importante</h2></div>
-    <p>Dois minutos, sempre nessa ordem, sempre antes da cliente sair da cadeira:</p>
-    <ol class="steps">
-      <li><b>Foto do resultado</b> — com autorização já registrada no cadastro.</li>
-      <li><b>Pedido de avaliação</b> — no momento em que a cliente está mais satisfeita.</li>
-      <li><b>Próxima data</b> — reagendar ali, não deixar para "ela ligar depois".</li>
-    </ol>
-    <p style="font-size:0.85rem;color:var(--ink-mute)">Esse hábito sozinho alimenta o Instagram, o Google e a taxa de retorno ao mesmo tempo.</p>
-  </section>
-
-  <section>
-    <div class="marker"><span class="num">04</span><h2>Captura de conteúdo — para quem participa do Instagram</h2></div>
+    <h3 style="font-size:0.94rem;font-weight:700;margin:1.4rem 0 0.6rem">Valores</h3>
     <ul class="plain">
-      <li><b>Luz natural</b> sempre que possível, evitando flash direto.</li>
-      <li><b>Três ângulos padrão</b> em resultado de cabelo: frente, perfil, nuca.</li>
-      <li><b>Fundo limpo</b> — sem bagunça de bancada atrás da cliente.</li>
-      <li>Envie para a recepcionista, responsável pelo Instagram — não publique direto do seu celular.</li>
+      <li><b>Excelência técnica</b>: o resultado no cabelo e na pele fala antes de qualquer palavra.</li>
+      <li><b>Constância</b>: o mesmo padrão de cuidado em todo atendimento, para toda cliente.</li>
+      <li><b>Respeito</b>: entre equipe, com a cliente, e com a marca.</li>
+      <li><b>Imparcialidade</b>: oportunidades de agenda e de indicação de serviço são distribuídas com base em dados, nunca em preferência pessoal, com o objetivo de manter a agenda de todos ocupada.</li>
+      <li><b>Transparência</b>: erro se comunica, não se esconde.</li>
     </ul>
   </section>
 
-  <section>
-    <div class="marker"><span class="num">05</span><h2>Checklist dos primeiros dias do novo ciclo</h2></div>
+  <section id="muda">
+    <div class="marker"><span class="num">03</span><h2>O que muda a partir de agora</h2></div>
+    <div class="cols">
+      <div class="card"><div class="t">Conversa individual quinzenal</div><p>1-a-1 com pauta fixa, espaço para trazer o que precisar antes que vire problema.</p></div>
+      <div class="card"><div class="t">Regras claras por escrito</div><p>Regulamento interno vale para todo mundo.</p></div>
+      <div class="card"><div class="t">Ritual do espelho</div><p>Foto, avaliação, próxima data, em toda cliente, sempre nessa ordem.</p></div>
+      <div class="card"><div class="t">Instagram com responsável único</div><p>Fluxo de aprovação claro, sem publicação solta.</p></div>
+      <div class="card"><div class="t">POPs por setor</div><p>Cada rotina documentada, reduz retrabalho e dúvida no dia a dia.</p></div>
+      <div class="card"><div class="t">Menu de Experiência</div><p>Serviços simples e de alto valor percebido, usados em relacionamento, indicação e recuperação de clientes.</p></div>
+    </div>
+  </section>
+
+  <section id="principios">
+    <div class="marker"><span class="num">04</span><h2>Os Princípios do Barú</h2></div>
+    <p>Dez compromissos que definem o padrão de atendimento e convivência da casa, detalhados no Regulamento Interno.</p>
+    <div class="goldrule">
+      <div class="rule"><span class="n">1</span><span class="t"><b>Pontualidade é respeito.</b></span></div>
+      <div class="rule"><span class="n">2</span><span class="t"><b>Apresentação comunica padrão.</b></span></div>
+      <div class="rule"><span class="n">3</span><span class="t"><b>Celular não compete com a cliente.</b></span></div>
+      <div class="rule"><span class="n">4</span><span class="t"><b>Escuta vem antes da execução.</b></span></div>
+      <div class="rule"><span class="n">5</span><span class="t"><b>O espaço reflete a marca.</b></span></div>
+      <div class="rule"><span class="n">6</span><span class="t"><b>Erro não se esconde.</b></span></div>
+      <div class="rule"><span class="n">7</span><span class="t"><b>O clima interno não chega à cliente.</b></span></div>
+      <div class="rule"><span class="n">8</span><span class="t"><b>Todos representam a marca.</b></span></div>
+      <div class="rule"><span class="n">9</span><span class="t"><b>Nenhuma cliente sai sem o próximo passo marcado.</b></span></div>
+      <div class="rule"><span class="n">10</span><span class="t"><b>Excelência é constância.</b></span></div>
+    </div>
+  </section>
+
+  <section id="espelho">
+    <div class="marker"><span class="num">05</span><h2>O Ritual do Espelho, o hábito mais importante</h2></div>
+    <p>Dois minutos, sempre nessa ordem, sempre antes da cliente sair da cadeira:</p>
+    <ol class="steps">
+      <li><b>Foto do resultado</b>, com autorização já registrada no cadastro.</li>
+      <li><b>Pedido de avaliação</b>, no momento em que a cliente está mais satisfeita.</li>
+      <li><b>Próxima data</b>, reagendar ali, não deixar para "ela ligar depois".</li>
+    </ol>
+    <p style="font-size:0.85rem;color:var(--ink-mute)">Esse hábito sozinho alimenta o Instagram, o Google e a taxa de retorno ao mesmo tempo. É o procedimento de maior prioridade da casa.</p>
+  </section>
+
+  <section id="captura">
+    <div class="marker"><span class="num">06</span><h2>Captura de conteúdo, para quem participa do Instagram</h2></div>
+    <ul class="plain">
+      <li><b>Luz natural</b> sempre que possível, evitando flash direto.</li>
+      <li><b>Três ângulos padrão</b> em resultado de cabelo: frente, perfil, nuca.</li>
+      <li><b>Fundo limpo</b>, sem bagunça de bancada atrás da cliente.</li>
+      <li>Envie para a recepcionista, responsável pelo Instagram, não publique direto do seu celular.</li>
+    </ul>
+  </section>
+
+  <section id="termo">
+    <div class="marker"><span class="num">07</span><h2>Termo de Consciência Cultural</h2></div>
+    <p>Leitura e adesão consciente ao jeito de ser do Barú, além das regras escritas.</p>
+    <div class="pledge">
+      "Entendo que o Barú Beauty é uma casa de excelência técnica e de padrão de atendimento constante. Comprometo-me a representar esse padrão em cada atendimento, a tratar colegas e clientes com respeito, e a buscar a gestão sempre que tiver dúvida, antes de improvisar."
+    </div>
+    <div class="checklist">
+      <li>Li e entendi a Missão, Visão e Valores do Barú</li>
+      <li>Conheço os Princípios do Barú e o Regulamento Interno</li>
+      <li>Assinei este termo de consciência cultural</li>
+    </div>
+  </section>
+
+  <section id="checklist">
+    <div class="marker"><span class="num">08</span><h2>Checklist do Novo Membro</h2></div>
     <ul class="checklist">
+      <li>Recebi apresentação institucional da casa (Quem Somos, Missão, Visão e Valores)</li>
       <li>Li e entendi o <b>Regulamento Interno</b></li>
-      <li>Conheço as <b>10 Regras de Ouro</b> do Barú</li>
+      <li>Conheço os <b>Princípios do Barú</b></li>
       <li>Sei qual é o <b>meu POP de setor</b> e onde consultá-lo</li>
-      <li>Entendo o <b>ritual do espelho</b> e já pratico em todo atendimento</li>
+      <li>Entendo o <b>Ritual do Espelho</b> e já pratico em todo atendimento</li>
       <li>Sei para quem envio fotos e vídeos para o Instagram</li>
+      <li>Conheço o <b>Menu de Experiência</b> e como ele é usado</li>
       <li>Tenho clareza do meu modelo de remuneração, por escrito</li>
-      <li>Assinei o <b>termo de ciência</b> do regulamento</li>
-      <li>Conversei com a direção sobre expectativas para este ciclo</li>
+      <li>Assinei o <b>termo de ciência</b> do regulamento e o Termo de Consciência Cultural</li>
+      <li>Conversei com a gestão sobre expectativas para este ciclo</li>
     </ul>
   </section>
 
   <footer>
-    <span>BRGX Consultoria · Barú Beauty · Material de Integração</span>
+    <span>Barú Beauty · Material de Integração</span>
     <span>Complementar ao Regulamento Interno e ao Manual de POPs</span>
   </footer>
 
