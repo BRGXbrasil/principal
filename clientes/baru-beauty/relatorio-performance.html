@@ -123,10 +123,24 @@
   footer { margin-top: 5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule-firm); font-size: 0.76rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
   a { color: var(--brass); }
   a:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+  .pdf-btn { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--brass); color: var(--ground); border: none; padding: 0.75rem 1.15rem; border-radius: 999px; font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .pdf-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.28); }
+  .pdf-btn:active { transform: translateY(0); }
+  .pdf-btn svg { width: 1rem; height: 1rem; flex-shrink: 0; }
+  @media print {
+    .pdf-btn { display: none !important; }
+    body { padding: 0 !important; background: #fff !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
 </style>
 
 </head>
 <body>
+<button class="pdf-btn" onclick="window.print()" aria-label="Baixar PDF deste documento">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+  Baixar PDF
+</button>
 <div class="sheet">
 
   <header class="cover">
