@@ -68,19 +68,6 @@
   .checkbox-list li::before { content: ""; position: absolute; left: 0; top: 0.15em; width: 0.8rem; height: 0.8rem; border: 1px solid var(--rule-firm); border-radius: 2px; }
   .checkbox-list li b { color: var(--ink); }
 
-  .scroll { overflow-x: auto; margin: 0.5rem 0; }
-  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-  th { text-align: left; font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; padding: 0 0.6rem 0.4rem; border-bottom: 1px solid var(--rule-firm); }
-  td { padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
-  th:first-child, td:first-child { padding-left: 0; }
-  th:last-child, td:last-child { padding-right: 0; }
-  tbody tr:last-child td { border-bottom: none; }
-  tr.accent td { background: var(--brass-wash); }
-
-  .person { border: 1px solid var(--rule); background: var(--raised); padding: 0.8rem 0.95rem; margin-bottom: 0.7rem; }
-  .person .name { font-weight: 700; font-size: 0.88rem; margin-bottom: 0.35rem; color: var(--ink); }
-  .person ul.plain { gap: 0.35rem; }
-
   footer { margin-top: 3rem; padding-top: 1.1rem; border-top: 1px solid var(--rule-firm); font-size: 0.72rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
 
   .pdf-btn { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--brass); color: var(--ground); border: none; padding: 0.75rem 1.15rem; border-radius: 999px; font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); transition: transform 0.15s ease, box-shadow 0.15s ease; }
@@ -117,7 +104,6 @@
       <li><a href="#regulamento">Regulamento Interno</a></li>
       <li><a href="#pops">Manual de POPs</a></li>
       <li><a href="#relacionamento">Menu de Experiência e relacionamento</a></li>
-      <li><a href="#individuais">Perguntas individuais</a></li>
       <li><a href="#fechamento">Fechamento</a></li>
     </ol>
   </nav>
@@ -145,18 +131,13 @@
 
   <section id="decisoes">
     <div class="marker"><span class="num">03</span><h2>Decisões da direção</h2><span class="tag">15 min</span></div>
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Decisão</th><th>Opções</th></tr></thead>
-        <tbody>
-          <tr class="accent"><td><b>Corte masculino e maquiagem</b></td><td>Contratar ou ajustar o que é anunciado no Instagram e Google</td></tr>
-          <tr><td><b>Modelo de remuneração</b></td><td>Documentar comissão/meta por escrito, igual para todos na mesma função</td></tr>
-          <tr><td><b>Barbearia do prédio</b></td><td>Avaliar depois de estancar rotatividade: comissão, aluguel de cadeira ou parceria PJ</td></tr>
-          <tr><td><b>Menu de Experiência</b></td><td>Aprovar a lista final de serviços</td></tr>
-          <tr><td><b>Publicação no Instagram</b></td><td>Confirmar recepção como responsável pela publicação</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <ul class="plain">
+      <li><b>Corte masculino e maquiagem</b>: contratar ou ajustar o que é anunciado.</li>
+      <li><b>Modelo de remuneração</b>: documentar por escrito, igual para todos na mesma função.</li>
+      <li><b>Barbearia do prédio</b>: avaliar depois de estancar a rotatividade.</li>
+      <li><b>Menu de Experiência</b>: aprovar a lista final de serviços.</li>
+      <li><b>Publicação no Instagram</b>: confirmar responsável.</li>
+    </ul>
   </section>
 
   <section id="numeros">
@@ -222,37 +203,8 @@
     </ul>
   </section>
 
-  <section id="individuais">
-    <div class="marker"><span class="num">08</span><h2>Perguntas individuais</h2><span class="tag">15 min</span></div>
-
-    <div class="person">
-      <div class="name">Bruna</div>
-      <ul class="plain">
-        <li>Sua agenda está cheia ou tem espaço livre?</li>
-        <li>Como você se sente sobre o modelo de remuneração atual?</li>
-      </ul>
-    </div>
-
-    <div class="person">
-      <div class="name">Lilian</div>
-      <ul class="plain">
-        <li>O que houve com a queda de julho vs. junho?</li>
-        <li>Você oferece tratamento em toda escova? Se não, por quê?</li>
-      </ul>
-    </div>
-
-    <div class="person">
-      <div class="name">Luciene (Lu), Cibele, Miguel e equipe de sobrancelha</div>
-      <ul class="plain">
-        <li>Sua agenda tem espaço livre em qual dia/horário?</li>
-        <li>Você sugere serviço de cabelo para sua cliente de unha/sobrancelha?</li>
-        <li>O que falta para você atender mais?</li>
-      </ul>
-    </div>
-  </section>
-
   <section id="fechamento">
-    <div class="marker"><span class="num">09</span><h2>Fechamento</h2><span class="tag">10 min</span></div>
+    <div class="marker"><span class="num">08</span><h2>Fechamento</h2><span class="tag">10 min</span></div>
     <ul class="plain">
       <li>Decisão comunicada sobre corte masculino e maquiagem.</li>
       <li>Lista final do Menu de Experiência aprovada.</li>
