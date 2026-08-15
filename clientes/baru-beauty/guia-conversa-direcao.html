@@ -72,7 +72,6 @@
 
   .scroll { overflow-x: auto; margin: 1.2rem 0; }
   table { width: 100%; border-collapse: collapse; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
-  caption { text-align: left; font-size: 0.7rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; padding-bottom: 0.6rem; }
   th { text-align: left; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; padding: 0 0.7rem 0.5rem; border-bottom: 1px solid var(--rule-firm); white-space: nowrap; }
   th:first-child, td:first-child { padding-left: 0; }
   th:last-child, td:last-child { padding-right: 0; }
@@ -81,12 +80,6 @@
   td.name { white-space: normal; min-width: 11rem; }
   tbody tr:last-child td { border-bottom: none; }
   tr.accent td { background: var(--brass-wash); font-weight: 600; }
-  tr.dim td { color: var(--ink-mute); }
-  tr.flagrow td { background: var(--critical-wash); }
-
-  figure { margin: 1.4rem 0; }
-  figcaption { font-size: 0.78rem; color: var(--ink-mute); margin-top: 0.6rem; }
-  svg { display: block; width: 100%; height: auto; }
 
   .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.4rem; margin: 1.25rem 0; }
   .card { border: 1px solid var(--rule); background: var(--raised); padding: 1.1rem 1.15rem 1.25rem; display: flex; flex-direction: column; gap: 0.55rem; }
@@ -96,6 +89,7 @@
   .pill { font-size: 0.6rem; letter-spacing: 0.11em; text-transform: uppercase; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 2px; white-space: nowrap; }
   .pill.alta { background: var(--critical-wash); color: var(--critical); }
   .pill.media { background: var(--brass-wash); color: var(--brass); }
+  .pill.dim { background: var(--sunken); color: var(--ink-mute); }
 
   ul.plain, ol.steps { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: 0.7rem; }
   ul.plain li { padding-left: 1.15rem; position: relative; font-size: 0.92rem; color: var(--ink-soft); max-width: 70ch; }
@@ -119,10 +113,12 @@
   .callout.win .kicker { color: var(--positive); }
   .callout p { font-size: 0.91rem; color: var(--ink-soft); }
 
-  .feature { border: 1px solid var(--brass); background: var(--brass-wash); padding: 1.25rem 1.35rem; margin: 1.5rem 0; }
-  .feature .kicker { font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--brass); display: block; margin-bottom: 0.55rem; }
-  .feature h4 { margin: 0 0 0.6rem; color: var(--ink); }
-  .feature p { font-size: 0.91rem; color: var(--ink-soft); }
+  .feature { border: 2px solid var(--brass); background: var(--brass-wash); padding: 1.5rem 1.6rem; margin: 1.75rem 0; }
+  .feature .kicker { font-size: 0.66rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--brass); display: block; margin-bottom: 0.6rem; }
+  .feature h4 { margin: 0 0 0.6rem; color: var(--ink); font-size: 0.74rem; }
+  .feature p { font-size: 0.94rem; color: var(--ink-soft); }
+
+  .depends { font-size: 0.78rem; color: var(--critical); font-weight: 600; letter-spacing: 0.01em; margin: 0.6rem 0 0; }
 
   footer { margin-top: 5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule-firm); font-size: 0.76rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: space-between; }
 
@@ -147,11 +143,10 @@
 
   <header class="cover">
     <h1>Guia da Conversa<br>com a Direção</h1>
-    <p class="lede">Documento único de apoio: diagnóstico, plano de ação de 90 dias e roteiro da conversa com a dona e o administrador. Uso interno, tem valores de faturamento.</p>
+    <p class="lede">Retenção de equipe é a condição para tudo o mais. Este documento apresenta o plano nessa ordem: primeiro estancar a saída de gente, depois (e só depois) o resto.</p>
     <div class="cover-meta">
       <span>Cliente <b>Barú Beauty</b></span>
-      <span>Unidade <b>Av. Brig. Faria Lima, 2128</b></span>
-      <span>Base <b>07/08/2025 – 07/08/2026</b></span>
+      <span>Com <b>Dona + Administrador</b></span>
       <span>Ciclo do plano <b>Ago a Out 2026</b></span>
     </div>
   </header>
@@ -159,15 +154,11 @@
   <nav aria-label="Índice">
     <ol>
       <li><a href="#tese">A tese em uma página</a></li>
-      <li><a href="#diagnostico">Diagnóstico</a></li>
+      <li><a href="#numeros">Os números que sustentam a tese</a></li>
       <li><a href="#p1">Pilar 1 · Retenção de equipe</a></li>
-      <li><a href="#p2">Pilar 2 · Dados e faturamento</a></li>
-      <li><a href="#p3">Pilar 3 · Relacionamento e recorrência</a></li>
-      <li><a href="#p4">Pilar 4 · Google, Instagram e concorrência</a></li>
-      <li><a href="#p5">Pilar 5 · Ambiente físico</a></li>
-      <li><a href="#barbearia">A oportunidade da barbearia</a></li>
+      <li><a href="#depende">O que depende da retenção</a></li>
       <li><a href="#roteiro">Roteiro da conversa</a></li>
-      <li><a href="#governanca">Governança, indicadores e fechamento</a></li>
+      <li><a href="#governanca">Governança e fechamento</a></li>
     </ol>
   </nav>
 
@@ -178,56 +169,22 @@
     <p>O diagnóstico original deste projeto olhava para um salão que perdeu clientes. Os dados mostram outra coisa: <b>um salão que perdeu profissionais, e a perda de clientes foi consequência.</b></p>
 
     <div class="callout warn">
-      <span class="kicker">O número que reordena tudo</span>
-      <p><b>78% de rotatividade em 12 meses. 28 de 36 profissionais saíram, levando R$ 264.545 (70% da receita do ano).</b> Houve saída em dez dos doze meses. A cliente do Barú não é fiel ao salão, é fiel a quem a atende. Enquanto a rotatividade não for tratada como causa raiz, qualquer campanha de captação enche um balde sem fundo.</p>
+      <span class="kicker">O único problema que importa agora</span>
+      <p><b>78% de rotatividade em 12 meses. 28 de 36 profissionais saíram, levando R$ 264.545 (70% da receita do ano).</b> A cliente do Barú não é fiel ao salão, é fiel a quem a atende. Enquanto isso não for resolvido, nenhuma outra ação do plano produz retorno que dure.</p>
     </div>
 
-    <p>A equipe atual, 6 pessoas, fatura R$ 26 a 27 mil por mês e cresce desde março. É a base real do plano. As alavancas abaixo dependem de uma coisa: <b>que essas 6 pessoas continuem aqui em outubro.</b></p>
-
-    <div class="cols">
-      <div class="card">
-        <div class="head"><span class="title">Pilar 1</span><span class="pill alta">Retenção de equipe</span></div>
-        <p>Estancar a saída antes de qualquer outra coisa. É o único pilar que, se falhar, derruba todos os outros.</p>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Pilar 2</span><span class="pill media">Dados e faturamento</span></div>
-        <p>Ocupar a agenda que já existe: Bruna, corte masculino e maquiagem, ClassPass como canal confirmado.</p>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Pilar 3</span><span class="pill alta">Relacionamento e recorrência</span></div>
-        <p>Menu de Experiência, ritual do espelho, indicação e reativação. A alavanca que leva a casa de R$ 26 a 27 mil para R$ 50 a 60 mil.</p>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Pilar 4</span><span class="pill media">Google, Instagram, concorrência</span></div>
-        <p>Presença digital coerente com o padrão da casa. Concorrência mencionada, nunca combatida.</p>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Pilar 5</span><span class="pill media">Ambiente físico</span></div>
-        <p>Edição, não obra. O olhar de moda da dona aplicado ao espaço que já existe.</p>
-      </div>
+    <div class="feature">
+      <span class="kicker">A ordem que este plano segue</span>
+      <h4>Retenção primeiro. O resto depois.</h4>
+      <p>Faturamento, Google, Instagram, ambiente físico e a oportunidade da barbearia são reais e valem dinheiro, mas <b>nenhum deles compensa perder mais gente</b>. Se a equipe atual (6 pessoas) não continuar aqui em outubro, o resto deste plano não tem base para funcionar. Por isso a apresentação de hoje é curta e concentrada: um pilar, com peso total, e um resumo do que vem depois.</p>
     </div>
   </section>
 
-  <!-- ============ DIAGNÓSTICO ============ -->
-  <section id="diagnostico">
-    <div class="marker"><span class="num">01</span><h2>Diagnóstico</h2><span class="tag">Base para toda a conversa</span></div>
+  <!-- ============ NÚMEROS ============ -->
+  <section id="numeros">
+    <div class="marker"><span class="num">01</span><h2>Os números que sustentam a tese</h2><span class="tag">O mínimo necessário</span></div>
 
     <div class="scoreboard">
-      <div class="tile">
-        <span class="label">Faturamento em julho</span>
-        <span class="value">R$ 26.610</span>
-        <span class="note">100% já operado pela equipe atual</span>
-      </div>
-      <div class="tile">
-        <span class="label">Clientes atendidas</span>
-        <span class="value">79</span>
-        <span class="note">115 visitas no mês</span>
-      </div>
-      <div class="tile">
-        <span class="label">Ticket médio</span>
-        <span class="value">R$ 231</span>
-        <span class="note">por visita</span>
-      </div>
       <div class="tile flag">
         <span class="label">Rotatividade 12 meses</span>
         <span class="value">78%</span>
@@ -240,129 +197,27 @@
       </div>
       <div class="tile win">
         <span class="label">Baseline da equipe atual</span>
-        <span class="value">R$ 26–27k</span>
-        <span class="note">média mai–jun–jul, em alta</span>
+        <span class="value">R$ 26–27k/mês</span>
+        <span class="note">em alta desde março, os 6 que ficaram</span>
+      </div>
+      <div class="tile win">
+        <span class="label">Meta do plano</span>
+        <span class="value">R$ 50–60k/mês</span>
+        <span class="note">só alcançável se a equipe atual continuar</span>
       </div>
     </div>
 
     <div class="callout">
       <span class="kicker">A boa notícia dentro do problema</span>
-      <p>A receita da equipe atual <b>vem subindo mês a mês desde que ela existe</b>: R$ 7.929 em março (mês de formação do time) → R$ 17.089 → R$ 24.079 → R$ 27.913 → R$ 26.450 em julho. Não é uma casa em queda. É uma casa que reconstruiu a operação do zero três vezes em doze meses e, mesmo assim, está crescendo com quem ficou.</p>
+      <p>A receita da equipe atual <b>vem subindo mês a mês desde que ela existe</b> (R$ 7.929 em março → R$ 26.450 em julho). Não é uma casa em queda, é uma casa que reconstruiu a operação do zero três vezes em doze meses e, mesmo assim, está crescendo com quem ficou. Isso prova que o modelo funciona, quando a equipe fica.</p>
     </div>
 
-    <h3 class="eyebrow">Equipe atual, os 6 profissionais que sustentam a casa hoje</h3>
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Profissional</th><th>Função</th><th class="num">Receita 12m</th><th class="num">Serviços</th><th class="num">Clientes</th></tr></thead>
-        <tbody>
-          <tr class="accent"><td class="name">Bruna Chaves</td><td class="name">Cabeleireira, química, iluminação e penteado</td><td class="num">R$ 39.461</td><td class="num">97</td><td class="num">56</td></tr>
-          <tr class="accent"><td class="name">Lilian Ramos M. da Silva</td><td class="name">Cabeleireira, volume, escova e penteado</td><td class="num">R$ 37.328</td><td class="num">227</td><td class="num">94</td></tr>
-          <tr><td class="name">Cibelle L. Assuncao Santos</td><td class="name">Unhas, alongamento, manicure</td><td class="num">R$ 14.730</td><td class="num">226</td><td class="num">99</td></tr>
-          <tr><td class="name">Luciene S. Dos Santos</td><td class="name">Sobrancelha, depilação, manicure, micropigmentação</td><td class="num">R$ 12.768</td><td class="num">176</td><td class="num">97</td></tr>
-          <tr class="dim"><td class="name">Profissional de sobrancelha e micropigmentação</td><td class="name">Sobrancelha, micropigmentação</td><td class="num">R$ 1.850</td><td class="num">19</td><td class="num">14</td></tr>
-          <tr class="dim"><td class="name">Miguel Sousa Nascimento</td><td class="name">Unhas, presença diária mais firme na equipe</td><td class="num">R$ 1.060</td><td class="num">14</td><td class="num">11</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="font-size:0.86rem;color:var(--ink-mute)">Bruna e Lilian já atendem penteado, além de química, iluminação, volume e escova. Corte masculino segue sem ninguém para atender. Maquiagem é coberta por profissional freelance, pontual, quando solicitada, não é serviço fixo de nenhuma da equipe.</p>
-
-    <h3 class="eyebrow">Rotatividade, o indicador que faltava</h3>
-    <div class="scroll">
-      <table>
-        <caption>Saídas por mês (última data de atendimento de quem foi embora)</caption>
-        <thead><tr><th>Mês</th><th class="num">Saídas</th></tr></thead>
-        <tbody>
-          <tr class="flagrow"><td class="name">Dezembro 2025</td><td class="num">6</td></tr>
-          <tr class="flagrow"><td class="name">Abril 2026</td><td class="num">6</td></tr>
-          <tr><td class="name">Janeiro 2026</td><td class="num">3</td></tr>
-          <tr><td class="name">Fevereiro 2026</td><td class="num">3</td></tr>
-          <tr><td class="name">Março 2026</td><td class="num">4</td></tr>
-          <tr><td class="name">Junho 2026</td><td class="num">2</td></tr>
-          <tr class="dim"><td class="name">Ago, Out, Nov 2025 e Mai 2026</td><td class="num">1 cada</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="cols">
-      <div class="card">
-        <div class="head"><span class="title">Pedro Guilherme Alves</span><span class="pill alta">R$ 71.219</span></div>
-        <p>18,9% da receita do ano. Última data: 08/04/2026. 98 clientes que só ele atendia, R$ 77.010 de receita histórica sem nenhum vínculo com quem ficou.</p>
-      </div>
-      <div class="card">
-        <div class="head"><span class="title">Aline (sobrenome não capturado)</span><span class="pill alta">R$ 66.618</span></div>
-        <p>17,7% da receita do ano. Última data: 16/06/2026. 77 clientes exclusivas, R$ 56.727 de receita histórica sem profissional responsável hoje.</p>
-      </div>
-    </div>
-
-    <div class="callout warn">
-      <span class="kicker">Clientes sem profissional responsável, explicado</span>
-      <p><b>465 das 720 clientes do ano (65%) nunca foram atendidas por ninguém que está na casa hoje.</b> Receita histórica: R$ 191.791. Antes de qualquer campanha de reativação, essa é a pergunta central: uma cliente que só conhece o profissional que saiu volta pela marca, ou só volta se o profissional voltar?</p>
-    </div>
-
-    <h3 class="eyebrow">Evolução da equipe atual</h3>
-    <figure>
-      <svg viewBox="0 0 720 220" role="img" aria-label="Receita mensal da equipe atual de março a agosto de 2026: 7929, 17089, 24079, 27913, 26450 e 3737 reais (agosto parcial).">
-        <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">
-          <g stroke="var(--rule)" stroke-width="1">
-            <line x1="0" y1="170" x2="720" y2="170"/>
-            <line x1="0" y1="128" x2="720" y2="128"/>
-            <line x1="0" y1="86" x2="720" y2="86"/>
-            <line x1="0" y1="44" x2="720" y2="44"/>
-          </g>
-          <g>
-            <rect x="20"  y="145.6" width="76" height="24.4"  fill="var(--rule-firm)"/>
-            <rect x="136" y="117.4" width="76" height="52.6"  fill="var(--rule-firm)"/>
-            <rect x="252" y="96.5" width="76" height="73.5"  fill="var(--rule-firm)"/>
-            <rect x="368" y="85.3" width="76" height="84.7"  fill="var(--brass)"/>
-            <rect x="484" y="89.7" width="76" height="80.3"  fill="var(--brass)"/>
-            <rect x="600" y="158.6" width="76" height="11.4"  fill="var(--rule-firm)"/>
-          </g>
-          <g fill="var(--ink)" text-anchor="middle" font-weight="600">
-            <text x="58"  y="139">7.929</text>
-            <text x="174" y="111">17.089</text>
-            <text x="290" y="90">24.079</text>
-            <text x="406" y="79">27.913</text>
-            <text x="522" y="83">26.450</text>
-            <text x="638" y="152">3.737*</text>
-          </g>
-          <g fill="var(--ink-mute)" text-anchor="middle" letter-spacing="0.1em">
-            <text x="58"  y="190">MAR</text>
-            <text x="174" y="190">ABR</text>
-            <text x="290" y="190">MAI</text>
-            <text x="406" y="190">JUN</text>
-            <text x="522" y="190">JUL</text>
-            <text x="638" y="190">AGO*</text>
-          </g>
-        </g>
-      </svg>
-      <figcaption>Receita da equipe atual (6 profissionais), março a agosto de 2026. *Agosto parcial. Média dos três meses plenos mais recentes (mai, jun, jul): <b>R$ 26.148/mês</b>, a baseline real para metas e projeções.</figcaption>
-    </figure>
-
-    <p><b>Por que R$ 33 mil (relato da direção) e R$ 37.709 (média de 12 meses) estão os dois errados como baseline:</b> R$ 33 mil é lembrança aproximada de um ano turbulento. R$ 37.709 é a média de 12 meses de um relatório que mistura três equipes diferentes: a que saiu em dezembro, a de Pedro e Aline, e a atual. A baseline correta para qualquer meta de 90 dias é <b>R$ 26 a 27 mil</b>.</p>
-
-    <h3 class="eyebrow">Serviços e carteira</h3>
-    <div class="scroll">
-      <table>
-        <tbody>
-          <tr><td class="name">Cabelo (Bruna + Lilian)</td><td class="num">R$ 76.789</td><td class="num">71,6%</td></tr>
-          <tr><td class="name">Manicure/Pedicure/Unhas em Gel</td><td class="num">R$ 24.581</td><td class="num">22,9%</td></tr>
-          <tr><td class="name">Sobrancelha e Depilação</td><td class="num">R$ 4.290</td><td class="num">4,0%</td></tr>
-          <tr><td class="name">Outros</td><td class="num">R$ 1.538</td><td class="num">1,4%</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="callout warn">
-      <span class="kicker">Serviços sem profissional para atender, no menu de serviços atual</span>
-      <p><b>Correção:</b> "Luzes" e "Reflexo" são a mesma técnica, Bruna já entrega (28 dos 60 "Reflexo" do ano). Penteado já é feito por Bruna e Lilian. O que falta mesmo é <b>corte masculino</b> (ninguém atende) e <b>maquiagem</b> (freelance, pontual). No ano completo: Maquiagem R$ 6.821 (23x), Corte Masculino R$ 255 (4x). ~R$ 7 mil/ano de demanda sem atendimento fixo.</p>
-    </div>
-
-    <p><b>ClassPass, canal de aquisição confirmado:</b> 410 serviços do ano (13,3% do total) saem a R$ 0 no relatório, confirmados como uso do ClassPass, concentrados em manicure (168), pedicure (87), escova longa (48). Não é cortesia descontrolada, é receita que entra por repasse da plataforma.</p>
+    <p style="font-size:0.86rem;color:var(--ink-mute)"><b>65% das clientes do ano (465 de 720)</b> nunca foram atendidas por ninguém que está na casa hoje, consequência direta da rotatividade, não falha de retenção de cliente.</p>
   </section>
 
-  <!-- ============ PILAR 1 ============ -->
+  <!-- ============ PILAR 1 (EM DESTAQUE) ============ -->
   <section id="p1">
-    <div class="marker"><span class="num">02</span><h2>Retenção de equipe</h2><span class="tag">Pilar 1, o que vem antes de tudo</span></div>
+    <div class="marker"><span class="num">02</span><h2>Retenção de equipe</h2><span class="tag">O pilar que sustenta todos os outros</span></div>
 
     <p>Este pilar não aponta pessoas nem repete relatos não verificados. Ele traduz cada risco identificado em <b>política, papel e processo</b>, a mesma lógica que protege a operação independente de quem está certo em qualquer episódio específico.</p>
 
@@ -393,148 +248,62 @@
           </tr>
           <tr class="accent">
             <td><b>Padrões de Funcionamento comunicados</b></td>
-            <td class="name">Documento próprio (entregue junto deste plano) com capítulo de conduta aplicável a todos.</td>
+            <td class="name">Documento próprio, com capítulo de conduta aplicável a todos.</td>
             <td>Todos</td><td class="num">Semana 3</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="callout">
+    <div class="callout win">
       <span class="kicker">Como medir se está funcionando</span>
-      <p>Um único indicador: <b>nenhuma saída não planejada nos próximos 90 dias.</b> Rotatividade zero é a meta do Pilar 1, todos os outros pilares dependem dela para produzir retorno.</p>
+      <p>Um único indicador: <b>nenhuma saída não planejada nos próximos 90 dias.</b> Rotatividade zero é a meta deste pilar, e a única meta que realmente importa até estar cumprida.</p>
     </div>
   </section>
 
-  <!-- ============ PILAR 2 ============ -->
-  <section id="p2">
-    <div class="marker"><span class="num">03</span><h2>Dados e faturamento</h2><span class="tag">Pilar 2</span></div>
+  <!-- ============ O QUE DEPENDE DA RETENÇÃO ============ -->
+  <section id="depende">
+    <div class="marker"><span class="num">03</span><h2>O que depende da retenção</h2><span class="tag">Resumo, não é para executar ainda</span></div>
 
-    <h3>As alavancas sobre a agenda que já existe</h3>
-    <ol class="steps">
-      <li><b>Encher a agenda da Bruna.</b> 97 atendimentos no ano com o maior ticket da casa (R$ 407/serviço). Investigar com ela mesma: falta de divulgação, restrição de horário, ou triagem de recepção que não a prioriza.</li>
-      <li><b>Decidir corte masculino e maquiagem.</b> Reflexo/Luzes e penteado já são cobertos por Bruna e Lilian. O que falta mesmo é corte masculino, sem ninguém para atender, e maquiagem, hoje coberta só por profissional freelance. Três caminhos: contratar, formalizar parceria fixa com o freelance, ou ajustar o que é anunciado.</li>
-      <li><b>ClassPass confirmado como canal de aquisição.</b> Os 410 serviços a R$ 0 no relatório são repasse do ClassPass, não vazamento de receita. Manter o registro de motivo no sistema em cada lançamento.</li>
-    </ol>
-  </section>
+    <p>As quatro frentes abaixo fazem parte do plano de 90 dias, mas <b>nenhuma começa a valer a pena antes da equipe atual estar estável.</b> Aqui vão só para dar visão do que vem a seguir.</p>
 
-  <!-- ============ PILAR 3 ============ -->
-  <section id="p3">
-    <div class="marker"><span class="num">04</span><h2>Relacionamento e recorrência de clientes</h2><span class="tag">Pilar 3, a alavanca de maior potencial</span></div>
-
-    <p>Hoje o salão reage quando a cliente aparece. Este pilar instala o hábito de contato ativo: a casa procura a cliente na janela certa, em vez de esperar que ela lembre sozinha. É o conjunto de ações que sustenta a meta de R$ 50 a 60 mil por mês.</p>
-
-    <div class="feature">
-      <span class="kicker">Destaque · o hábito que sustenta tudo</span>
-      <h4>O Ritual do Espelho</h4>
-      <p>Ao final de todo atendimento, sempre nesta ordem: <b>pedido de avaliação</b> no momento em que a cliente está mais satisfeita, e <b>oferta da próxima data</b> ali mesmo, antes de ela sair da cadeira. Procedimento de maior prioridade de execução deste plano, aplicado por toda a equipe técnica, em toda cliente, sem exceção.</p>
+    <div class="cols">
+      <div class="card">
+        <div class="head"><span class="title">Dados e faturamento</span><span class="pill media">Pilar 2</span></div>
+        <p>Encher a agenda da Bruna, decidir corte masculino e maquiagem, confirmar ClassPass como canal.</p>
+        <p class="depends">Depende de: equipe estável para sustentar o volume</p>
+      </div>
+      <div class="card">
+        <div class="head"><span class="title">Relacionamento e recorrência</span><span class="pill alta">Pilar 3</span></div>
+        <p>Ritual do Espelho, Menu de Experiência, indicação, reativação. É a alavanca de maior potencial, de R$ 26–27k para R$ 50–60k.</p>
+        <p class="depends">Depende de: os mesmos profissionais aplicando o ritual toda semana</p>
+      </div>
+      <div class="card">
+        <div class="head"><span class="title">Google, Instagram e concorrência</span><span class="pill media">Pilar 4</span></div>
+        <p>Ficha do Google reivindicada, avaliações, Instagram com fluxo definido. Concorrência mencionada, nunca combatida.</p>
+        <p class="depends">Depende de: alçada de redes já instalada no Pilar 1</p>
+      </div>
+      <div class="card">
+        <div class="head"><span class="title">Ambiente físico</span><span class="pill dim">Pilar 5</span></div>
+        <p>Edição de bancadas, sinalização, curadoria visual. Custo baixo, pode andar em paralelo.</p>
+        <p class="depends">Depende de: nada, mas não substitui o Pilar 1</p>
+      </div>
     </div>
-
-    <h3>Menu de Experiência, prioridade estratégica</h3>
-    <p>Conjunto de serviços simples, rápidos e acessíveis, com alta percepção de valor para a cliente e baixo custo para o salão. Itens confirmados até aqui: ritual express de tratamento, spa das mãos, imersão terapêutica dos pés, buço, sobrancelha e upgrade de serviço. Lista completa a fechar com o material de referência já existente.</p>
-    <ul class="plain">
-      <li><b>Marketing</b>: porta de entrada de baixo custo para atrair quem ainda não conhece a casa.</li>
-      <li><b>Relacionamento</b>: benefício do plano de recorrência de 30 dias.</li>
-      <li><b>Indicação</b>: benefício do programa de indicação.</li>
-      <li><b>Recuperação de clientes</b>: voucher da pesquisa de satisfação e ação de aniversariantes.</li>
-    </ul>
-
-    <h3>Ativação por serviço, indicação, pesquisa e aniversariantes</h3>
-    <ul class="plain">
-      <li><b>Ativação por serviço</b>: contato antes que o ciclo natural de retorno expire, na janela média de cada categoria (química, escova, manicure/pedicure, sobrancelha).</li>
-      <li><b>Pós-atendimento semanal</b> para clientes novas.</li>
-      <li><b>Recorrência de 30 dias</b>: reconhecimento com item do Menu de Experiência.</li>
-      <li><b>Programa de indicação</b>: 2 indicações pagantes geram conjunto de serviços do Menu de Experiência.</li>
-      <li><b>Pesquisa de satisfação</b> de metade do mailing de inativas (60+ dias), motivo entre atendimento, serviço, ambiente/estrutura e valores.</li>
-      <li><b>Aniversariantes do mês</b>: benefício do Menu de Experiência, comunicado com uma semana de antecedência.</li>
-    </ul>
-  </section>
-
-  <!-- ============ PILAR 4 ============ -->
-  <section id="p4">
-    <div class="marker"><span class="num">05</span><h2>Google, Instagram e concorrência</h2><span class="tag">Pilar 4</span></div>
 
     <div class="callout warn">
-      <span class="kicker">Postura sobre concorrência, decisão explícita</span>
-      <p>Concorrentes <b>não entram como alvo de confronto</b> neste plano. Le Fer Coiffure fica no mesmo prédio (2128) e é onde uma ex-profissional está hoje; outro salão fica próximo à Rebouças. Nenhum dos dois é mencionado publicamente. O foco é construir o novo espaço, não competir com o antigo.</p>
+      <span class="kicker">A oportunidade da barbearia, condição prévia</span>
+      <p>Há profissionais de 20 a 30 anos de carreira interessados em ocupar o mezanino. <b>Não convidar ninguém enquanto a rotatividade não estiver estancada.</b> Trazer gente de décadas de carreira para uma casa com 78% de rotatividade recente queima o ativo mais valioso da proposta, a reputação deles. Avaliação, não execução, neste ciclo.</p>
     </div>
-
-    <h4>Google, prioridades</h4>
-    <ul class="plain">
-      <li><b>Reivindicar e blindar a ficha do Google Meu Negócio</b>, endereço com número da loja explícito.</li>
-      <li><b>Cadastrar cada serviço com preço</b>, ou remover, conforme a decisão do Pilar 2.</li>
-      <li><b>Meta de avaliações:</b> levar a prova do ClassPass (4,8, 67 avaliações) para o Google via QR e pedido no momento do espelho.</li>
-      <li><b>Verificar cadastro fantasma:</b> LZ Beauty registrado na mesma "loja 12" da fachada.</li>
-    </ul>
-
-    <h4>Instagram, hoje conduzido pela recepcionista</h4>
-    <ul class="plain">
-      <li><b>Treinamento avançado para a recepcionista</b>, formalizar como função com escopo e horário dedicado.</li>
-      <li><b>Padrão visual único:</b> mesma temperatura de luz e enquadramento, coerente com o ticket de R$ 400 ou mais.</li>
-      <li><b>Conteúdo sai da alçada pessoal da direção</b>, nenhuma publicação sem passar pelo fluxo definido no Pilar 1.</li>
-      <li><b>Prioridade de pauta:</b> trabalhos de Bruna e Lilian primeiro.</li>
-    </ul>
-  </section>
-
-  <!-- ============ PILAR 5 ============ -->
-  <section id="p5">
-    <div class="marker"><span class="num">06</span><h2>Ambiente físico</h2><span class="tag">Pilar 5</span></div>
-
-    <p>A fachada tem ossatura boa: dois pavimentos de vidro, letreiro iluminado, número da loja já visível, luz natural excelente no lavatório, mobiliário de marca. O que falta é <b>edição, não obra</b>.</p>
-
-    <ul class="plain">
-      <li><b>Remover produtos de marcas concorrentes</b> expostos nas bancadas, deixar só a linha da casa.</li>
-      <li><b>Tirar a caixa de papelão</b> da bancada do lavatório e organizar cabos aparentes na área de manicure.</li>
-      <li><b>Curadoria de revistas</b>, trocar a pilha solta por seleção alinhada ao padrão do salão.</li>
-      <li><b>Unificar quadros e TV</b> a uma só paleta.</li>
-      <li><b>Sinalização do número da loja</b> no elevador e na portaria.</li>
-    </ul>
-  </section>
-
-  <!-- ============ BARBEARIA ============ -->
-  <section id="barbearia">
-    <div class="marker"><span class="num">07</span><h2>A oportunidade da barbearia</h2><span class="tag">Avaliar, não decidir agora</span></div>
-
-    <p>No mesmo prédio (antigo ponto Ringo, do Shopping Iguatemi) há uma barbearia com profissionais de 20 a 30 anos de carreira e clientela discreta, poderosa, fiel e recorrente. A proprietária quer fechar; os profissionais parecem abertos ao convite.</p>
-
-    <div class="callout warn">
-      <span class="kicker">Condição prévia, não negociável</span>
-      <p><b>Não convidar ninguém enquanto a rotatividade não estiver estancada.</b> Trazer profissionais de décadas de carreira para dentro de uma casa com 78% de rotatividade recente queima o ativo mais valioso da proposta, a reputação deles.</p>
-    </div>
-
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Modelo</th><th>Como funciona</th><th>Risco para o Barú</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><b>Comissão pura (60 a 70%)</b></td>
-            <td class="name">Barú recebe 30 a 40% sobre o faturamento gerado pelos barbeiros.</td>
-            <td class="name">Só compensa se eles trouxerem a própria demanda.</td>
-          </tr>
-          <tr>
-            <td><b>Aluguel de cadeira</b></td>
-            <td class="name">Valor fixo mensal pelo uso do espaço, sem participação no faturamento.</td>
-            <td class="name">Receita previsível, mas exige mezanino pronto.</td>
-          </tr>
-          <tr>
-            <td><b>Parceria PJ (Lei 13.352/2016)</b></td>
-            <td class="name">Salão-parceiro: vínculo formal sem CLT, repasse definido em contrato.</td>
-            <td class="name">Modelo mais seguro juridicamente; exige contrato bem redigido.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p>Comparar sempre <b>margem líquida por cadeira</b>, nunca o percentual bruto isolado.</p>
   </section>
 
   <!-- ============ ROTEIRO ============ -->
   <section id="roteiro">
-    <div class="marker"><span class="num">08</span><h2>Roteiro da conversa</h2><span class="tag">Com a dona e o administrador</span></div>
+    <div class="marker"><span class="num">04</span><h2>Roteiro da conversa</h2><span class="tag">Com a dona e o administrador</span></div>
 
     <h3 class="eyebrow">Como abrir</h3>
     <div class="callout">
       <span class="kicker">A frase de abertura</span>
-      <p>"A equipe que está aqui hoje fatura R$ 26 a 27 mil por mês e cresceu mês a mês desde março." É verdade, é mensurável, e muda a postura da conversa. A conversa sobre rotatividade vem depois.</p>
+      <p>"A equipe que está aqui hoje fatura R$ 26 a 27 mil por mês e cresceu mês a mês desde março." É verdade, é mensurável, e muda a postura da conversa. A conversa sobre rotatividade vem logo em seguida, como a prioridade.</p>
     </div>
 
     <h3 class="eyebrow">A conversa reservada sobre rotatividade, só com a dona</h3>
@@ -545,70 +314,45 @@
     <ul class="plain">
       <li>Perguntar se existe algum acordo de não concorrência com quem saiu, dado que o Le Fer fica no mesmo prédio.</li>
       <li>Propor a política de alçada de redes sociais como solução prática de organização, não como acusação.</li>
-      <li>Aprovar a lista final do Menu de Experiência, para liberar sua entrada em marketing, relacionamento, indicação e recuperação de clientes.</li>
     </ul>
 
-    <h3 class="eyebrow">Decisões que só eles podem tomar</h3>
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Decisão</th><th>Opções</th></tr></thead>
-        <tbody>
-          <tr class="accent"><td><b>Corte masculino e maquiagem</b></td><td>Contratar, formalizar parceria fixa com o freelance, ou ajustar o que é anunciado</td></tr>
-          <tr><td><b>Modelo de remuneração</b></td><td>Documentar comissão/meta por escrito, igual para todos na mesma função</td></tr>
-          <tr><td><b>Barbearia do prédio</b></td><td>Avaliar depois de estancar rotatividade</td></tr>
-          <tr><td><b>Menu de Experiência</b></td><td>Aprovar a lista final de serviços</td></tr>
-          <tr><td><b>Responsável pelo Instagram</b></td><td>Confirmar recepcionista como responsável única, com fluxo de aprovação</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3 class="eyebrow">Números que faltam, perguntar ao administrador</h3>
+    <h3 class="eyebrow">Decisões que só eles podem tomar hoje</h3>
     <ul class="checkbox-list">
-      <li><b>Custo fixo mensal</b>: aluguel, condomínio, folha</li>
-      <li><b>Ponto de equilíbrio</b>: quanto o salão precisa faturar para não operar no vermelho</li>
-      <li><b>% de comissão</b> atual de cada profissional</li>
-      <li>Se existe algum <b>acordo de não concorrência</b> com quem saiu</li>
-      <li>Vínculo de <b>Miguel e da equipe de sobrancelha</b>: CLT, PJ ou freela?</li>
+      <li><b>Modelo de remuneração:</b> documentar por escrito, igual para todos na mesma função</li>
+      <li><b>Responsável pelo Instagram:</b> confirmar recepcionista, com fluxo de aprovação</li>
+      <li><b>1-a-1 quinzenal:</b> confirmar data de início nesta semana</li>
     </ul>
 
     <h3 class="eyebrow">O que sai desta reunião</h3>
     <ul class="plain">
-      <li><b>Decisão sobre corte masculino e maquiagem</b>, para comunicar à equipe.</li>
-      <li><b>Lista final do Menu de Experiência</b> aprovada.</li>
-      <li><b>Autorização para reivindicar o Google Meu Negócio</b> e ajustar a ficha.</li>
+      <li><b>Compromisso com o Pilar 1</b> como prioridade, antes de qualquer outra ação.</li>
+      <li><b>Data do próximo check-in</b>, sugestão: 15 dias.</li>
     </ul>
   </section>
 
   <!-- ============ GOVERNANÇA ============ -->
   <section id="governanca">
-    <div class="marker"><span class="num">09</span><h2>Governança, indicadores e fechamento</h2><span class="tag">Como o acompanhamento funciona</span></div>
+    <div class="marker"><span class="num">05</span><h2>Governança e fechamento</h2><span class="tag">Como o acompanhamento funciona</span></div>
 
-    <h3 class="eyebrow">Painel de indicadores, o que se acompanha toda semana</h3>
     <div class="scroll">
       <table>
         <thead><tr><th>Indicador</th><th class="num">Hoje</th><th class="num">Meta 90 dias</th></tr></thead>
         <tbody>
-          <tr><td>Rotatividade de equipe</td><td class="num">78% (12m)</td><td class="num">Zero saídas</td></tr>
+          <tr class="accent"><td>Rotatividade de equipe</td><td class="num">78% (12m)</td><td class="num">Zero saídas</td></tr>
           <tr><td>Faturamento mensal</td><td class="num">R$ 26 a 27 mil</td><td class="num">R$ 50 a 60 mil</td></tr>
-          <tr><td>Atendimentos da Bruna</td><td class="num">~8/mês</td><td class="num">14 a 16/mês</td></tr>
-          <tr><td>Corte masculino e maquiagem</td><td class="num">Sem atendimento fixo</td><td class="num">Decisão tomada e comunicada</td></tr>
-          <tr><td>Menu de Experiência</td><td class="num">A definir</td><td class="num">Publicado e em uso nas 4 frentes</td></tr>
-          <tr><td>Avaliações no Google</td><td class="num">a levantar</td><td class="num">nota ≥ 4,8, +40 avaliações</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="callout win">
       <span class="kicker">Resultado esperado</span>
-      <p>O salto projetado de R$ 26 a 27 mil para R$ 50 a 60 mil por mês depende de duas condições em sequência: estancar a saída de profissionais primeiro, depois instalar o hábito de contato ativo com a cliente. O ganho permanece depois do ciclo de 90 dias, porque o que se instala é retenção de gente e processo, não tráfego pago.</p>
+      <p>O salto de R$ 26–27 mil para R$ 50–60 mil por mês depende de uma condição única, estancar a saída de profissionais primeiro. Todo o resto do plano só entrega o que promete depois disso.</p>
     </div>
-
-    <p><b>Data do próximo check-in:</b> sugestão, 15 dias.</p>
   </section>
 
   <footer>
     <span>Barú Beauty · Guia da Conversa com a Direção</span>
-    <span>Base: relatório 0031, 07/08/2025 a 07/08/2026 · 3.093 lançamentos auditados</span>
+    <span>Versão retenção primeiro · base: relatório 0031</span>
   </footer>
 
 </div>
